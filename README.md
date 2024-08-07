@@ -79,3 +79,10 @@ git submodule update --remote
 ```
 
 Then commit and push the update
+
+## Update submodule files from the host
+
+Makes your changes
+cd into the submodule
+git commit
+update the host app
