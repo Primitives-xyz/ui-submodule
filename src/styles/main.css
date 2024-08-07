@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'variables';
+@import 'default-colors';
+@import 'loading-dots';
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings:
+    'rlig' 1,
+    'calt' 1;
+}
+
+.absolute-centered {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+b,
+strong {
+  @apply font-bold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.bg-background-blurred {
+  @apply bg-background/80 backdrop-blur-md;
+}
+
+.mobile {
+  @apply block sm:hidden;
+}
+
+.desktop {
+  @apply hidden sm:block;
+}
+
+.expanded-button-max-width {
+  @apply w-full sm:max-w-xs sm:mx-auto;
+}
