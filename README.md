@@ -13,7 +13,7 @@ To use the package
 # Import the css file into the main layout.tsx
 
 ```javascript
-import 'src/ui-submodule/src/styles/main.css'
+import 'src/ui-submodule/src/styles/styles.css'
 ```
 
 # Import the tailwind config into the tailwind config file
@@ -72,22 +72,10 @@ const config: Config = {
 }
 ```
 
----
-
-## Installation
-
-To install the package, run the following command:
+## Update submodule in the host app
 
 ```bash
-git submodule add git@gitlab.com:polgiron/ui.git src/ui-submodule
+git submodule update --remote
 ```
 
-## Usage
-
-To use the package
-
-# Import the css file into the main layout.tsx
-
-```javascript
-import 'ui/dist/index.css'
-```
+Then commit and push the update
