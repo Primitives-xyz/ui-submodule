@@ -20,7 +20,7 @@ import 'src/ui-submodule/src/styles/styles.css'
 
 ```javascript
 const config: Config = {
-  presets: [require('ui/dist/tailwind.default.config.ts')]
+  presets: [require('./src/ui-submodule/src/tailwind.default.config.ts')]
 }
 ```
 
@@ -30,7 +30,7 @@ const config: Config = {
 {
   "compilerOptions": {
     "paths": {
-      "ui": ["./ui-submodule/src"]
+      "ui": ["./src/ui-submodule/src"]
     }
   },
 }
