@@ -1,4 +1,5 @@
 import { Button } from './components/button/button'
+import { ButtonSize, ButtonVariant } from './components/button/button.models'
 import { Card } from './components/card'
 import { Container } from './components/container/container'
 import { Dialog } from './components/dialog'
@@ -23,6 +24,8 @@ export { cn, randomIntInRange } from './utils'
 // Components
 export {
   Button,
+  ButtonSize,
+  ButtonVariant,
   Card,
   Container,
   Dialog,
