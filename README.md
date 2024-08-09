@@ -79,3 +79,5 @@ git submodule update --remote
 ```
 
 Then commit and push the update
+
+made the repo public
