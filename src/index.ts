@@ -1,4 +1,4 @@
-import { Button } from './components/button/button'
+import { Button, buttonVariants } from './components/button/button'
 import { ButtonSize, ButtonVariant } from './components/button/button.models'
 import { Card } from './components/card'
 import { Container } from './components/container/container'
@@ -57,6 +57,7 @@ export {
   Button,
   ButtonSize,
   ButtonVariant,
+  buttonVariants,
   Card,
   Container,
   Dialog,
