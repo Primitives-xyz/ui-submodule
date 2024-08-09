@@ -16,7 +16,7 @@ export function Container({
   return (
     <div
       className={cn(
-        'relative mx-auto w-full px-3',
+        'relative mx-auto w-full px-4',
         {
           'max-w-7xl': size === ContainerSize.LARGE,
           'max-w-screen-lg': size === ContainerSize.REGULAR,

@@ -20,7 +20,7 @@ import 'src/ui-submodule/src/styles/styles.css'
 
 ```javascript
 const config: Config = {
-  presets: [require('./src/ui-submodule/src/tailwind.default.config.ts')]
+  presets: [require('ui-submodule/src/tailwind.default.config.ts')]
 }
 ```
 
@@ -30,7 +30,7 @@ const config: Config = {
 {
   "compilerOptions": {
     "paths": {
-      "ui": ["./src/ui-submodule/src"]
+      "ui": ["./ui-submodule/src"]
     }
   },
 }
@@ -79,10 +79,3 @@ git submodule update --remote
 ```
 
 Then commit and push the update
-
-## Update submodule files from the host
-
-Makes your changes
-cd into the submodule
-git commit
-update the host app

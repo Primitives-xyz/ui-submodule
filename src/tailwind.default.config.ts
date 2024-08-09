@@ -8,6 +8,8 @@ const config: Config = {
       sm: 'var(--radius-sm)',
       md: 'var(--radius-md)',
       lg: 'var(--radius-lg)',
+      button: 'var(--radius-button)',
+      input: 'var(--radius-input)',
       full: '9999px',
     },
     extend: {

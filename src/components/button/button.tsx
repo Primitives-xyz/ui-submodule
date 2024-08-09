@@ -7,10 +7,15 @@ import * as React from 'react'
 import { cn } from '../../utils'
 import { Spinner } from '../spinner'
 
-const buttonBase =
-  'inline-flex items-center justify-center whitespace-nowrap gap-1 font-medium ring-offset-background transition-all duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 flex-shrink-0 disabled:pointer-events-none disabled:opacity-50'
+const focus =
+  'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
 
-const buttonVariants = cva(cn(buttonBase, 'rounded-sm'), {
+const buttonBase = cn(
+  'inline-flex items-center justify-center whitespace-nowrap gap-1 transition-all duration-100 focus-visible:outline-none flex-shrink-0 disabled:pointer-events-none disabled:opacity-50',
+  focus,
+)
+
+const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
   variants: {
     variant: {
       default: 'bg-primary text-primary-foreground hover:bg-primary/90',
@@ -21,11 +26,10 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-sm'), {
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       ghost: 'hover:bg-accent hover:text-accent-foreground',
       link: 'underline-offset-4 hover:opacity-80 underline !h-auto !p-0',
-      invisible: 'hover:opacity-80 !p-0',
     },
     size: {
       default: 'h-10 px-4 py-2',
-      sm: 'h-6 px-2 text-sm',
+      sm: 'h-8 px-3.5 text-sm',
       lg: 'h-11 px-8',
       icon: 'h-10 w-10',
       icon_sm: 'h-6 w-6',
@@ -38,7 +42,7 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-sm'), {
   },
 })
 
-export interface ButtonProps
+interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
@@ -47,6 +51,7 @@ export interface ButtonProps
   isInvisible?: boolean
   disableHoverFeedback?: boolean
   disableActiveFeedback?: boolean
+  newTab?: boolean
   href?: string
 }
 
@@ -62,6 +67,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isInvisible = false,
       disableHoverFeedback = false,
       disableActiveFeedback = false,
+      newTab = false,
       href,
       ...props
     },
@@ -70,7 +76,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild || !!href ? Slot : 'button'
     const content = loading ? <Spinner /> : props.children
     const disabled = props.disabled || loading
-    const children = href ? <Link href={href}>{content}</Link> : content
+    const children = href ? (
+      <Link href={href} target={newTab ? '_blank' : undefined}>
+        {content}
+      </Link>
+    ) : (
+      content
+    )
 
     return (
       <Comp

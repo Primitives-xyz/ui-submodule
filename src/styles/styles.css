@@ -17,6 +17,14 @@ body {
     'calt' 1;
 }
 
+/* *:focus {
+  @apply outline-none;
+}
+
+*:focus-visible {
+  @apply ring-offset-background ring-2 ring-ring ring-offset-2;
+} */
+
 .absolute-centered {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
