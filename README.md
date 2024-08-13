@@ -3,7 +3,7 @@
 To install the submodule, run the following command:
 
 ```bash
-git submodule add git@github.com:Primitives-xyz/ui-submodule.git src/ui-submodule
+git submodule add https://github.com/Primitives-xyz/ui-submodule src/ui-submodule
 ```
 
 ## Usage
