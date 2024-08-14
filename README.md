@@ -81,3 +81,12 @@ git submodule update --remote
 Then commit and push the update
 
 made the repo public
+
+```
+
+git config -f .gitmodules submodule.src/ui-submodule.url https://github.com/Primitives-xyz/ui-submodule.git
+git config -f .git/config submodule.src/ui-submodule.url https://github.com/Primitives-xyz/ui-submodule.git
+
+git submodule sync
+
+```
