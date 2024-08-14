@@ -75,18 +75,15 @@ const config: Config = {
 ## Update submodule in the host app
 
 ```bash
-git submodule update --remote
+git submodule update --recursive --remote
 ```
 
 Then commit and push the update
+(might need to checkout the submodule branch to main, when the submodule is initialised it is stuck to a commit hash)
 
-made the repo public
+## After cloning the host repo, you need to initialised the submodule
 
-```
-
-git config -f .gitmodules submodule.src/ui-submodule.url https://github.com/Primitives-xyz/ui-submodule.git
-git config -f .git/config submodule.src/ui-submodule.url https://github.com/Primitives-xyz/ui-submodule.git
-
-git submodule sync
-
+```bash
+git submodule init
+git submodule update --recursive --remote
 ```
