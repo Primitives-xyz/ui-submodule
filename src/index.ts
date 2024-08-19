@@ -50,7 +50,7 @@ import { H1, H2 } from './components/typography'
 // import './styles/variables.css'
 
 // Utils
-export { cn, randomIntInRange } from './utils'
+export { cn, mapEmpty, randomIntInRange } from './utils'
 
 // Components
 export {
