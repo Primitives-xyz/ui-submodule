@@ -6,6 +6,12 @@ To install the submodule, run the following command:
 git submodule add https://github.com/Primitives-xyz/ui-submodule src/ui-submodule
 ```
 
+Install dependencies
+
+```
+yarn add tailwind-merge
+```
+
 ## Usage
 
 To use the package
