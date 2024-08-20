@@ -42,10 +42,11 @@ const config: Config = {
 }
 ```
 
-# Define custom project colors
+# Define custom project colors and variables
 
 ```css
 :root {
+  /* Colors */
   --background: 0 0% 100%;
   --foreground: 222.2 47.4% 11.2%;
 
@@ -75,6 +76,19 @@ const config: Config = {
   --destructive-foreground: 210 40% 98%;
 
   --ring: 215 20.2% 65.1%;
+
+  /* Constants */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1.25rem;
+  --radius-button: var(--radius-sm);
+  --radius-input: var(--radius-sm);
+
+  --shadow-sm: 0 2px 4px 0 rgba(58, 57, 57, 0.2);
+  --shadow-md: 0 4.5px 4.5px 0 rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 16px rgba(57, 65, 77, 0.1);
+
+  --topbar-height: 3.5rem;
 }
 ```
 
