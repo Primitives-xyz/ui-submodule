@@ -11,6 +11,7 @@ import {
 } from './components/card'
 import { CardTransactionEntry } from './components/card-transaction-entry'
 import { Container } from './components/container/container'
+import { ContainerSize } from './components/container/container.models'
 import {
   Dialog,
   DialogContent,
@@ -80,6 +81,7 @@ export {
   CardTitle,
   CardTransactionEntry,
   Container,
+  ContainerSize,
   Dialog,
   DialogContent,
   DialogDescription,
