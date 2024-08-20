@@ -54,10 +54,12 @@ import { H1, H2 } from './components/typography'
 // Utils
 export { cn, mapEmpty, randomIntInRange } from './utils'
 
+// Types
+export type { ButtonProps }
+
 // Components
 export {
   Button,
-  ButtonProps,
   ButtonSize,
   ButtonVariant,
   buttonVariants,
