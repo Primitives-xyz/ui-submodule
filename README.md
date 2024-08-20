@@ -92,6 +92,17 @@ const config: Config = {
 }
 ```
 
+## Push to the submodule from the host
+
+Navigate to the submodule folder, change the branch of the submodule and the origin in order to push
+
+```bash
+git checkout main
+git remote set-url origin git@github.com:Primitives-xyz/ui-submodule.git
+```
+
+Then git add commit push
+
 ## Update submodule in the host app
 
 ```bash
@@ -107,5 +118,3 @@ Then commit and push the update
 git submodule init
 git submodule update --recursive --remote
 ```
-
-<!-- test -->
