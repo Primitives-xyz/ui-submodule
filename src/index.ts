@@ -17,6 +17,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from './components/dialog'
 import { DropdownMenu } from './components/dropdown-menu'
 import {
@@ -84,6 +85,7 @@ export {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
   DropdownMenu,
   Form,
   FormControl,
