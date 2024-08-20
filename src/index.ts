@@ -61,7 +61,14 @@ import {
 import { H1, H2 } from './components/typography'
 
 // Utils
-export { cn, mapEmpty, randomIntInRange } from './utils'
+export {
+  abbreviateWalletAddress,
+  cn,
+  formatCurrency,
+  formatNumber,
+  mapEmpty,
+  randomIntInRange,
+} from './utils'
 
 // Types
 export type { ButtonProps }
