@@ -14,6 +14,7 @@ const PopoverContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> & {
     sameWidthAsTrigger?: boolean
     preventAutoFocus?: boolean
+    container?: HTMLElement
   }
 >(
   (
@@ -23,11 +24,12 @@ const PopoverContent = React.forwardRef<
       sideOffset = 4,
       sameWidthAsTrigger = false,
       preventAutoFocus = false,
+      container,
       ...props
     },
     ref,
   ) => (
-    <PopoverPrimitive.Portal>
+    <PopoverPrimitive.Portal container={container}>
       <PopoverPrimitive.Content
         ref={ref}
         align={align}
