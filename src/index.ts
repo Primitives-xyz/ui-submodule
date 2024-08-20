@@ -30,7 +30,7 @@ import {
 } from './components/form/form'
 import { Input } from './components/form/input'
 import { Label } from './components/form/label'
-import { Popover } from './components/popover'
+import { Popover, PopoverContent, PopoverTrigger } from './components/popover'
 import {
   Select,
   SelectContent,
@@ -50,6 +50,12 @@ import {
   TableHeader,
   TableRow,
 } from './components/table'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from './components/tooltip'
 import { H1, H2 } from './components/typography'
 
 // Utils
@@ -92,6 +98,8 @@ export {
   Input,
   Label,
   Popover,
+  PopoverContent,
+  PopoverTrigger,
   Select,
   SelectContent,
   SelectItem,
@@ -107,4 +115,8 @@ export {
   TableHead,
   TableHeader,
   TableRow,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
 }
