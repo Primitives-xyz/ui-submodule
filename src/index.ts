@@ -10,6 +10,17 @@ import {
   CardTitle,
 } from './components/card'
 import { CardTransactionEntry } from './components/card-transaction-entry'
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from './components/command'
 import { Container } from './components/container/container'
 import { ContainerSize } from './components/container/container.models'
 import {
@@ -30,9 +41,14 @@ import {
   FormLabel,
   FormMessage,
 } from './components/form/form'
-import { Input } from './components/form/input'
+import { Input, InputPrefix } from './components/form/input'
 import { Label } from './components/form/label'
-import { Popover, PopoverContent, PopoverTrigger } from './components/popover'
+import {
+  Popover,
+  PopoverAnchor,
+  PopoverContent,
+  PopoverTrigger,
+} from './components/popover'
 import {
   Select,
   SelectContent,
@@ -87,6 +103,15 @@ export {
   CardHeader,
   CardTitle,
   CardTransactionEntry,
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
   Container,
   ContainerSize,
   Dialog,
@@ -107,8 +132,10 @@ export {
   H1,
   H2,
   Input,
+  InputPrefix,
   Label,
   Popover,
+  PopoverAnchor,
   PopoverContent,
   PopoverTrigger,
   Select,
