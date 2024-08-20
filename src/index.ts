@@ -1,4 +1,5 @@
 import { Button, ButtonProps, buttonVariants } from './components/button/button'
+import { ButtonSkeleton } from './components/button/button-skeleton'
 import { ButtonSize, ButtonVariant } from './components/button/button.models'
 import {
   Card,
@@ -61,6 +62,7 @@ export type { ButtonProps }
 export {
   Button,
   ButtonSize,
+  ButtonSkeleton,
   ButtonVariant,
   buttonVariants,
   Card,
