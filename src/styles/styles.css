@@ -59,3 +59,8 @@ input[type='number'] {
 .expanded-button-max-width {
   @apply w-full sm:max-w-xs sm:mx-auto;
 }
+
+.icon-text-size {
+  width: 1em;
+  height: 1em;
+}

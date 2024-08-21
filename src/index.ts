@@ -1,3 +1,9 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './components/accordion'
 import { Button, ButtonProps, buttonVariants } from './components/button/button'
 import { ButtonSkeleton } from './components/button/button-skeleton'
 import { ButtonSize, ButtonVariant } from './components/button/button.models'
@@ -10,17 +16,6 @@ import {
   CardTitle,
 } from './components/card'
 import { CardTransactionEntry } from './components/card-transaction-entry'
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from './components/command'
 import { Container } from './components/container/container'
 import { ContainerSize } from './components/container/container.models'
 import {
@@ -31,7 +26,23 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './components/dialog'
-import { DropdownMenu } from './components/dropdown-menu'
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from './components/dropdown-menu'
 import {
   Form,
   FormControl,
@@ -92,6 +103,10 @@ export type { ButtonProps }
 
 // Components
 export {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
   Button,
   ButtonSize,
   ButtonSkeleton,
@@ -104,15 +119,6 @@ export {
   CardHeader,
   CardTitle,
   CardTransactionEntry,
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
   Container,
   ContainerSize,
   Dialog,
@@ -122,6 +128,20 @@ export {
   DialogTitle,
   DialogTrigger,
   DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
   Form,
   FormControl,
   FormDescription,
