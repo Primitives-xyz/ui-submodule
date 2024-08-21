@@ -43,6 +43,7 @@ import {
 } from './components/form/form'
 import { Input, InputPrefix } from './components/form/input'
 import { Label } from './components/form/label'
+import { TapestryLogo } from './components/icons/tapestry-logo'
 import {
   Popover,
   PopoverAnchor,
@@ -153,6 +154,7 @@ export {
   TableHead,
   TableHeader,
   TableRow,
+  TapestryLogo,
   Tooltip,
   TooltipContent,
   TooltipProvider,
