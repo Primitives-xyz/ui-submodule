@@ -6,6 +6,12 @@ To install the submodule, run the following command:
 git submodule add https://github.com/Primitives-xyz/ui-submodule src/ui-submodule
 ```
 
+Install dependencies
+
+```
+yarn add tailwind-merge tailwindcss-animate class-variance-authority zod react-hook-form @hookform/resolvers @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip cmdk
+```
+
 ## Usage
 
 To use the package
@@ -36,10 +42,11 @@ const config: Config = {
 }
 ```
 
-# Define custom project colors
+# Define custom project colors and variables
 
 ```css
 :root {
+  /* Colors */
   --background: 0 0% 100%;
   --foreground: 222.2 47.4% 11.2%;
 
@@ -54,7 +61,9 @@ const config: Config = {
 
   --border: 214.3 31.8% 91.4%;
 
-  --input: 214.3 31.8% 91.4%;
+  --input: var(--background);
+  --input-foreground: var(--foreground);
+  --input-border: var(--border);
 
   --primary: 222.2 47.4% 11.2%;
   --primary-foreground: 210 40% 98%;
@@ -69,8 +78,32 @@ const config: Config = {
   --destructive-foreground: 210 40% 98%;
 
   --ring: 215 20.2% 65.1%;
+
+  /* Constants */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1.25rem;
+  --radius-button: var(--radius-sm);
+  --radius-input: var(--radius-sm);
+
+  --shadow-sm: 0 2px 4px 0 rgba(58, 57, 57, 0.2);
+  --shadow-md: 0 4.5px 4.5px 0 rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 16px rgba(57, 65, 77, 0.1);
+
+  --topbar-height: 3.5rem;
 }
 ```
+
+## Push to the submodule from the host
+
+Navigate to the submodule folder, change the branch of the submodule and the origin in order to push
+
+```bash
+git checkout main
+git remote set-url origin git@github.com:Primitives-xyz/ui-submodule.git
+```
+
+Then git add commit push
 
 ## Update submodule in the host app
 

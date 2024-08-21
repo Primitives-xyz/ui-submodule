@@ -27,10 +27,14 @@ const config: Config = {
       },
       colors: {
         border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        input: {
+          DEFAULT: 'hsl(var(--input))',
+          foreground: 'hsl(var(--input-foreground))',
+          border: 'hsl(var(--input-border))',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -54,6 +58,10 @@ const config: Config = {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
+        },
+        modal: {
+          DEFAULT: 'hsl(var(--modal))',
+          foreground: 'hsl(var(--modal-foreground))',
         },
         card: {
           DEFAULT: 'hsl(var(--card))',
