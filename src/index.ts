@@ -89,6 +89,7 @@ import {
   TooltipTrigger,
 } from './components/tooltip'
 import { H1, H2 } from './components/typography'
+import SocialGraph from './components/visualisation/social-graph'
 
 // Utils
 export { fetchWrapper } from './api/fetch-wrapper'
@@ -170,6 +171,7 @@ export {
   SelectValue,
   Separator,
   Skeleton,
+  SocialGraph,
   Spinner,
   Table,
   TableBody,

@@ -1,3 +1,5 @@
+'use client'
+
 import useSWR, { SWRConfiguration } from 'swr'
 import { FetchMethod } from './api.models'
 import {
