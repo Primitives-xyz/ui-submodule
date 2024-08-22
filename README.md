@@ -12,6 +12,12 @@ Install dependencies
 yarn add tailwind-merge tailwindcss-animate class-variance-authority zod swr react-hook-form @hookform/resolvers lucide-react @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion
 ```
 
+For the social graph
+
+```
+yarn add @react-sigma/core
+```
+
 ## Usage
 
 To use the package
