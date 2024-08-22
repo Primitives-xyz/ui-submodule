@@ -1,3 +1,5 @@
+import { FetchParams } from './api/fetch-wrapper'
+import { UseQueryProps } from './api/use-query'
 import {
   Accordion,
   AccordionContent,
@@ -89,6 +91,8 @@ import {
 import { H1, H2 } from './components/typography'
 
 // Utils
+export { fetchWrapper } from './api/fetch-wrapper'
+export { useQuery } from './api/use-query'
 export {
   abbreviateWalletAddress,
   cn,
@@ -99,7 +103,7 @@ export {
 } from './utils'
 
 // Types
-export type { ButtonProps }
+export type { ButtonProps, FetchParams, UseQueryProps }
 
 // Components
 export {
