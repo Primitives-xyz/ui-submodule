@@ -68,6 +68,9 @@ const config: Config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      borderColor: {
+        DEFAULT: 'hsl(var(--border))',
+      },
     },
   },
   plugins: [

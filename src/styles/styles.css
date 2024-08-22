@@ -6,10 +6,6 @@
 @import 'default-colors';
 @import 'loading-dots';
 
-* {
-  @apply border-border;
-}
-
 body {
   @apply bg-background text-foreground;
   font-feature-settings:
