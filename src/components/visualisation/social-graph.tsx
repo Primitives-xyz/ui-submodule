@@ -12,10 +12,14 @@ export default function SocialGraph({
   return (
     <SigmaContainer
       className="w-full h-full !bg-transparent"
-      // settings={{
-      //   allowInvalidContainer: true,
-      //   // renderLabels: false,
+      // style={{
+      //   width: '100%',
+      //   height: '100%',
       // }}
+      settings={{
+        allowInvalidContainer: true,
+        // renderLabels: false,
+      }}
     >
       <SocialGraphContent nodes={nodes} relationships={relationships} />
       <SocialGraphLayout />
