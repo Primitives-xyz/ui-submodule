@@ -1,7 +1,6 @@
 'use client'
 
 import { useCamera, useLoadGraph, useRegisterEvents } from '@react-sigma/core'
-import '@react-sigma/core/lib/react-sigma.min.css'
 import Graph from 'graphology'
 import { useEffect } from 'react'
 import { EDGE_SIZE, NODE_SIZE } from './social-graph.constants'
