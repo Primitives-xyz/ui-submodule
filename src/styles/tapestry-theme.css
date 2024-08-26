@@ -1,36 +1,34 @@
 @layer {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 221deg 9% 18%;
+    /* --foreground: 221deg 72% 98%; */
+    --foreground: 218deg 57% 98%;
 
-    --muted: 270deg 100% 95%;
-    --muted-foreground: 238deg 20% 60%;
+    --muted: 177deg 73% 59%;
+    --muted-foreground: 218deg 10% 80%;
 
-    --accent: 0 0% 96%;
+    --accent: var(--foreground) / 0.2;
     --accent-foreground: var(--foreground);
 
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
+    --popover: var(--foreground);
+    --popover-foreground: var(--background);
 
-    --border: 238deg 50% 90%;
-    --input: var(--border);
+    /* --border: 221deg 4% 58%; */
+    --border: var(--foreground) / 0.5;
+
+    --input: var(--background);
+    --input-foreground: var(--foreground);
+    --input-border: var(--border);
 
     --card: var(--background);
     --card-foreground: var(--foreground);
 
-    --primary: 238deg 98% 79%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 67deg 78% 66%;
+    --primary-foreground: var(--background);
 
-    --secondary: 0 0% 0%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 338deg 82% 61%;
+    --secondary-foreground: var(--background);
 
-    --destructive: 360deg 85% 60%;
-    --destructive-foreground: var(--foreground);
-
-    --ring: 238deg 98% 92%;
-
-    --radius-button: 9999px;
-
-    --background-image: 'https://cdn.prod.website-files.com/668305401cfcb4e5f9ef0ede%2F669800d2eb0bf30296e0d0c6_Cloth_02_%28light_theme%29-poster-00001.jpg';
+    --destructive: 0 100% 70%;
   }
 }
