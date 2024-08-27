@@ -11,7 +11,7 @@ const focus =
   'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
 
 const buttonBase = cn(
-  'inline-flex items-center justify-center whitespace-nowrap gap-1 transition-all duration-100 focus-visible:outline-none flex-shrink-0 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap gap-1 transition-all duration-100 focus-visible:outline-none flex-shrink-0 disabled:pointer-events-none disabled:opacity-50 relative',
   focus,
 )
 
@@ -74,7 +74,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const Comp = asChild || !!href ? Slot : 'button'
-    const content = loading ? <Spinner /> : props.children
+    const content = (
+      <>
+        {loading && <Spinner className="icon-text-size" />}
+        {props.children}
+      </>
+    )
     const disabled = props.disabled || loading
     const children = href ? (
       <Link href={href} target={newTab ? '_blank' : undefined}>

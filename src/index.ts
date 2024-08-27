@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from './components/accordion'
-import { Button, ButtonProps, buttonVariants } from './components/button/button'
+import { ButtonProps } from './components/button/button'
 import { ButtonSkeleton } from './components/button/button-skeleton'
 import { ButtonSize, ButtonVariant } from './components/button/button.models'
 import {
@@ -105,17 +105,19 @@ export {
 // Types
 export type { ButtonProps, FetchParams, UseQueryProps }
 
+export * from './components/button/button'
+export * from './components/button/button.models'
+export * from './components/button/copy-to-clipboard-button'
+
 // Components
 export {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  Button,
   ButtonSize,
   ButtonSkeleton,
   ButtonVariant,
-  buttonVariants,
   Card,
   CardContent,
   CardDescription,

@@ -5,6 +5,7 @@
     --radius-lg: 1.25rem;
     --radius-button: var(--radius-sm);
     --radius-input: var(--radius-sm);
+    --radius-card: var(--radius-lg);
 
     --shadow-sm: 0 2px 4px 0 rgba(58, 57, 57, 0.2);
     --shadow-md: 0 4.5px 4.5px 0 rgba(0, 0, 0, 0.25);

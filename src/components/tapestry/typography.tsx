@@ -7,7 +7,7 @@ export function Heading1({
   return (
     <h1
       className={cn(
-        'scroll-m-20 text-2xl tracking-tight font-semibold',
+        'scroll-m-20 text-2xl tracking-tight font-semibold mb-4',
         className,
       )}
     >

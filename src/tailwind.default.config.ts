@@ -10,6 +10,7 @@ const config: Config = {
       lg: 'var(--radius-lg)',
       button: 'var(--radius-button)',
       input: 'var(--radius-input)',
+      card: 'var(--radius-card)',
       full: '9999px',
     },
     extend: {

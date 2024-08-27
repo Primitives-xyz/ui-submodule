@@ -30,5 +30,7 @@
     --secondary-foreground: var(--background);
 
     --destructive: 0 100% 70%;
+
+    --radius-card: var(--radius-md);
   }
 }
