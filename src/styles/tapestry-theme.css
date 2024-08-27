@@ -1,36 +1,34 @@
-@layer {
-  :root {
-    --background: 221deg 9% 18%;
-    /* --foreground: 221deg 72% 98%; */
-    --foreground: 218deg 57% 98%;
+:root {
+  --background: 221deg 9% 18%;
+  /* --foreground: 221deg 72% 98%; */
+  --foreground: 218deg 57% 98%;
 
-    --muted: 177deg 73% 59%;
-    --muted-foreground: 218deg 10% 80%;
+  --muted: 177deg 73% 59%;
+  --muted-foreground: 218deg 10% 80%;
 
-    --accent: var(--foreground) / 0.1;
-    --accent-foreground: var(--foreground);
+  --accent: var(--foreground) / 0.1;
+  --accent-foreground: var(--foreground);
 
-    --popover: var(--foreground);
-    --popover-foreground: var(--background);
+  --popover: var(--foreground);
+  --popover-foreground: var(--background);
 
-    /* --border: 221deg 4% 58%; */
-    --border: var(--foreground) / 0.2;
+  /* --border: 221deg 4% 58%; */
+  --border: var(--foreground) / 0.2;
 
-    --input: var(--background);
-    --input-foreground: var(--foreground);
-    --input-border: var(--foreground) / 0.5;
+  --input: var(--background);
+  --input-foreground: var(--foreground);
+  --input-border: var(--foreground) / 0.5;
 
-    --card: var(--background);
-    --card-foreground: var(--foreground);
+  --card: var(--background);
+  --card-foreground: var(--foreground);
 
-    --primary: 67deg 78% 66%;
-    --primary-foreground: var(--background);
+  --primary: 67deg 78% 66%;
+  --primary-foreground: var(--background);
 
-    --secondary: 338deg 82% 61%;
-    --secondary-foreground: var(--background);
+  --secondary: 338deg 82% 61%;
+  --secondary-foreground: var(--background);
 
-    --destructive: 0 100% 70%;
+  --destructive: 0 100% 70%;
 
-    --radius-card: var(--radius-md);
-  }
+  --radius-card: var(--radius-md);
 }
