@@ -14,11 +14,11 @@
     --popover-foreground: var(--background);
 
     /* --border: 221deg 4% 58%; */
-    --border: var(--foreground) / 0.5;
+    --border: var(--foreground) / 0.2;
 
     --input: var(--background);
     --input-foreground: var(--foreground);
-    --input-border: var(--border);
+    --input-border: var(--foreground) / 0.5;
 
     --card: var(--background);
     --card-foreground: var(--foreground);
