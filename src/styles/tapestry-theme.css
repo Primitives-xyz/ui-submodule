@@ -1,12 +1,11 @@
 :root {
-  --background: 221deg 9% 18%;
-  /* --foreground: 221deg 72% 98%; */
-  --foreground: 218deg 57% 98%;
+  --background: 218deg 57% 98%;
+  --foreground: 221deg 9% 18%;
 
   --muted: 177deg 73% 59%;
   --muted-foreground: 218deg 10% 80%;
 
-  --accent: var(--foreground) / 0.1;
+  --accent: var(--background);
   --accent-foreground: var(--foreground);
 
   --popover: var(--foreground);
@@ -31,4 +30,9 @@
   --destructive: 0 100% 70%;
 
   --radius-card: var(--radius-md);
+}
+
+.dark {
+  --background: 221deg 9% 18%;
+  --foreground: 218deg 57% 98%;
 }
