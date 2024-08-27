@@ -22,7 +22,8 @@
   --card-foreground: var(--foreground);
 
   --primary: 67deg 78% 66%;
-  --primary-foreground: var(--background);
+  /* --primary-foreground: var(--background); */
+  --primary-foreground: 221deg 9% 18%;
 
   --secondary: 338deg 82% 61%;
   --secondary-foreground: var(--background);
@@ -30,9 +31,13 @@
   --destructive: 0 100% 70%;
 
   --radius-card: var(--radius-md);
+
+  /* Dark */
+  --background-dark: 221deg 9% 18%;
+  --foreground-dark: 218deg 57% 98%;
 }
 
 .dark {
-  --background: 221deg 9% 18%;
-  --foreground: 218deg 57% 98%;
+  --background: var(--background-dark);
+  --foreground: var(--foreground-dark);
 }
