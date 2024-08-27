@@ -7,7 +7,7 @@
     --muted: 177deg 73% 59%;
     --muted-foreground: 218deg 10% 80%;
 
-    --accent: var(--foreground) / 0.2;
+    --accent: var(--foreground) / 0.1;
     --accent-foreground: var(--foreground);
 
     --popover: var(--foreground);
