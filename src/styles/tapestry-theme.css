@@ -22,7 +22,7 @@
   --card-foreground: var(--foreground);
 
   --primary: 67deg 78% 66%;
-  --primary-foreground: 67deg 78% 20%;
+  --primary-foreground: 67deg 78% 15%;
 
   --secondary: 338deg 82% 61%;
   --secondary-foreground: 338deg 82% 95%;
@@ -39,4 +39,5 @@
 .dark {
   --background: var(--background-dark);
   --foreground: var(--foreground-dark);
+  --secondary-foreground: 221deg 9% 18%;
 }
