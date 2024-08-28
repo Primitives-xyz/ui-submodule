@@ -32,7 +32,7 @@ export function Paragraph({
   children,
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <p className={cn('leading-7 [&:not(:first-child)]:mt-3', className)}>
+    <p className={cn('leading-6 [&:not(:first-child)]:mt-3', className)}>
       {children}
     </p>
   )

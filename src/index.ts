@@ -106,6 +106,7 @@ export {
 export type { ButtonProps, FetchParams, UseQueryProps }
 
 export * from './components/button/button'
+export * from './components/button/button-input-file'
 export * from './components/button/button.models'
 export * from './components/button/copy-to-clipboard-button'
 
