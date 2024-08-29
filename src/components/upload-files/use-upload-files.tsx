@@ -8,7 +8,7 @@ export default function useUploadFiles() {
     IUploadedFilesUrls[]
   >([])
   const [uploadSuccess, setUploadSuccess] = useState(false)
-  const [modalIsOpen, setModalIsOpen] = useState(true)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const uploadFiles = (files: IUploadFile[]) => {
     setFilesToUpload(files)
