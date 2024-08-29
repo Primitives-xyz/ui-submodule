@@ -68,6 +68,10 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        progress: {
+          DEFAULT: 'hsl(var(--progress))',
+          foreground: 'hsl(var(--progress-foreground))',
+        },
       },
       borderColor: {
         DEFAULT: 'hsl(var(--border))',

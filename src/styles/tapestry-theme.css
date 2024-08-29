@@ -2,7 +2,7 @@
   --background: 218deg 57% 98%;
   --foreground: 221deg 9% 18%;
 
-  --muted: 177deg 73% 59%;
+  --muted: var(--foreground) / 0.1;
   --muted-foreground: 218deg 10% 80%;
 
   --accent: var(--background);
