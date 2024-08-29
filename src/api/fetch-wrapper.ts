@@ -83,6 +83,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
       next: {
         revalidate,
       },
+      // mode: 'no-cors',
       body:
         method === FetchMethod.POST || method === FetchMethod.PUT
           ? JSON.stringify(data)
