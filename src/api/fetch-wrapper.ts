@@ -66,6 +66,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   const headers = {
     ...{
       'Content-Type': 'application/json',
+      // 'Access-Control-Allow-Origin': '*',
     },
     ...(backendJwt && { Authorization: `Bearer ${backendJwt}` }),
   }
@@ -82,6 +83,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
       next: {
         revalidate,
       },
+      // mode: 'no-cors',
       body:
         method === FetchMethod.POST || method === FetchMethod.PUT
           ? JSON.stringify(data)

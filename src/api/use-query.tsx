@@ -14,6 +14,7 @@ interface UseQueryProps {
   queryParams?: Record<string, any>
   skip?: boolean
   config?: SWRConfiguration
+  toBackend?: boolean
 }
 
 export function useQuery<ResponseType = any, Error = any>({
@@ -22,6 +23,7 @@ export function useQuery<ResponseType = any, Error = any>({
   pathParams,
   skip,
   config,
+  toBackend = true,
 }: UseQueryProps) {
   const shouldFetch = !!_endpoint && !skip
 
@@ -42,6 +44,7 @@ export function useQuery<ResponseType = any, Error = any>({
       fetchWrapper<ResponseType>({
         method: FetchMethod.GET,
         endpoint,
+        toBackend,
       }),
     config,
   )
