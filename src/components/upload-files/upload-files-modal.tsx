@@ -7,6 +7,7 @@ interface Props {
   filesToUpload: IUploadFile[]
   setIsOpen: (value: boolean) => void
   onUploadSuccess: (uploadedFile: IUploadedFilesUrls) => void
+  getUploadUrl: (file: File) => Promise<string>
 }
 
 export default function UploadFilesModal({
@@ -14,6 +15,7 @@ export default function UploadFilesModal({
   filesToUpload,
   setIsOpen,
   onUploadSuccess,
+  getUploadUrl,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -31,6 +33,7 @@ export default function UploadFilesModal({
               key={index}
               file={file}
               onUploadSuccess={onUploadSuccess}
+              getUploadUrl={getUploadUrl}
             />
           ))}
         </div>

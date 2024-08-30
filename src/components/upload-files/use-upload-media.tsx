@@ -1,15 +1,17 @@
 import { useCallback, useState } from 'react'
-import { IUploadFile, IUploadUrls } from './upload-files.models'
-import { useGetUploadUrls } from './use-get-upload-urls'
+import { IUploadFile } from './upload-files.models'
 
-export function useUploadMedia() {
-  const { getUploadUrls } = useGetUploadUrls()
-  const [uploadUrls, setUploadUrls] = useState<IUploadUrls>()
+interface Props {
+  getUploadUrl: (file: File) => Promise<string>
+}
+
+export function useUploadMedia({ getUploadUrl }: Props) {
+  const [postUrl, setPostUrl] = useState<string>()
   const [uploadProgress, setUploadProgress] = useState(0)
   const [uploadSuccess, setUploadSuccess] = useState(false)
 
   function resetUploadMedia() {
-    setUploadUrls(undefined)
+    setPostUrl(undefined)
     setUploadProgress(0)
     setUploadSuccess(false)
   }
@@ -31,15 +33,15 @@ export function useUploadMedia() {
 
   const uploadMedia = useCallback(
     async ({ file }: IUploadFile) => {
-      const uploadUrls = await getUploadUrls(file)
-      setUploadUrls(uploadUrls)
-      uploadToS3(file, uploadUrls.postUrl)
+      const postUrl = await getUploadUrl(file)
+      setPostUrl(postUrl)
+      uploadToS3(file, postUrl)
     },
-    [getUploadUrls, setUploadUrls, uploadToS3],
+    [uploadToS3],
   )
 
   return {
-    uploadUrls,
+    postUrl,
     uploadProgress,
     uploadSuccess,
     uploadMedia,

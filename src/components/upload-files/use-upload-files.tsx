@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react'
 import UploadFilesModal from './upload-files-modal'
 import { IUploadedFilesUrls, IUploadFile } from './upload-files.models'
 
-export default function useUploadFiles() {
+interface Props {
+  getUploadUrl: (file: File) => Promise<string>
+}
+
+export function useUploadFiles({ getUploadUrl }: Props) {
   const [filesToUpload, setFilesToUpload] = useState<IUploadFile[]>([])
   const [uploadedFilesUrls, setUploadedFilesUrls] = useState<
     IUploadedFilesUrls[]
@@ -31,9 +35,6 @@ export default function useUploadFiles() {
 
   return {
     uploadFiles,
-    setModalIsOpen,
-    modalIsOpen,
-    uploadedFilesUrls,
     uploadSuccess,
     UploadFilesModal: (
       <UploadFilesModal
@@ -41,6 +42,7 @@ export default function useUploadFiles() {
         setIsOpen={setModalIsOpen}
         filesToUpload={filesToUpload}
         onUploadSuccess={onUploadSuccess}
+        getUploadUrl={getUploadUrl}
       />
     ),
   }
