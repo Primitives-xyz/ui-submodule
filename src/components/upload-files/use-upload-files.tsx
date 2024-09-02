@@ -36,6 +36,7 @@ export function useUploadFiles({ getUploadUrl }: Props) {
   return {
     uploadFiles,
     uploadSuccess,
+    uploadedFilesUrls,
     UploadFilesModal: (
       <UploadFilesModal
         isOpen={modalIsOpen}
