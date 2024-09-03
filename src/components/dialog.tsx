@@ -31,7 +31,7 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
-    disableOverlayClick?: boolean
+    isStatic?: boolean
     hideCloseButton?: boolean
     hideOverlay?: boolean
     animate?: boolean
@@ -41,7 +41,7 @@ const DialogContent = React.forwardRef<
     {
       className,
       children,
-      disableOverlayClick = false,
+      isStatic = false,
       hideCloseButton = false,
       hideOverlay = false,
       animate = true,
@@ -53,7 +53,7 @@ const DialogContent = React.forwardRef<
       {!hideOverlay && (
         <DialogOverlay
           className={cn({
-            'cursor-default pointer-events-none': disableOverlayClick,
+            'cursor-default pointer-events-none': isStatic,
           })}
         />
       )}
@@ -67,6 +67,15 @@ const DialogContent = React.forwardRef<
           },
           className,
         )}
+        onEscapeKeyDown={(event) => {
+          if (isStatic) event.preventDefault()
+        }}
+        onPointerDownOutside={(event) => {
+          if (isStatic) event.preventDefault()
+        }}
+        onInteractOutside={(event) => {
+          if (isStatic) event.preventDefault()
+        }}
         {...props}
       >
         {children}
