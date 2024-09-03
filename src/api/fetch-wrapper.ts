@@ -45,7 +45,7 @@ interface FetchParams<InputType> {
   endpoint: string
   data?: InputType
   toBackend?: boolean
-  backendJwt?: string
+  jwt?: string
   bypassCache?: boolean
   revalidate?: number
 }
@@ -55,7 +55,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   endpoint,
   data,
   toBackend = true,
-  backendJwt,
+  jwt,
   bypassCache = false,
   revalidate,
 }: FetchParams<InputType>): Promise<ResponseType> => {
@@ -68,7 +68,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
       'Content-Type': 'application/json',
       // 'Access-Control-Allow-Origin': '*',
     },
-    ...(backendJwt && { Authorization: `Bearer ${backendJwt}` }),
+    ...(jwt && { Authorization: `Bearer ${jwt}` }),
   }
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
