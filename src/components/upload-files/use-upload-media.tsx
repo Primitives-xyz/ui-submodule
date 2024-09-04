@@ -16,7 +16,7 @@ export function useUploadMedia({ getUploadUrl }: Props) {
     setUploadSuccess(false)
   }
 
-  const uploadToS3 = (file: File, signedUrl: string) => {
+  const uploadToS3 = useCallback((file: File, signedUrl: string) => {
     const request = new XMLHttpRequest()
     request.open('PUT', signedUrl)
 
@@ -24,12 +24,12 @@ export function useUploadMedia({ getUploadUrl }: Props) {
       setUploadProgress((event.loaded / event.total) * 100)
     })
 
-    request.addEventListener('load', function (e) {
+    request.addEventListener('load', () => {
       setUploadSuccess(request.status === 200)
     })
 
     request.send(file)
-  }
+  }, [])
 
   const uploadMedia = useCallback(
     async ({ file }: IUploadFile) => {
@@ -37,7 +37,7 @@ export function useUploadMedia({ getUploadUrl }: Props) {
       setPostUrl(postUrl)
       uploadToS3(file, postUrl)
     },
-    [uploadToS3],
+    [uploadToS3, getUploadUrl],
   )
 
   return {
