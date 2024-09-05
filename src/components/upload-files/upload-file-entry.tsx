@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
 import { Progress } from '../progress'
-import { IUploadedFilesUrls, IUploadFile } from './upload-files.models'
 import { useUploadMedia } from './use-upload-media'
 
 interface Props {
-  file: IUploadFile
-  onUploadSuccess: (uploadedFile: IUploadedFilesUrls) => void
+  file: File
   getUploadUrl: (file: File) => Promise<string>
+  onUploadSuccess: (file: File) => void
 }
 
 export function UploadFileEntry({
@@ -14,25 +13,16 @@ export function UploadFileEntry({
   onUploadSuccess,
   getUploadUrl,
 }: Props) {
-  const { uploadMedia, postUrl, uploadProgress, uploadSuccess } =
-    useUploadMedia({ getUploadUrl })
+  const { uploadMedia, uploadProgress } = useUploadMedia({
+    getUploadUrl,
+    onUploadSuccess,
+  })
 
   useEffect(() => {
     uploadMedia(file)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file])
-
-  useEffect(() => {
-    if (uploadSuccess && postUrl) {
-      onUploadSuccess({
-        file,
-        postUrl,
-      })
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [uploadSuccess, postUrl])
 
   return <Progress value={uploadProgress} />
 }

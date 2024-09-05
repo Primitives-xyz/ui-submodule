@@ -29,7 +29,7 @@ export const getUrlWithPathParameters = ({
   return updatedEndpoint
 }
 
-const createURL = (domain: string, endpoint: string) => {
+export const createURL = (domain: string, endpoint: string) => {
   domain = domain.replace(/\/+$/, '')
   endpoint = endpoint.replace(/^\/+|\/+$/g, '')
 

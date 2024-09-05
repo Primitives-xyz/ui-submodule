@@ -1,48 +1,45 @@
 import { useEffect, useState } from 'react'
 import UploadFilesModal from './upload-files-modal'
-import { IUploadedFilesUrls, IUploadFile } from './upload-files.models'
 
 interface Props {
   getUploadUrl: (file: File) => Promise<string>
+  onSuccess: (fils: File[]) => void
 }
 
-export function useUploadFiles({ getUploadUrl }: Props) {
-  const [filesToUpload, setFilesToUpload] = useState<IUploadFile[]>([])
-  const [uploadedFilesUrls, setUploadedFilesUrls] = useState<
-    IUploadedFilesUrls[]
-  >([])
-  const [uploadSuccess, setUploadSuccess] = useState(false)
+export function useUploadFiles({ getUploadUrl, onSuccess }: Props) {
+  const [filesToUpload, setFilesToUpload] = useState<File[]>([])
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
-  const uploadFiles = (files: IUploadFile[]) => {
+  const uploadFiles = (files: File[]) => {
     setFilesToUpload(files)
     setModalIsOpen(true)
   }
 
-  const onUploadSuccess = (uploadedFile: IUploadedFilesUrls) => {
-    setUploadedFilesUrls((prev) => [...prev, uploadedFile])
+  const onFileUploadSuccess = (file: File) => {
+    setUploadedFiles((prev) => [...prev, file])
   }
 
   useEffect(() => {
     if (
-      uploadedFilesUrls?.length &&
-      filesToUpload.length === uploadedFilesUrls.length
+      uploadedFiles?.length &&
+      filesToUpload.length === uploadedFiles.length
     ) {
-      setUploadSuccess(true)
       setModalIsOpen(false)
+      onSuccess(uploadedFiles)
     }
-  }, [filesToUpload, uploadedFilesUrls])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filesToUpload, uploadedFiles])
 
   return {
     uploadFiles,
-    uploadSuccess,
-    uploadedFilesUrls,
     UploadFilesModal: (
       <UploadFilesModal
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         filesToUpload={filesToUpload}
-        onUploadSuccess={onUploadSuccess}
+        onUploadSuccess={onFileUploadSuccess}
         getUploadUrl={getUploadUrl}
       />
     ),

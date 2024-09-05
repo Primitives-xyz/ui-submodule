@@ -1,13 +1,12 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../dialog'
 import { UploadFileEntry } from './upload-file-entry'
-import { IUploadedFilesUrls, IUploadFile } from './upload-files.models'
 
 interface Props {
   isOpen: boolean
-  filesToUpload: IUploadFile[]
+  filesToUpload: File[]
   setIsOpen: (value: boolean) => void
-  onUploadSuccess: (uploadedFile: IUploadedFilesUrls) => void
   getUploadUrl: (file: File) => Promise<string>
+  onUploadSuccess: (file: File) => void
 }
 
 export default function UploadFilesModal({
@@ -32,8 +31,8 @@ export default function UploadFilesModal({
             <UploadFileEntry
               key={index}
               file={file}
-              onUploadSuccess={onUploadSuccess}
               getUploadUrl={getUploadUrl}
+              onUploadSuccess={onUploadSuccess}
             />
           ))}
         </div>

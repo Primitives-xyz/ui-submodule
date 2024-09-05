@@ -1,49 +1,47 @@
 import { useCallback, useState } from 'react'
-import { IUploadFile } from './upload-files.models'
 
 interface Props {
   getUploadUrl: (file: File) => Promise<string>
+  onUploadSuccess: (file: File) => void
 }
 
-export function useUploadMedia({ getUploadUrl }: Props) {
-  const [postUrl, setPostUrl] = useState<string>()
+export function useUploadMedia({ getUploadUrl, onUploadSuccess }: Props) {
   const [uploadProgress, setUploadProgress] = useState(0)
-  const [uploadSuccess, setUploadSuccess] = useState(false)
 
   function resetUploadMedia() {
-    setPostUrl(undefined)
     setUploadProgress(0)
-    setUploadSuccess(false)
   }
 
-  const uploadToS3 = useCallback((file: File, signedUrl: string) => {
-    const request = new XMLHttpRequest()
-    request.open('PUT', signedUrl)
+  const uploadToS3 = useCallback(
+    (file: File, postUrl: string) => {
+      const request = new XMLHttpRequest()
+      request.open('PUT', postUrl)
 
-    request.upload.addEventListener('progress', (event) => {
-      setUploadProgress((event.loaded / event.total) * 100)
-    })
+      request.upload.addEventListener('progress', (event) => {
+        setUploadProgress((event.loaded / event.total) * 100)
+      })
 
-    request.addEventListener('load', () => {
-      setUploadSuccess(request.status === 200)
-    })
+      request.addEventListener('load', () => {
+        if (request.status === 200) {
+          onUploadSuccess(file)
+        }
+      })
 
-    request.send(file)
-  }, [])
+      request.send(file)
+    },
+    [onUploadSuccess],
+  )
 
   const uploadMedia = useCallback(
-    async ({ file }: IUploadFile) => {
+    async (file: File) => {
       const postUrl = await getUploadUrl(file)
-      setPostUrl(postUrl)
       uploadToS3(file, postUrl)
     },
     [uploadToS3, getUploadUrl],
   )
 
   return {
-    postUrl,
     uploadProgress,
-    uploadSuccess,
     uploadMedia,
     resetUploadMedia,
   }
