@@ -60,3 +60,13 @@ input[type='number'] {
   width: 1em;
   height: 1em;
 }
+
+.fade-out-text {
+  mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    white 10%,
+    white 90%,
+    transparent 100%
+  );
+}

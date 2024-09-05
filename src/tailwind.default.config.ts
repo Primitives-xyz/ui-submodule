@@ -76,6 +76,19 @@ const config: Config = {
       borderColor: {
         DEFAULT: 'hsl(var(--border))',
       },
+      keyframes: {
+        'infinite-scroll-content': {
+          '0%': {
+            transform: 'translate3d(0, 0, 0)',
+          },
+          '100%': {
+            transform: 'translate3d(-100%, 0, 0)',
+          },
+        },
+      },
+      animation: {
+        'infinite-scroll-content': 'infinite-scroll-content 7s linear infinite',
+      },
     },
   },
   plugins: [
