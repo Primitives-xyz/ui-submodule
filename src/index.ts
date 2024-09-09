@@ -7,6 +7,7 @@ export type { ButtonProps, FetchParams, UseQueryProps }
 
 // Components
 export * from './components/accordion'
+export * from './components/alert-dialog'
 export * from './components/animate'
 export * from './components/button/button'
 export * from './components/button/button-input-file'
