@@ -17,9 +17,19 @@ export function SocialGraphContent({ nodes, relationships }: SocialGraphProps) {
   const { zoomIn, gotoNode } = useCamera()
 
   useEffect(() => {
-    const graph = new Graph()
+    const graph = new Graph({
+      multi: true,
+    })
+
+    const nodesSet = new Set<string>()
+    const edgeSet = new Set<string>()
 
     nodes.forEach((node) => {
+      if (nodesSet.has(node.id)) {
+        return
+      }
+      nodesSet.add(node.id)
+
       graph.addNode(node.id, {
         size: NODE_SIZE,
         label: node.caption,
@@ -28,6 +38,15 @@ export function SocialGraphContent({ nodes, relationships }: SocialGraphProps) {
     })
 
     relationships.forEach((rel) => {
+      if (
+        edgeSet.has(rel.id) ||
+        !nodesSet.has(rel.from) ||
+        !nodesSet.has(rel.to)
+      ) {
+        return
+      }
+      edgeSet.add(rel.id)
+
       graph.addEdge(rel.from, rel.to, {
         type: 'arrow',
         size: EDGE_SIZE,
