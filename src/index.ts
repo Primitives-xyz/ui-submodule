@@ -39,5 +39,6 @@ export * from './components/typography'
 // Utils
 export * from './api/api.models'
 export * from './api/fetch-wrapper'
+export * from './api/use-mutation'
 export * from './api/use-query'
 export * from './utils'

@@ -15,6 +15,7 @@ interface UseQueryProps {
   skip?: boolean
   config?: SWRConfiguration
   toBackend?: boolean
+  getJwt?: () => Promise<string | undefined>
 }
 
 export function useQuery<ResponseType = any, Error = any>({
@@ -24,6 +25,7 @@ export function useQuery<ResponseType = any, Error = any>({
   skip,
   config,
   toBackend = true,
+  getJwt,
 }: UseQueryProps) {
   const shouldFetch = !!_endpoint && !skip
 
@@ -40,11 +42,12 @@ export function useQuery<ResponseType = any, Error = any>({
 
   const { data, error, isLoading, mutate } = useSWR<ResponseType, Error>(
     shouldFetch ? endpoint : null,
-    (endpoint: string) =>
+    async (endpoint: string) =>
       fetchWrapper<ResponseType>({
         method: FetchMethod.GET,
         endpoint,
         toBackend,
+        jwt: getJwt ? await getJwt() : undefined,
       }),
     config,
   )
