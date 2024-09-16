@@ -92,11 +92,14 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   )
 
   if (!response.ok) {
-    // error handling
-    const data = await response.json()
-    console.error(`Error fetching ${endpoint}`, data)
+    // Error handling
 
-    throw data
+    const error: any = new Error('An error occurred while fetching the data.')
+
+    error.info = await response.json()
+    error.status = response.status
+
+    throw error
   } else {
     try {
       const data = await response.json()
