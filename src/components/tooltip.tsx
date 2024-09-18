@@ -24,7 +24,14 @@ const TooltipContent = React.forwardRef<
     {...props}
   >
     {props.children}
-    {/* <TooltipPrimitive.Arrow className="fill-popover" /> */}
+    <TooltipPrimitive.Arrow
+      className={cn('fill-popover w-4 h-2 relative', {
+        '-top-px': props.side === 'bottom',
+        '-left-px': props.side === 'right',
+        '-right-px': props.side === 'left',
+        '-bottom-px': props.side === 'top',
+      })}
+    />
   </TooltipPrimitive.Content>
 ))
 TooltipContent.displayName = TooltipPrimitive.Content.displayName
