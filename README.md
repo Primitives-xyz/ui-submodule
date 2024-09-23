@@ -6,10 +6,16 @@ To install the submodule, run the following command:
 git submodule add https://github.com/Primitives-xyz/ui-submodule src/ui-submodule
 ```
 
-Install dependencies
+### Install dependencies
 
 ```
-yarn add tailwind-merge tailwindcss-animate class-variance-authority zod swr framer-motion react-use-clipboard react-hook-form @hookform/resolvers lucide-react @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion @radix-ui/react-progress @radix-ui/react-alert-dialog
+yarn add tailwind-merge tailwindcss-important tailwindcss-animate class-variance-authority lucide-react
+```
+
+### Optional
+
+```
+yarn add zod swr framer-motion react-use-clipboard react-hook-form @hookform/resolvers @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion @radix-ui/react-progress @radix-ui/react-alert-dialog
 ```
 
 For the social graph
@@ -28,11 +34,17 @@ To use the package
 import 'src/ui-submodule/src/styles/styles.css'
 ```
 
-# Import the tailwind config into the tailwind config file
+# Import the tailwind config into the tailwind config file, enable tailwind for the submodule
 
 ```javascript
+import tailwindDefaultConfig from './src/ui-submodule/src/tailwind.default.config'
+...
 const config: Config = {
-  presets: [require('ui-submodule/src/tailwind.default.config.ts')]
+  content: [
+    ...
+    './src/ui-submodule/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  presets: [tailwindDefaultConfig]
 }
 ```
 
@@ -42,7 +54,8 @@ const config: Config = {
 {
   "compilerOptions": {
     "paths": {
-      "ui": ["./ui-submodule/src"]
+      "@ui/*": ["./src/ui-submodule/src/*"],
+      "@/*": ["./src/*"]
     }
   },
 }

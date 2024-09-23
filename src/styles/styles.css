@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import 'default-variables';
 @import 'default-colors';
 @import 'loading-dots';
@@ -12,14 +8,6 @@ body {
     'rlig' 1,
     'calt' 1;
 }
-
-/* *:focus {
-  @apply outline-none;
-}
-
-*:focus-visible {
-  @apply ring-offset-background ring-2 ring-ring ring-offset-2;
-} */
 
 .absolute-centered {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
@@ -70,3 +58,11 @@ input[type='number'] {
     transparent 100%
   );
 }
+
+/* *:focus {
+  @apply outline-none;
+}
+
+*:focus-visible {
+  @apply ring-offset-background ring-2 ring-ring ring-offset-2;
+} */
