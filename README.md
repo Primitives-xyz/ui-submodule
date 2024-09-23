@@ -115,7 +115,7 @@ const config: Config = {
 
 ## Push to the submodule from the host
 
-Navigate to the submodule folder, change the branch of the submodule and the origin in order to push
+Navigate to the submodule folder, change the branch (if needed) of the submodule and the origin in order to push
 
 ```bash
 git checkout main
