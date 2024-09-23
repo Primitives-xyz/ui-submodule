@@ -66,7 +66,6 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   const headers = {
     ...{
       'Content-Type': 'application/json',
-      // 'Access-Control-Allow-Origin': '*',
     },
     ...(jwt && { Authorization: `Bearer ${jwt}` }),
   }
