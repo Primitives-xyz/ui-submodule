@@ -1,6 +1,6 @@
 import { useCamera } from '@react-sigma/core'
 import { Maximize, Minus, Plus } from 'lucide-react'
-import { Button } from 'ui'
+import { Button } from '../button'
 
 export function SocialGraphControls() {
   const { zoomIn, zoomOut, reset } = useCamera()
