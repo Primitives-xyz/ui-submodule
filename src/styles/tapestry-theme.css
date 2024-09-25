@@ -16,7 +16,7 @@
 
   --input: var(--background);
   --input-foreground: var(--foreground);
-  --input-border: var(--foreground) / 0.5;
+  --input-border: var(--foreground) / 0.2;
 
   --card: var(--background);
   --card-foreground: var(--foreground);

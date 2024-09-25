@@ -33,7 +33,7 @@ export function SocialGraphContent({ nodes, relationships }: SocialGraphProps) {
       graph.addNode(node.id, {
         size: NODE_SIZE,
         label: node.caption,
-        color: node.color ?? '#ffffff',
+        // color: node.color ?? '#ffffff',
       })
     })
 
@@ -50,7 +50,7 @@ export function SocialGraphContent({ nodes, relationships }: SocialGraphProps) {
       graph.addEdge(rel.from, rel.to, {
         type: 'arrow',
         size: EDGE_SIZE,
-        color: 'rgba(255, 255, 255, 0.1)',
+        // color: rel.color ?? '#ffffff',
       })
     })
 
