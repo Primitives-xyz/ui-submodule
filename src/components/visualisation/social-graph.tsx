@@ -2,26 +2,43 @@
 
 import { SigmaContainer } from '@react-sigma/core'
 import '@react-sigma/core/lib/react-sigma.min.css'
-import { SocialGraphContent, SocialGraphProps } from './social-graph-content'
+import { useState } from 'react'
+import { SocialGraphContent } from './social-graph-content'
 import { SocialGraphControls } from './social-graph-controls'
 import { SocialGraphLayout } from './social-graph-layout'
+import { SocialGraphNodeFocus } from './social-graph-node-focus'
+import { INode, IRelationship } from './social-graph.models'
+
+interface Props {
+  nodes: INode[]
+  relationships: IRelationship[]
+  nodeFocusContent?: (nodeId: string) => React.ReactNode
+}
 
 export default function SocialGraph({
   nodes,
   relationships,
-}: SocialGraphProps) {
+  nodeFocusContent,
+}: Props) {
+  const [currentNodeId, setCurrentNodeId] = useState<string>()
+
   return (
     <SigmaContainer
-      className="w-full h-full !bg-transparent"
-      // settings={{
-      //   allowInvalidContainer: true,
-      //   // renderLabels: false,
-      // }}
+      className="w-full h-full !bg-transparent relative"
+      settings={{
+        renderLabels: true,
+      }}
     >
-      <SocialGraphContent nodes={nodes} relationships={relationships} />
+      <SocialGraphContent
+        nodes={nodes}
+        relationships={relationships}
+        setCurrentNodeId={setCurrentNodeId}
+      />
       <SocialGraphLayout />
       <SocialGraphControls />
-      {/* <SocialGraphNodeFocus username={currentUsername} /> */}
+      <SocialGraphNodeFocus isOpen={!!currentNodeId && !!nodeFocusContent}>
+        {nodeFocusContent?.(currentNodeId ?? '')}
+      </SocialGraphNodeFocus>
     </SigmaContainer>
   )
 }

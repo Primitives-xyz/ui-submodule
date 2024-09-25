@@ -9,9 +9,14 @@ import { INode, IRelationship } from './social-graph.models'
 export interface SocialGraphProps {
   nodes: INode[]
   relationships: IRelationship[]
+  setCurrentNodeId: (id?: string) => void
 }
 
-export function SocialGraphContent({ nodes, relationships }: SocialGraphProps) {
+export function SocialGraphContent({
+  nodes,
+  relationships,
+  setCurrentNodeId,
+}: SocialGraphProps) {
   const loadGraph = useLoadGraph()
   const registerEvents = useRegisterEvents()
   const { zoomIn, gotoNode } = useCamera()
@@ -63,14 +68,14 @@ export function SocialGraphContent({ nodes, relationships }: SocialGraphProps) {
     registerEvents({
       clickNode: (event) => {
         const nodeId = event.node
-        const nodeData = graph.getNodeAttributes(nodeId)
+        // const nodeData = graph.getNodeAttributes(nodeId)
 
         gotoNode(nodeId)
-        // setCurrentUsername(nodeData.label)
+        setCurrentNodeId(nodeId)
       },
-      // clickStage: () => {
-      //   setCurrentUsername(undefined)
-      // },
+      clickStage: () => {
+        setCurrentNodeId(undefined)
+      },
       enterNode: () => {
         document.body.style.cursor = 'pointer'
       },
