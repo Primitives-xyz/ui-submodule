@@ -72,6 +72,9 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
 
+  console.log('---> baseBeUrl ', baseBeUrl);
+  console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint));
+
   const response = await fetch(
     createURL(toBackend ? baseBeUrl : '', endpoint),
     {
