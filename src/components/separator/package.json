@@ -1,0 +1,8 @@
+{
+  "name": "submodule-separator",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@radix-ui/react-separator": "^1.1.0"
+  }
+}

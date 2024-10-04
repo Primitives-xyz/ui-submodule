@@ -1,0 +1,8 @@
+{
+  "name": "submodule-dropdown-menu",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.2"
+  }
+}

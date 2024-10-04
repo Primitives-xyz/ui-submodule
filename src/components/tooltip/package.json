@@ -1,0 +1,8 @@
+{
+  "name": "submodule-tooltip",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@radix-ui/react-tooltip": "^1.1.3"
+  }
+}

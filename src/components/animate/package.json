@@ -1,0 +1,8 @@
+{
+  "name": "submodule-animate",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "framer-motion": "^11.11.1"
+  }
+}

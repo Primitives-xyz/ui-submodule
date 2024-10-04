@@ -1,0 +1,8 @@
+{
+  "name": "submodule-popover",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@radix-ui/react-popover": "^1.1.2"
+  }
+}

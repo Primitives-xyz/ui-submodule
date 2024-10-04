@@ -1,0 +1,8 @@
+{
+  "name": "submodule-progress",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@radix-ui/react-progress": "^1.1.0"
+  }
+}

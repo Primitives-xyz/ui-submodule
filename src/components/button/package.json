@@ -1,0 +1,10 @@
+{
+  "name": "submodule-button",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-label": "^2.1.0",
+    "react-use-clipboard": "^1.0.9"
+  }
+}
