@@ -7,11 +7,11 @@ import { fetchWrapper, getUrlWithQueryParameters } from './fetch-wrapper'
 interface Props {
   endpoint: string
   method?: FetchMethod
-  queryParams?: Record<string, any>
+  queryParams?: Record<string, string>
   getJwt?: () => Promise<string | undefined>
 }
 
-export function useMutation<ResponseType = any, InputType = any, Error = any>({
+export function useMutation<ResponseType = unknown, InputType = unknown, Error = unknown>({
   endpoint,
   method = FetchMethod.POST,
   queryParams,
@@ -24,7 +24,7 @@ export function useMutation<ResponseType = any, InputType = any, Error = any>({
     Error,
     string | null,
     InputType
-  >(endpoint, async (endpoint: string, args) =>
+  >(endpoint, async (endpoint: string, args: {arg: unknown}) =>
     fetchWrapper<ResponseType>({
       method,
       endpoint,
