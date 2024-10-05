@@ -85,7 +85,15 @@ export function SocialGraphContent({
     })
 
     loadGraph(graph)
-  }, [loadGraph, nodes, relationships, registerEvents, gotoNode, zoomIn])
+  }, [
+    loadGraph,
+    nodes,
+    relationships,
+    registerEvents,
+    gotoNode,
+    zoomIn,
+    setCurrentNodeId,
+  ])
 
   return null
 }
