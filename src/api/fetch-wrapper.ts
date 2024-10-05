@@ -2,7 +2,7 @@ import { FetchMethod } from './api.models'
 
 export const getUrlWithQueryParameters = (
   endpoint: string | null,
-  data?: Record<string, any>,
+  data?: Record<string, string>,
 ) => {
   const queryParameters = new URLSearchParams(data).toString()
 
@@ -14,7 +14,7 @@ export const getUrlWithPathParameters = ({
   pathParams,
 }: {
   endpoint: string
-  pathParams?: Record<string, any>
+  pathParams?: Record<string, string>
 }) => {
   if (!endpoint || !pathParams) {
     return endpoint
@@ -50,7 +50,7 @@ interface FetchParams<InputType> {
   revalidate?: number
 }
 
-export const fetchWrapper = async <ResponseType = any, InputType = any>({
+export const fetchWrapper = async <ResponseType = unknown, InputType = unknown>({
   method = FetchMethod.GET,
   endpoint,
   data,
@@ -81,7 +81,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
       method,
       headers,
       ...(bypassCache ? { cache: 'no-store' } : {}),
-      // @ts-ignore
+      // @ts-expect-error - revalidate is only valid in a next application
       next: {
         revalidate,
       },
@@ -96,7 +96,10 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   if (!response.ok) {
     // Error handling
 
-    const error: any = new Error('An error occurred while fetching the data.')
+    const error: Error & {
+      info?: unknown
+      status?: number
+    } = new Error('An error occurred while fetching the data.')
 
     error.info = await response.json()
     error.status = response.status

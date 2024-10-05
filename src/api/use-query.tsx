@@ -10,15 +10,15 @@ import {
 
 interface UseQueryProps {
   endpoint: string
-  pathParams?: Record<string, any>
-  queryParams?: Record<string, any>
+  pathParams?: Record<string, string>
+  queryParams?: Record<string, string>
   skip?: boolean
   config?: SWRConfiguration
   toBackend?: boolean
   getJwt?: () => Promise<string | undefined>
 }
 
-export function useQuery<ResponseType = any, Error = any>({
+export function useQuery<ResponseType = unknown, Error = unknown>({
   endpoint: _endpoint,
   queryParams,
   pathParams,
