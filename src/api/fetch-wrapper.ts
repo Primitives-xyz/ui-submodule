@@ -84,7 +84,7 @@ export const fetchWrapper = async <
       method,
       headers,
       ...(bypassCache ? { cache: 'no-store' } : {}),
-      // @ts-expect-error - revalidate is only valid in a next application
+      // @ts-ignore
       next: {
         revalidate,
       },

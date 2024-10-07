@@ -12,6 +12,7 @@ const config: Config = {
       input: 'var(--radius-input)',
       card: 'var(--radius-card)',
       full: '9999px',
+      none: '0px',
     },
     extend: {
       boxShadow: {
@@ -96,7 +97,7 @@ const config: Config = {
 
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-important'),
-     // eslint-disable-next-line @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-animate'),
   ],
   darkMode: ['class'],

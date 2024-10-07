@@ -66,7 +66,7 @@ export function SocialGraphContent({
     })
 
     registerEvents({
-      clickNode: (event) => {
+      clickNode: (event: { node: string }) => {
         const nodeId = event.node
         // const nodeData = graph.getNodeAttributes(nodeId)
 
@@ -85,7 +85,15 @@ export function SocialGraphContent({
     })
 
     loadGraph(graph)
-  }, [loadGraph, nodes, relationships, registerEvents, gotoNode, zoomIn, setCurrentNodeId])
+  }, [
+    loadGraph,
+    nodes,
+    relationships,
+    registerEvents,
+    gotoNode,
+    zoomIn,
+    setCurrentNodeId,
+  ])
 
   return null
 }
