@@ -96,7 +96,7 @@ const config: Config = {
 
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-important'),
-     // eslint-disable-next-line @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-animate'),
   ],
   darkMode: ['class'],
