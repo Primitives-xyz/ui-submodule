@@ -50,7 +50,10 @@ interface FetchParams<InputType> {
   revalidate?: number
 }
 
-export const fetchWrapper = async <ResponseType = unknown, InputType = unknown>({
+export const fetchWrapper = async <
+  ResponseType = unknown,
+  InputType = unknown,
+>({
   method = FetchMethod.GET,
   endpoint,
   data,
@@ -72,8 +75,8 @@ export const fetchWrapper = async <ResponseType = unknown, InputType = unknown>(
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
 
-  console.log('---> baseBeUrl ', baseBeUrl);
-  console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint));
+  console.log('---> baseBeUrl ', baseBeUrl)
+  console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint))
 
   const response = await fetch(
     createURL(toBackend ? baseBeUrl : '', endpoint),
