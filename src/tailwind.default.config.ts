@@ -12,6 +12,7 @@ const config: Config = {
       input: 'var(--radius-input)',
       card: 'var(--radius-card)',
       full: '9999px',
+      none: '0px',
     },
     extend: {
       boxShadow: {

@@ -1,0 +1,25 @@
+.dynamic-shadow-dom {
+  --dynamic-font-family-primary: var(--font-sans);
+  --dynamic-shadow-down-3: var(--shadow-lg);
+  --dynamic-border-radius: var(--radius-md);
+  --dynamic-base-1: hsl(var(--background));
+  --dynamic-connect-button-color: hsl(var(--primary-foreground));
+  --dynamic-connect-button-color-hover: hsl(var(--primary-foreground));
+  --dynamic-text-primary: hsl(var(--foreground));
+  --dynamic-text-tertiary: hsl(var(--muted-foreground));
+  --dynamic-text-secondary: hsl(var(--muted-foreground));
+  --dynamic-base-2: hsl(var(--background));
+  --dynamic-base-3: hsl(var(--input));
+  --dynamic-base-4: hsl(var(--border));
+  --dynamic-footer-border-top: 1px solid hsl(var(--border));
+  --dynamic-button-primary-background: hsl(var(--primary));
+  --dynamic-brand-primary-color: hsl(var(--primary));
+  --dynamic-connect-button-background: hsl(var(--primary));
+  --dynamic-connect-button-background-hover: hsla(var(--primary) / 0.8);
+  --dynamic-text-link: hsl(var(--primary));
+  /* --dynamic-wallet-list-tile-background: hsl(var(--secondary)); */
+  /* --dynamic-wallet-list-tile-background-hover: hsla(var(--secondary) / 0.8); */
+  --dynamic-header-padding: 1.5rem;
+  --dynamic-initial-view-content-padding: 0 1.5rem 1.5rem;
+  --dynamic-text-size-title: 1.125rem;
+}
