@@ -8,6 +8,7 @@ const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> & {
     fadedEdges?: boolean
+    label?: string
   }
 >(
   (
@@ -16,6 +17,7 @@ const Separator = React.forwardRef<
       orientation = 'horizontal',
       decorative = true,
       fadedEdges = false,
+      label,
       ...props
     },
     ref,
@@ -25,7 +27,7 @@ const Separator = React.forwardRef<
       decorative={decorative}
       orientation={orientation}
       className={cn(
-        'shrink-0',
+        'shrink-0 relative',
         orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]',
         {
           'bg-border': !fadedEdges,
@@ -35,7 +37,13 @@ const Separator = React.forwardRef<
         className,
       )}
       {...props}
-    />
+    >
+      {label && (
+        <div className="absolute-centered p-2 bg-background text-sm">
+          {label}
+        </div>
+      )}
+    </SeparatorPrimitive.Root>
   ),
 )
 Separator.displayName = SeparatorPrimitive.Root.displayName
