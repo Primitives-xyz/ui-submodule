@@ -1,4 +1,4 @@
-import { FetchMethod } from './api.models'
+import { FetchMethod, IError } from './api.models'
 
 export const getUrlWithQueryParameters = (
   endpoint: string | null,
@@ -97,15 +97,10 @@ export const fetchWrapper = async <
   )
 
   if (!response.ok) {
-    // Error handling
-
-    const error: Error & {
-      info?: unknown
-      status?: number
-    } = new Error('An error occurred while fetching the data.')
-
-    error.info = await response.json()
-    error.status = response.status
+    const error: IError = {
+      info: await response.json(),
+      status: response.status,
+    }
 
     throw error
   } else {
