@@ -4,3 +4,8 @@ export enum FetchMethod {
   PUT = 'PUT',
   DELETE = 'DELETE',
 }
+
+export interface IError {
+  info: object
+  status: number
+}

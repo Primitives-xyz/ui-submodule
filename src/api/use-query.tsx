@@ -1,7 +1,7 @@
 'use client'
 
 import useSWR, { SWRConfiguration } from 'swr'
-import { FetchMethod } from './api.models'
+import { FetchMethod, IError } from './api.models'
 import {
   fetchWrapper,
   getUrlWithPathParameters,
@@ -18,7 +18,7 @@ interface UseQueryProps {
   getJwt?: () => Promise<string | undefined>
 }
 
-export function useQuery<ResponseType = unknown, Error = unknown>({
+export function useQuery<ResponseType = unknown, Error = IError>({
   endpoint: _endpoint,
   queryParams,
   pathParams,
