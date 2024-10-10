@@ -18,7 +18,7 @@
   --input-foreground: var(--foreground);
   --input-border: var(--foreground) / 0.2;
 
-  --card: var(--background);
+  --card: 0 0% 100%;
   --card-foreground: var(--foreground);
 
   --primary: 67deg 78% 66%;
@@ -34,6 +34,9 @@
   /* Dark */
   --background-dark: 221deg 9% 18%;
   --foreground-dark: 218deg 57% 98%;
+
+  /* Shadow */
+  --shadow-card: 0 10px 0 0 hsl(var(--primary));
 }
 
 .dark {

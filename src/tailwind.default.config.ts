@@ -19,6 +19,7 @@ const config: Config = {
         sm: 'var(--shadow-sm)',
         md: 'var(--shadow-md)',
         lg: 'var(--shadow-lg)',
+        card: 'var(--shadow-card)',
       },
       height: {
         'screen-minus-topbar': 'calc(100vh - var(--topbar-height))',
