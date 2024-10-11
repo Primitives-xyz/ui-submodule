@@ -5,14 +5,25 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   prefixElement?: React.ReactNode
   suffixElement?: React.ReactNode
+  containerClassName?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, prefixElement, suffixElement, ...props }, ref) => {
+  (
+    {
+      className,
+      containerClassName,
+      type,
+      prefixElement,
+      suffixElement,
+      ...props
+    },
+    ref,
+  ) => {
     // const { error } = useFormField()
 
     return (
-      <div className="relative">
+      <div className={cn('relative', containerClassName)}>
         {prefixElement}
         <input
           type={type}

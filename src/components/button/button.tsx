@@ -30,7 +30,7 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
     size: {
       default: 'h-10 px-4 py-2',
       sm: 'h-8 px-3.5 text-sm',
-      lg: 'h-11 px-8',
+      lg: 'h-16 px-12 text-xl font-semibold',
       icon: 'h-10 w-10',
       icon_sm: 'h-6 w-6',
       icon_lg: 'h-11 w-11',

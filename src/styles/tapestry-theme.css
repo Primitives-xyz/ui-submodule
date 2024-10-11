@@ -5,18 +5,20 @@
   --muted: var(--foreground) / 0.1;
   --muted-foreground: 218deg 10% 60%;
 
-  --accent: var(--background);
+  /* --accent: var(--background); */
+  /* --accent: 62deg 97% 76% / 0.3; */
+  --accent: var(--foreground) / 0.03;
   --accent-foreground: var(--foreground);
 
   --popover: var(--foreground);
   --popover-foreground: var(--background);
 
   /* --border: 221deg 4% 58%; */
-  --border: var(--foreground) / 0.2;
+  --border: var(--foreground) / 0.1;
 
-  --input: var(--background);
+  --input: 0 0% 100%;
   --input-foreground: var(--foreground);
-  --input-border: var(--foreground) / 0.2;
+  --input-border: var(--foreground) / 0.1;
 
   --card: 0 0% 100%;
   --card-foreground: var(--foreground);
@@ -27,9 +29,12 @@
   --secondary: 338deg 82% 61%;
   --secondary-foreground: 338deg 82% 95%;
 
+  /* --outline: 177deg 73% 45%; */
+  /* --outline-foreground: var(--background); */
+
   --destructive: 0 100% 70%;
 
-  --radius-card: var(--radius-md);
+  --radius-card: var(--radius-lg);
 
   /* Dark */
   --background-dark: 221deg 9% 18%;
