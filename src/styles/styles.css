@@ -1,6 +1,7 @@
 @import 'default-variables';
 @import 'default-colors';
 @import 'loading-dots';
+@import 'typewriter';
 
 body {
   @apply bg-background text-foreground;
