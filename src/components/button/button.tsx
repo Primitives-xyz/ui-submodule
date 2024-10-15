@@ -23,7 +23,8 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
         'bg-destructive text-destructive-foreground hover:bg-destructive/90',
       outline: 'border border-input-border bg-background hover:bg-accent',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-      ghost: 'hover:bg-accent hover:text-accent-foreground',
+      tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
+      ghost: 'hover:bg-accent hover:text-accent-foreground font-semibold',
       link: 'underline-offset-4 hover:opacity-80 underline !h-auto !p-0',
     },
     size: {

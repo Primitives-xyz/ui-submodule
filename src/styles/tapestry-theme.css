@@ -27,7 +27,10 @@
   --primary-foreground: 67deg 78% 15%;
 
   --secondary: 338deg 82% 61%;
-  --secondary-foreground: 338deg 82% 95%;
+  --secondary-foreground: 338deg 82% 10%;
+
+  --tertiary: 177deg 73% 59%;
+  --tertiary-foreground: 177deg 73% 15%;
 
   /* --outline: 177deg 73% 45%; */
   /* --outline-foreground: var(--background); */
