@@ -78,6 +78,14 @@ const config: Config = {
           DEFAULT: 'hsl(var(--progress))',
           foreground: 'hsl(var(--progress-foreground))',
         },
+        switch: {
+          DEFAULT: 'hsl(var(--switch))',
+          foreground: 'hsl(var(--switch-foreground))',
+          checked: {
+            DEFAULT: 'hsl(var(--switch-checked))',
+            foreground: 'hsl(var(--switch-checked-foreground))',
+          },
+        },
       },
       borderColor: {
         DEFAULT: 'hsl(var(--border))',

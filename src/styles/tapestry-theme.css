@@ -37,6 +37,11 @@
 
   --destructive: 0 100% 70%;
 
+  --switch: var(--secondary);
+  --switch-foreground: var(--primary);
+  --switch-checked: var(--primary);
+  --switch-checked-foreground: var(--secondary);
+
   --radius-card: var(--radius-lg);
 
   /* Dark */
