@@ -1,10 +1,11 @@
 import { FetchMethod, IError } from './api.models'
 
-export const getUrlWithQueryParameters = (
+export const getUrlWithQueryParameters = <InputType = Record<string, unknown>>(
   endpoint: string | null,
-  data?: Record<string, string>,
+  data?: InputType,
 ) => {
-  const queryParameters = new URLSearchParams(data).toString()
+  const parsedData = data as Record<string, string>
+  const queryParameters = new URLSearchParams(parsedData).toString()
 
   return `${endpoint}${!!queryParameters ? '?' + queryParameters : ''}`
 }
@@ -14,15 +15,16 @@ export const getUrlWithPathParameters = ({
   pathParams,
 }: {
   endpoint: string
-  pathParams?: Record<string, string>
+  pathParams?: Record<string, unknown>
 }) => {
   if (!endpoint || !pathParams) {
     return endpoint
   }
+  const parsedParams = pathParams as Record<string, string>
 
   let updatedEndpoint = endpoint
 
-  for (const [key, value] of Object.entries(pathParams)) {
+  for (const [key, value] of Object.entries(parsedParams)) {
     updatedEndpoint = updatedEndpoint.replace(`:${key}`, value.toString())
   }
 
@@ -52,7 +54,7 @@ interface FetchParams<InputType> {
 
 export const fetchWrapper = async <
   ResponseType = unknown,
-  InputType = unknown,
+  InputType = Record<string, unknown>,
 >({
   method = FetchMethod.GET,
   endpoint,
@@ -63,7 +65,7 @@ export const fetchWrapper = async <
   revalidate,
 }: FetchParams<InputType>): Promise<ResponseType> => {
   if (method === FetchMethod.GET && data) {
-    endpoint = getUrlWithQueryParameters(endpoint, data)
+    endpoint = getUrlWithQueryParameters<InputType>(endpoint, data)
   }
 
   const headers = {

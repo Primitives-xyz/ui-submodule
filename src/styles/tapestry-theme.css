@@ -10,8 +10,10 @@
   --accent: var(--foreground) / 0.03;
   --accent-foreground: var(--foreground);
 
-  --popover: var(--foreground);
-  --popover-foreground: var(--background);
+  /* --popover: var(--foreground); */
+  /* --popover-foreground: var(--background); */
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
 
   /* --border: 221deg 4% 58%; */
   --border: var(--foreground) / 0.1;
@@ -56,4 +58,5 @@
   --background: var(--background-dark);
   --foreground: var(--foreground-dark);
   --secondary-foreground: 221deg 9% 18%;
+  --card: var(--background-dark);
 }
