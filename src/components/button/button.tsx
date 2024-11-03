@@ -2,10 +2,10 @@
 
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
-import Link from 'next/link'
 import * as React from 'react'
 import { cn } from '../../utils'
 import { Spinner } from '../spinner'
+import { ButtonLink } from './button-link'
 
 const focus =
   'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
@@ -19,8 +19,7 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
   variants: {
     variant: {
       default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-      destructive:
-        'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+      destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
       outline: 'border border-input-border bg-background hover:bg-accent',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
@@ -42,9 +41,7 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
   },
 })
 
-interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean
   expand?: boolean
   loading?: boolean
@@ -82,9 +79,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
     const disabled = props.disabled || loading
     const children = href ? (
-      <Link href={href} target={newTab ? '_blank' : undefined}>
+      // <Link href={href} target={newTab ? '_blank' : undefined}>
+      //   {content}
+      // </Link>
+      <ButtonLink href={href} newTab={newTab}>
         {content}
-      </Link>
+      </ButtonLink>
     ) : (
       content
     )
