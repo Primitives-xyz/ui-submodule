@@ -51,13 +51,11 @@ input[type='number'] {
 }
 
 .fade-out-text {
-  mask-image: linear-gradient(
-    to left,
-    transparent 0%,
-    white 10%,
-    white 90%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to left, transparent 0%, white 10%, white 90%, transparent 100%);
+}
+
+kbd {
+  @apply bg-muted text-muted-foreground rounded-sm px-1 py-0.5;
 }
 
 /* *:focus {

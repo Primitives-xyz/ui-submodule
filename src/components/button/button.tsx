@@ -5,7 +5,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 import { cn } from '../../utils'
 import { Spinner } from '../spinner'
-import { ButtonLink } from './button-link'
 
 const focus =
   'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
@@ -82,9 +81,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       // <Link href={href} target={newTab ? '_blank' : undefined}>
       //   {content}
       // </Link>
-      <ButtonLink href={href} newTab={newTab}>
+      // <ButtonLink href={href} newTab={newTab}>
+      //   {content}
+      // </ButtonLink>
+      <a href={href} target={newTab ? '_blank' : undefined}>
         {content}
-      </ButtonLink>
+      </a>
     ) : (
       content
     )
