@@ -1,13 +1,15 @@
 import { SVGProps } from 'react'
+import { cn } from '../../../utils'
 
-export function TapestryLogo(props: SVGProps<SVGSVGElement>) {
+export function TapestryLogo({ width = 100, height = 50, className, ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill="none"
-      height="128"
       viewBox="0 0 333 128"
-      width="333"
+      width={width}
+      height={height}
       xmlns="http://www.w3.org/2000/svg"
+      className={cn('-mt-2', className)}
       {...props}
     >
       <path

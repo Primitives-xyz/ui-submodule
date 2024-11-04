@@ -22,6 +22,7 @@ const config: Config = {
         card: 'var(--shadow-card)',
       },
       height: {
+        topbar: 'var(--topbar-height)',
         'screen-minus-topbar': 'calc(100vh - var(--topbar-height))',
       },
       aspectRatio: {
