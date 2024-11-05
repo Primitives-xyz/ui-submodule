@@ -52,10 +52,7 @@ interface FetchParams<InputType> {
   revalidate?: number
 }
 
-export const fetchWrapper = async <
-  ResponseType = unknown,
-  InputType = Record<string, unknown>,
->({
+export const fetchWrapper = async <ResponseType = unknown, InputType = Record<string, unknown>>({
   method = FetchMethod.GET,
   endpoint,
   data,
@@ -80,23 +77,17 @@ export const fetchWrapper = async <
   //console.log('---> baseBeUrl ', baseBeUrl)
   //console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint))
 
-  const response = await fetch(
-    createURL(toBackend ? baseBeUrl : '', endpoint),
-    {
-      method,
-      headers,
-      ...(bypassCache ? { cache: 'no-store' } : {}),
-      // @ts-ignore
-      next: {
-        revalidate,
-      },
-      // mode: 'no-cors',
-      body:
-        method === FetchMethod.POST || method === FetchMethod.PUT
-          ? JSON.stringify(data)
-          : undefined,
+  const response = await fetch(createURL(toBackend ? baseBeUrl : '', endpoint), {
+    method,
+    headers,
+    ...(bypassCache ? { cache: 'no-store' } : {}),
+    // @ts-ignore
+    next: {
+      revalidate,
     },
-  )
+    // mode: 'no-cors',
+    body: method === FetchMethod.POST || method === FetchMethod.PUT ? JSON.stringify(data) : undefined,
+  })
 
   if (!response.ok) {
     const error: IError = {

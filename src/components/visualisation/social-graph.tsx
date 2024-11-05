@@ -15,11 +15,7 @@ interface Props {
   nodeFocusContent?: (nodeId: string) => React.ReactNode
 }
 
-export default function SocialGraph({
-  nodes,
-  relationships,
-  nodeFocusContent,
-}: Props) {
+export default function SocialGraph({ nodes, relationships, nodeFocusContent }: Props) {
   const [currentNodeId, setCurrentNodeId] = useState<string>()
 
   return (
@@ -29,11 +25,7 @@ export default function SocialGraph({
         renderLabels: true,
       }}
     >
-      <SocialGraphContent
-        nodes={nodes}
-        relationships={relationships}
-        setCurrentNodeId={setCurrentNodeId}
-      />
+      <SocialGraphContent nodes={nodes} relationships={relationships} setCurrentNodeId={setCurrentNodeId} />
       <SocialGraphLayout />
       <SocialGraphControls />
       <SocialGraphNodeFocus isOpen={!!currentNodeId && !!nodeFocusContent}>

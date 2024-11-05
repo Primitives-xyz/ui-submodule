@@ -9,12 +9,7 @@ interface Props {
   onLoadMore: () => void
 }
 
-export function LoadMoreObserver({
-  hasMore,
-  loading,
-  renderAsLoader,
-  onLoadMore,
-}: Props) {
+export function LoadMoreObserver({ hasMore, loading, renderAsLoader, onLoadMore }: Props) {
   const { ref, inView } = useInView()
 
   useEffect(() => {

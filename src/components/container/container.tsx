@@ -8,11 +8,7 @@ interface Props {
   size?: ContainerSize
 }
 
-export function Container({
-  children,
-  className,
-  size = ContainerSize.REGULAR,
-}: Props) {
+export function Container({ children, className, size = ContainerSize.REGULAR }: Props) {
   return (
     <div
       className={cn(

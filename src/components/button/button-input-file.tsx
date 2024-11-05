@@ -48,9 +48,7 @@ export function ButtonInputFile({
         />
         {props.children}
       </Button>
-      {!!error && (
-        <p className="text-sm font-medium text-destructive">{error}</p>
-      )}
+      {!!error && <p className="text-sm font-medium text-destructive">{error}</p>}
     </div>
   )
 }

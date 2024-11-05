@@ -7,25 +7,13 @@ export function SocialGraphControls() {
 
   return (
     <div className="absolute bottom-3 left-3 rounded bg-white/30 overflow-hidden">
-      <Button
-        isInvisible
-        className="p-2 hover:bg-white/10"
-        onClick={() => reset()}
-      >
+      <Button isInvisible className="p-2 hover:bg-white/10" onClick={() => reset()}>
         <Maximize size={26} />
       </Button>
-      <Button
-        isInvisible
-        className="p-2 hover:bg-white/10"
-        onClick={() => zoomIn()}
-      >
+      <Button isInvisible className="p-2 hover:bg-white/10" onClick={() => zoomIn()}>
         <Plus size={26} />
       </Button>
-      <Button
-        isInvisible
-        className="p-2 hover:bg-white/10"
-        onClick={() => zoomOut()}
-      >
+      <Button isInvisible className="p-2 hover:bg-white/10" onClick={() => zoomOut()}>
         <Minus size={26} />
       </Button>
     </div>

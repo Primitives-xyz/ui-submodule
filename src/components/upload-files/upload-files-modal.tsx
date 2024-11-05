@@ -9,31 +9,18 @@ interface Props {
   onUploadSuccess: (file: File) => void
 }
 
-export default function UploadFilesModal({
-  isOpen,
-  filesToUpload,
-  setIsOpen,
-  onUploadSuccess,
-  getUploadUrl,
-}: Props) {
+export default function UploadFilesModal({ isOpen, filesToUpload, setIsOpen, onUploadSuccess, getUploadUrl }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="loading-dots">
-            {filesToUpload?.length > 1
-              ? 'Uploading your files'
-              : 'Uploading your file'}
+            {filesToUpload?.length > 1 ? 'Uploading your files' : 'Uploading your file'}
           </DialogTitle>
         </DialogHeader>
         <div className="space-y-2">
           {filesToUpload.map((file, index) => (
-            <UploadFileEntry
-              key={index}
-              file={file}
-              getUploadUrl={getUploadUrl}
-              onUploadSuccess={onUploadSuccess}
-            />
+            <UploadFileEntry key={index} file={file} getUploadUrl={getUploadUrl} onUploadSuccess={onUploadSuccess} />
           ))}
         </div>
       </DialogContent>

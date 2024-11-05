@@ -21,10 +21,7 @@ export function useUploadFiles({ getUploadUrl, onSuccess }: Props) {
   }
 
   useEffect(() => {
-    if (
-      uploadedFiles?.length &&
-      filesToUpload.length === uploadedFiles.length
-    ) {
+    if (uploadedFiles?.length && filesToUpload.length === uploadedFiles.length) {
       setModalIsOpen(false)
       onSuccess(uploadedFiles)
     }

@@ -11,27 +11,16 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   }
 }
 
-function Skeleton({
-  className,
-  randomWidthRange,
-  randomHeightRange,
-  ...props
-}: Props) {
+function Skeleton({ className, randomWidthRange, randomHeightRange, ...props }: Props) {
   let calculatedWidth = 0
   let calculatedHeight = 0
 
   if (randomWidthRange) {
-    calculatedWidth = randomIntInRange(
-      randomWidthRange.min,
-      randomWidthRange.max,
-    )
+    calculatedWidth = randomIntInRange(randomWidthRange.min, randomWidthRange.max)
   }
 
   if (randomHeightRange) {
-    calculatedHeight = randomIntInRange(
-      randomHeightRange.min,
-      randomHeightRange.max,
-    )
+    calculatedHeight = randomIntInRange(randomHeightRange.min, randomHeightRange.max)
   }
 
   return (
