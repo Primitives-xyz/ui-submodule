@@ -14,7 +14,7 @@ const buttonBase = cn(
   focus,
 )
 
-const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
+const buttonVariants = cva(cn(buttonBase, 'rounded-button font-semibold'), {
   variants: {
     variant: {
       default: 'bg-primary text-primary-foreground hover:bg-primary/90',

@@ -25,6 +25,9 @@ const config: Config = {
         topbar: 'var(--topbar-height)',
         'screen-minus-topbar': 'calc(100vh - var(--topbar-height))',
       },
+      spacing: {
+        topbar: 'var(--topbar-height)',
+      },
       aspectRatio: {
         '2/3': '2/3',
         '3/2': '3/2',
