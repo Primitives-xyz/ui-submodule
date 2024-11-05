@@ -11,6 +11,7 @@ const config: Config = {
       button: 'var(--radius-button)',
       input: 'var(--radius-input)',
       card: 'var(--radius-card)',
+      tabs: 'var(--radius-tabs)',
       full: '9999px',
       none: '0px',
     },
