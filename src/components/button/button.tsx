@@ -1,6 +1,7 @@
 'use client'
 
 import { Slot } from '@radix-ui/react-slot'
+import { Link } from '@remix-run/react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 import { cn } from '../../utils'
@@ -84,9 +85,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       // <ButtonLink href={href} newTab={newTab}>
       //   {content}
       // </ButtonLink>
-      <a href={href} target={newTab ? '_blank' : undefined}>
+      // <a href={href} target={newTab ? '_blank' : undefined}>
+      //   {content}
+      // </a>
+      <Link to={href} target={newTab ? '_blank' : undefined}>
         {content}
-      </a>
+      </Link>
     ) : (
       content
     )
