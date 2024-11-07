@@ -37,5 +37,10 @@
 
     --progress: var(--muted);
     --progress-foreground: var(--foreground);
+
+    --switch: var(--input);
+    --switch-foreground: var(--background);
+    --switch-checked: var(--primary);
+    --switch-checked-foreground: var(--background);
   }
 }

@@ -5,39 +5,58 @@
   --muted: var(--foreground) / 0.1;
   --muted-foreground: 218deg 10% 60%;
 
-  --accent: var(--background);
+  /* --accent: var(--background); */
+  /* --accent: 62deg 97% 76% / 0.3; */
+  --accent: var(--foreground) / 0.03;
   --accent-foreground: var(--foreground);
 
-  --popover: var(--foreground);
-  --popover-foreground: var(--background);
+  /* --popover: var(--foreground); */
+  /* --popover-foreground: var(--background); */
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
 
   /* --border: 221deg 4% 58%; */
-  --border: var(--foreground) / 0.2;
+  --border: var(--foreground) / 0.1;
 
-  --input: var(--background);
+  --input: 0 0% 100%;
   --input-foreground: var(--foreground);
-  --input-border: var(--foreground) / 0.2;
+  --input-border: var(--foreground) / 0.1;
 
-  --card: var(--background);
+  --card: 0 0% 100%;
   --card-foreground: var(--foreground);
 
   --primary: 67deg 78% 66%;
   --primary-foreground: 67deg 78% 15%;
 
   --secondary: 338deg 82% 61%;
-  --secondary-foreground: 338deg 82% 95%;
+  --secondary-foreground: 338deg 82% 10%;
+
+  --tertiary: 177deg 73% 59%;
+  --tertiary-foreground: 177deg 73% 15%;
+
+  /* --outline: 177deg 73% 45%; */
+  /* --outline-foreground: var(--background); */
 
   --destructive: 0 100% 70%;
 
-  --radius-card: var(--radius-md);
+  --switch: var(--secondary);
+  --switch-foreground: var(--primary);
+  --switch-checked: var(--primary);
+  --switch-checked-foreground: var(--secondary);
+
+  --radius-card: var(--radius-lg);
 
   /* Dark */
   --background-dark: 221deg 9% 18%;
   --foreground-dark: 218deg 57% 98%;
+
+  /* Shadow */
+  --shadow-card: 0 10px 0 0 hsl(var(--primary));
 }
 
 .dark {
   --background: var(--background-dark);
   --foreground: var(--foreground-dark);
   --secondary-foreground: 221deg 9% 18%;
+  --card: var(--background-dark);
 }

@@ -5,19 +5,30 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   prefixElement?: React.ReactNode
   suffixElement?: React.ReactNode
+  containerClassName?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, prefixElement, suffixElement, ...props }, ref) => {
+  (
+    {
+      className,
+      containerClassName,
+      type,
+      prefixElement,
+      suffixElement,
+      ...props
+    },
+    ref,
+  ) => {
     // const { error } = useFormField()
 
     return (
-      <div className="relative">
+      <div className={cn('relative', containerClassName)}>
         {prefixElement}
         <input
           type={type}
           className={cn(
-            'flex file:py-2 h-9 w-full rounded-input border border-input-border bg-input text-input-foreground px-3 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+            'flex file:py-2 h-9 w-full rounded-input border border-input-border bg-input text-input-foreground px-3 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 read-only:cursor-default',
             {
               // 'border-destructive': !!error,
               // 'focus-visible:ring-destructive border-destructive': !!error,

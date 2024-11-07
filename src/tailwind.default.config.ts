@@ -12,12 +12,14 @@ const config: Config = {
       input: 'var(--radius-input)',
       card: 'var(--radius-card)',
       full: '9999px',
+      none: '0px',
     },
     extend: {
       boxShadow: {
         sm: 'var(--shadow-sm)',
         md: 'var(--shadow-md)',
         lg: 'var(--shadow-lg)',
+        card: 'var(--shadow-card)',
       },
       height: {
         'screen-minus-topbar': 'calc(100vh - var(--topbar-height))',
@@ -43,6 +45,10 @@ const config: Config = {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+        },
+        tertiary: {
+          DEFAULT: 'hsl(var(--tertiary))',
+          foreground: 'hsl(var(--tertiary-foreground))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -72,6 +78,14 @@ const config: Config = {
           DEFAULT: 'hsl(var(--progress))',
           foreground: 'hsl(var(--progress-foreground))',
         },
+        switch: {
+          DEFAULT: 'hsl(var(--switch))',
+          foreground: 'hsl(var(--switch-foreground))',
+          checked: {
+            DEFAULT: 'hsl(var(--switch-checked))',
+            foreground: 'hsl(var(--switch-checked-foreground))',
+          },
+        },
       },
       borderColor: {
         DEFAULT: 'hsl(var(--border))',
@@ -93,7 +107,10 @@ const config: Config = {
   },
   plugins: [
     // require('tailwind-scrollbar-hide'),
+
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-important'),
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-animate'),
   ],
   darkMode: ['class'],

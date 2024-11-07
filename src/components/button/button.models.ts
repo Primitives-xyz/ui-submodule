@@ -3,6 +3,7 @@ export enum ButtonVariant {
   DESTRUCTIVE = 'destructive',
   OUTLINE = 'outline',
   SECONDARY = 'secondary',
+  TERTIARY = 'tertiary',
   GHOST = 'ghost',
   LINK = 'link',
 }

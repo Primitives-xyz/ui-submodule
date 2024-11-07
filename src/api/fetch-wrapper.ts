@@ -1,10 +1,11 @@
-import { FetchMethod } from './api.models'
+import { FetchMethod, IError } from './api.models'
 
-export const getUrlWithQueryParameters = (
+export const getUrlWithQueryParameters = <InputType = Record<string, unknown>>(
   endpoint: string | null,
-  data?: Record<string, any>,
+  data?: InputType,
 ) => {
-  const queryParameters = new URLSearchParams(data).toString()
+  const parsedData = data as Record<string, string>
+  const queryParameters = new URLSearchParams(parsedData).toString()
 
   return `${endpoint}${!!queryParameters ? '?' + queryParameters : ''}`
 }
@@ -14,15 +15,16 @@ export const getUrlWithPathParameters = ({
   pathParams,
 }: {
   endpoint: string
-  pathParams?: Record<string, any>
+  pathParams?: Record<string, unknown>
 }) => {
   if (!endpoint || !pathParams) {
     return endpoint
   }
+  const parsedParams = pathParams as Record<string, string>
 
   let updatedEndpoint = endpoint
 
-  for (const [key, value] of Object.entries(pathParams)) {
+  for (const [key, value] of Object.entries(parsedParams)) {
     updatedEndpoint = updatedEndpoint.replace(`:${key}`, value.toString())
   }
 
@@ -50,7 +52,10 @@ interface FetchParams<InputType> {
   revalidate?: number
 }
 
-export const fetchWrapper = async <ResponseType = any, InputType = any>({
+export const fetchWrapper = async <
+  ResponseType = unknown,
+  InputType = Record<string, unknown>,
+>({
   method = FetchMethod.GET,
   endpoint,
   data,
@@ -60,7 +65,7 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   revalidate,
 }: FetchParams<InputType>): Promise<ResponseType> => {
   if (method === FetchMethod.GET && data) {
-    endpoint = getUrlWithQueryParameters(endpoint, data)
+    endpoint = getUrlWithQueryParameters<InputType>(endpoint, data)
   }
 
   const headers = {
@@ -72,8 +77,8 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
 
-  console.log('---> baseBeUrl ', baseBeUrl);
-  console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint));
+  //console.log('---> baseBeUrl ', baseBeUrl)
+  //console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint))
 
   const response = await fetch(
     createURL(toBackend ? baseBeUrl : '', endpoint),
@@ -94,12 +99,10 @@ export const fetchWrapper = async <ResponseType = any, InputType = any>({
   )
 
   if (!response.ok) {
-    // Error handling
-
-    const error: any = new Error('An error occurred while fetching the data.')
-
-    error.info = await response.json()
-    error.status = response.status
+    const error: IError = {
+      info: await response.json(),
+      status: response.status,
+    }
 
     throw error
   } else {

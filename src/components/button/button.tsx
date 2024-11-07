@@ -21,16 +21,16 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-medium'), {
       default: 'bg-primary text-primary-foreground hover:bg-primary/90',
       destructive:
         'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-      outline:
-        'border border-input-border bg-transparent hover:bg-foreground/10',
+      outline: 'border border-input-border bg-background hover:bg-accent',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-      ghost: 'hover:bg-accent hover:text-accent-foreground',
+      tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
+      ghost: 'hover:bg-accent hover:text-accent-foreground font-semibold',
       link: 'underline-offset-4 hover:opacity-80 underline !h-auto !p-0',
     },
     size: {
       default: 'h-10 px-4 py-2',
       sm: 'h-8 px-3.5 text-sm',
-      lg: 'h-11 px-8',
+      lg: 'h-16 px-12 text-xl font-semibold',
       icon: 'h-10 w-10',
       icon_sm: 'h-6 w-6',
       icon_lg: 'h-11 w-11',

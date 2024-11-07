@@ -7,16 +7,15 @@ import { fetchWrapper, getUrlWithQueryParameters } from './fetch-wrapper'
 interface Props {
   endpoint: string
   method?: FetchMethod
-  queryParams?: Record<string, any>
+  queryParams?: Record<string, string>
   getJwt?: () => Promise<string | undefined>
 }
 
-export function useMutation<ResponseType = any, InputType = any, Error = any>({
-  endpoint,
-  method = FetchMethod.POST,
-  queryParams,
-  getJwt,
-}: Props) {
+export function useMutation<
+  ResponseType = unknown,
+  InputType = Record<string, unknown>,
+  Error = unknown,
+>({ endpoint, method = FetchMethod.POST, queryParams, getJwt }: Props) {
   endpoint = getUrlWithQueryParameters(endpoint, queryParams)
 
   const { data, error, isMutating, trigger } = useSWRMutation<
@@ -24,8 +23,8 @@ export function useMutation<ResponseType = any, InputType = any, Error = any>({
     Error,
     string | null,
     InputType
-  >(endpoint, async (endpoint: string, args) =>
-    fetchWrapper<ResponseType>({
+  >(endpoint, async (endpoint: string, args: { arg: InputType }) =>
+    fetchWrapper<ResponseType, InputType>({
       method,
       endpoint,
       data: args.arg,

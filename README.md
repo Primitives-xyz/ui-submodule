@@ -10,28 +10,19 @@ git submodule add https://github.com/Primitives-xyz/ui-submodule src/ui-submodul
 
 ```
 yarn add tailwind-merge tailwindcss-important tailwindcss-animate class-variance-authority lucide-react
-```
 
-### Optional
-
-```
-yarn add zod swr framer-motion react-use-clipboard react-hook-form @hookform/resolvers @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion @radix-ui/react-progress @radix-ui/react-alert-dialog
-```
-
-For the social graph
-
-```
-yarn add @react-sigma/core
+<!-- We will need to make these packages optional somehow -->
+yarn add zod swr framer-motion react-use-clipboard react-hook-form @hookform/resolvers @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion @radix-ui/react-progress @radix-ui/react-alert-dialog @react-sigma/core graphology graphology-types @react-sigma/layout-forceatlas2 react-intersection-observer
 ```
 
 ## Usage
 
 To use the package
 
-# Import the css file into the main layout.tsx
+# Import the css file into global.css
 
-```javascript
-import 'src/ui-submodule/src/styles/styles.css'
+```css
+@import '../ui-submodule/src/styles/styles';
 ```
 
 # Import the tailwind config into the tailwind config file, enable tailwind for the submodule
@@ -58,6 +49,23 @@ const config: Config = {
       "@/*": ["./src/*"]
     }
   },
+}
+```
+
+# Add rules to eslint
+
+```javascript
+{
+  ...,
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": false
+      }
+    ]
+  }
 }
 ```
 
