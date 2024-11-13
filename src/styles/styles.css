@@ -1,7 +1,7 @@
-@import 'default-variables';
-@import 'default-colors';
-@import 'loading-dots';
-@import 'typewriter';
+@import 'default-variables.css';
+@import 'default-colors.css';
+@import 'loading-dots.css';
+@import 'typewriter.css';
 
 body {
   @apply bg-background text-foreground;
@@ -51,7 +51,13 @@ input[type='number'] {
 }
 
 .fade-out-text {
-  mask-image: linear-gradient(to left, transparent 0%, white 10%, white 90%, transparent 100%);
+  mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    white 10%,
+    white 90%,
+    transparent 100%
+  );
 }
 
 kbd {
