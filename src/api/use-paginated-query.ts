@@ -22,7 +22,10 @@ export function usePaginatedQuery<ResponseType, InputType>({
     }
   }
 
-  const { data, size, setSize, error, isLoading, mutate } = useSWRInfinite<ResponseType, Error>(
+  const { data, size, setSize, error, isLoading, mutate } = useSWRInfinite<
+    ResponseType,
+    Error
+  >(
     getKey,
     (endpoint: string) =>
       fetchWrapper<ResponseType>({
@@ -34,7 +37,8 @@ export function usePaginatedQuery<ResponseType, InputType>({
     },
   )
 
-  const isLoadingMore = isLoading || (size > 0 && data && typeof data[size - 1] === 'undefined')
+  const isLoadingMore =
+    isLoading || (size > 0 && data && typeof data[size - 1] === 'undefined')
 
   return {
     data,

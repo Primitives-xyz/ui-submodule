@@ -4,7 +4,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '../../components/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input } from '../../components/form'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  Input,
+} from '../../components/form'
 import { useCreateProfile } from '../hooks/use-create-profile'
 import { BLOCKCHAIN } from '../profiles.models'
 
@@ -12,7 +20,10 @@ const formSchema = z.object({
   username: z
     .string()
     .min(1, 'Username is required')
-    .regex(/^[a-zA-Z0-9-_]+$/, 'Username can only contain alphanumeric characters, dashes, or underscores'),
+    .regex(
+      /^[a-zA-Z0-9-_]+$/,
+      'Username can only contain alphanumeric characters, dashes, or underscores',
+    ),
 })
 
 interface Props {
@@ -21,7 +32,11 @@ interface Props {
   onProfileCreated?: () => void
 }
 
-export function CreateProfileForm({ walletAddress, blockchain, onProfileCreated }: Props) {
+export function CreateProfileForm({
+  walletAddress,
+  blockchain,
+  onProfileCreated,
+}: Props) {
   // const { walletAddress, blockchain } = useWallet()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

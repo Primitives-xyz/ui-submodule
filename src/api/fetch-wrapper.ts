@@ -31,7 +31,13 @@ export const getUrlWithPathParameters = ({
   return updatedEndpoint
 }
 
-export const createURL = ({ domain, endpoint }: { domain: string; endpoint: string }) => {
+export const createURL = ({
+  domain,
+  endpoint,
+}: {
+  domain: string
+  endpoint: string
+}) => {
   domain = domain.replace(/\/+$/, '')
   endpoint = endpoint.replace(/^\/+|\/+$/g, '')
 
@@ -52,7 +58,10 @@ interface FetchParams<InputType> {
   revalidate?: number
 }
 
-export const fetchWrapper = async <ResponseType = unknown, InputType = Record<string, unknown>>({
+export const fetchWrapper = async <
+  ResponseType = unknown,
+  InputType = Record<string, unknown>,
+>({
   method = FetchMethod.GET,
   endpoint,
   data,
@@ -97,7 +106,10 @@ export const fetchWrapper = async <ResponseType = unknown, InputType = Record<st
         revalidate,
       },
       // mode: 'no-cors',
-      body: method === FetchMethod.POST || method === FetchMethod.PUT ? JSON.stringify(data) : undefined,
+      body:
+        method === FetchMethod.POST || method === FetchMethod.PUT
+          ? JSON.stringify(data)
+          : undefined,
     },
   )
 

@@ -16,7 +16,10 @@ export const mapEmpty = <T>(amount: number, fn: (index: number) => T): T[] => {
     .map((_, index) => fn(index))
 }
 
-export const formatNumber = (number: number, { withComma = false }: { withComma?: boolean } = {}) => {
+export const formatNumber = (
+  number: number,
+  { withComma = false }: { withComma?: boolean } = {},
+) => {
   if (withComma) {
     return number?.toLocaleString('en-US')
   } else {
@@ -40,7 +43,13 @@ export const formatCurrency = (value: number) => {
   }).format(roundedValue)
 }
 
-export const abbreviateWalletAddress = ({ address, maxLength = 10 }: { address: string; maxLength?: number }) => {
+export const abbreviateWalletAddress = ({
+  address,
+  maxLength = 10,
+}: {
+  address: string
+  maxLength?: number
+}) => {
   if (address.length <= maxLength) return address
 
   const PRE_EMPTIVE_WALLET_ADDRESS_PREFIX = 'pre-emptive-'

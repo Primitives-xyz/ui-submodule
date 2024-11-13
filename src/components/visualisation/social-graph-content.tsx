@@ -12,7 +12,11 @@ export interface SocialGraphProps {
   setCurrentNodeId: (id?: string) => void
 }
 
-export function SocialGraphContent({ nodes, relationships, setCurrentNodeId }: SocialGraphProps) {
+export function SocialGraphContent({
+  nodes,
+  relationships,
+  setCurrentNodeId,
+}: SocialGraphProps) {
   const loadGraph = useLoadGraph()
   const registerEvents = useRegisterEvents()
   const { zoomIn, gotoNode } = useCamera()
@@ -39,7 +43,11 @@ export function SocialGraphContent({ nodes, relationships, setCurrentNodeId }: S
     })
 
     relationships.forEach((rel) => {
-      if (edgeSet.has(rel.id) || !nodesSet.has(rel.from) || !nodesSet.has(rel.to)) {
+      if (
+        edgeSet.has(rel.id) ||
+        !nodesSet.has(rel.from) ||
+        !nodesSet.has(rel.to)
+      ) {
         return
       }
       edgeSet.add(rel.id)
@@ -77,7 +85,15 @@ export function SocialGraphContent({ nodes, relationships, setCurrentNodeId }: S
     })
 
     loadGraph(graph)
-  }, [loadGraph, nodes, relationships, registerEvents, gotoNode, zoomIn, setCurrentNodeId])
+  }, [
+    loadGraph,
+    nodes,
+    relationships,
+    registerEvents,
+    gotoNode,
+    zoomIn,
+    setCurrentNodeId,
+  ])
 
   return null
 }

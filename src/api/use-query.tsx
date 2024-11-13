@@ -2,7 +2,11 @@
 
 import useSWR, { SWRConfiguration } from 'swr'
 import { FetchMethod, IError } from './api.models'
-import { fetchWrapper, getUrlWithPathParameters, getUrlWithQueryParameters } from './fetch-wrapper'
+import {
+  fetchWrapper,
+  getUrlWithPathParameters,
+  getUrlWithQueryParameters,
+} from './fetch-wrapper'
 
 interface UseQueryProps {
   endpoint: string

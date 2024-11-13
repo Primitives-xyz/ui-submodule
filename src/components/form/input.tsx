@@ -1,14 +1,25 @@
 import * as React from 'react'
 import { cn } from '../../utils'
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   prefixElement?: React.ReactNode
   suffixElement?: React.ReactNode
   containerClassName?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, containerClassName, type, prefixElement, suffixElement, ...props }, ref) => {
+  (
+    {
+      className,
+      containerClassName,
+      type,
+      prefixElement,
+      suffixElement,
+      ...props
+    },
+    ref,
+  ) => {
     // const { error } = useFormField()
 
     return (

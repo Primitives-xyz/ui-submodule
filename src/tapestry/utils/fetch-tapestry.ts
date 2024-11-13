@@ -1,6 +1,9 @@
 import { createURL, FetchParams, fetchWrapper } from '../../api/fetch-wrapper'
 
-export const fetchTapestry = async <ResponseType = unknown, InputType = Record<string, unknown>>(
+export const fetchTapestry = async <
+  ResponseType = unknown,
+  InputType = Record<string, unknown>,
+>(
   args: FetchParams<InputType>,
 ): Promise<ResponseType> => {
   if (!process.env.TAPESTRY_URL) {

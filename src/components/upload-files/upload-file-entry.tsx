@@ -8,7 +8,11 @@ interface Props {
   onUploadSuccess: (file: File) => void
 }
 
-export function UploadFileEntry({ file, onUploadSuccess, getUploadUrl }: Props) {
+export function UploadFileEntry({
+  file,
+  onUploadSuccess,
+  getUploadUrl,
+}: Props) {
   const { uploadMedia, uploadProgress } = useUploadMedia({
     getUploadUrl,
     onUploadSuccess,

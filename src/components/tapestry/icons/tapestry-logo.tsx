@@ -1,7 +1,12 @@
 import { SVGProps } from 'react'
 import { cn } from '../../../utils'
 
-export function TapestryLogo({ width = 100, height = 50, className, ...props }: SVGProps<SVGSVGElement>) {
+export function TapestryLogo({
+  width = 100,
+  height = 50,
+  className,
+  ...props
+}: SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill="none"
