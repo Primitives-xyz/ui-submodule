@@ -11,6 +11,7 @@
   --accent-foreground: var(--foreground);
 
   --popover: var(--foreground);
+  --popover-card: 221deg 9% 25%;
   --popover-foreground: var(--background);
   /* --popover: var(--background); */
   /* --popover-foreground: var(--foreground); */
@@ -44,7 +45,9 @@
   --switch-checked: var(--primary);
   --switch-checked-foreground: var(--secondary);
 
+  /* Radius */
   --radius-card: var(--radius-lg);
+  --radius-popover-card: var(--radius-md);
 
   /* Dark */
   --background-dark: 221deg 9% 18%;

@@ -31,7 +31,7 @@ export const getUrlWithPathParameters = ({
   return updatedEndpoint
 }
 
-export const createURL = (domain: string, endpoint: string) => {
+export const createURL = ({ domain, endpoint }: { domain: string; endpoint: string }) => {
   domain = domain.replace(/\/+$/, '')
   endpoint = endpoint.replace(/^\/+|\/+$/g, '')
 
@@ -74,20 +74,32 @@ export const fetchWrapper = async <ResponseType = unknown, InputType = Record<st
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
 
-  //console.log('---> baseBeUrl ', baseBeUrl)
-  //console.log('---> finalUrl ', createURL(toBackend ? baseBeUrl : '', endpoint))
+  // console.log('---> baseBeUrl ', baseBeUrl)
+  console.log(
+    '---> finalUrl ',
+    createURL({
+      domain: toBackend ? baseBeUrl : '',
+      endpoint,
+    }),
+  )
 
-  const response = await fetch(createURL(toBackend ? baseBeUrl : '', endpoint), {
-    method,
-    headers,
-    ...(bypassCache ? { cache: 'no-store' } : {}),
-    // @ts-ignore
-    next: {
-      revalidate,
+  const response = await fetch(
+    createURL({
+      domain: toBackend ? baseBeUrl : '',
+      endpoint,
+    }),
+    {
+      method,
+      headers,
+      ...(bypassCache ? { cache: 'no-store' } : {}),
+      // @ts-ignore
+      next: {
+        revalidate,
+      },
+      // mode: 'no-cors',
+      body: method === FetchMethod.POST || method === FetchMethod.PUT ? JSON.stringify(data) : undefined,
     },
-    // mode: 'no-cors',
-    body: method === FetchMethod.POST || method === FetchMethod.PUT ? JSON.stringify(data) : undefined,
-  })
+  )
 
   if (!response.ok) {
     const error: IError = {

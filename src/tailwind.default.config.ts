@@ -11,6 +11,7 @@ const config: Config = {
       button: 'var(--radius-button)',
       input: 'var(--radius-input)',
       card: 'var(--radius-card)',
+      'popover-card': 'var(--radius-popover-card)',
       tabs: 'var(--radius-tabs)',
       full: '9999px',
       none: '0px',
@@ -70,6 +71,7 @@ const config: Config = {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
+          card: 'hsl(var(--popover-card))',
         },
         modal: {
           DEFAULT: 'hsl(var(--modal))',

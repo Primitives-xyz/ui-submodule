@@ -1,8 +1,8 @@
 'use client'
 
 import { Slot } from '@radix-ui/react-slot'
-import { Link } from '@remix-run/react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import Link from 'next/link'
 import * as React from 'react'
 import { cn } from '../../utils'
 import { Spinner } from '../spinner'
@@ -79,16 +79,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
     const disabled = props.disabled || loading
     const children = href ? (
-      // <Link href={href} target={newTab ? '_blank' : undefined}>
-      //   {content}
-      // </Link>
-      // <ButtonLink href={href} newTab={newTab}>
-      //   {content}
-      // </ButtonLink>
-      // <a href={href} target={newTab ? '_blank' : undefined}>
-      //   {content}
-      // </a>
-      <Link to={href} target={newTab ? '_blank' : undefined}>
+      <Link href={href} target={newTab ? '_blank' : undefined}>
         {content}
       </Link>
     ) : (

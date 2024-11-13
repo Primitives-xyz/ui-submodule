@@ -1,3 +1,5 @@
+export type BLOCKCHAIN = 'Ethereum' | 'Solana'
+
 export interface IProfile {
   id: string
   created_at: number
@@ -10,12 +12,12 @@ export interface IProfile {
 
 export interface IFindOrCreateProfileInput {
   username: string
-  blockchain: string
-  execution: string
+  blockchain: BLOCKCHAIN
+  // execution: string
   walletAddress: string
-  id: string
-  image: string
-  bio: string
+  id?: string
+  image?: string
+  bio?: string
 }
 
 export interface IFindOrCreateProfileResponse {
