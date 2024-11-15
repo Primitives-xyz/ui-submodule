@@ -1,3 +1,5 @@
+'use client'
+
 import useSWRInfinite, { SWRInfiniteResponse } from 'swr/infinite'
 import { FetchMethod } from './api.models'
 import { fetchWrapper, getUrlWithQueryParameters } from './fetch-wrapper'
