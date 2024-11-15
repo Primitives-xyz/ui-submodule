@@ -3,14 +3,20 @@ import { IGetProfilesResponse } from '../models'
 
 interface Props {
   walletAddress: string
+  shouldIncludeExternalProfiles?: boolean
 }
 
-export const useGetProfiles = ({ walletAddress }: Props) => {
+export const useGetProfiles = ({
+  walletAddress,
+  shouldIncludeExternalProfiles = true,
+}: Props) => {
   const { data, loading, error, refetch } = useQuery<IGetProfilesResponse>({
     endpoint: 'profiles',
     queryParams: {
       walletAddress,
-      shouldIncludeExternalProfiles: 'true',
+      shouldIncludeExternalProfiles: shouldIncludeExternalProfiles
+        ? 'true'
+        : 'false',
     },
   })
 

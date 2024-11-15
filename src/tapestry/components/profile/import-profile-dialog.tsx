@@ -14,7 +14,7 @@ import { Separator } from '../../../components/separator'
 import { Spinner } from '../../../components/spinner'
 import { useCreateProfile } from '../../hooks/use-create-profile'
 import { useGetProfiles } from '../../hooks/use-get-profiles'
-import { BLOCKCHAIN } from '../../models/profiles.models'
+import { BLOCKCHAIN, IProfile } from '../../models/profiles.models'
 
 interface Props {
   isOpen: boolean
@@ -37,14 +37,14 @@ export function ImportProfileDialog({
     walletAddress,
   })
   const { createProfile, loading: createProfileLoading } = useCreateProfile()
-  const [newProfileUsername, setNewProfileUsername] = useState<string>()
+  const [newProfileId, setNewProfileId] = useState<string>()
 
-  const onSelectProfile = async (entry: any) => {
+  const onSelectProfile = async (entry: IProfile) => {
     try {
-      setNewProfileUsername(entry.profile.username + entry.namespace.name)
+      setNewProfileId(entry.id)
 
       await createProfile({
-        username: entry.profile.username,
+        username: entry.username,
         walletAddress,
         blockchain,
       })
@@ -53,7 +53,7 @@ export function ImportProfileDialog({
     } catch (error) {
       console.log(error)
     } finally {
-      setNewProfileUsername(undefined)
+      setNewProfileId(undefined)
     }
   }
 
@@ -78,11 +78,10 @@ export function ImportProfileDialog({
           <div className="divide-y">
             {data?.profiles?.map((entry) => (
               <Button
-                key={entry.profile.username + entry.namespace.name}
+                key={entry.profile.id}
                 onClick={() => {
-                  onSelectProfile(entry)
+                  onSelectProfile(entry.profile)
                 }}
-                // isInvisible
                 className="flex items-center justify-start gap-4 w-full p-2 rounded-sm h-auto"
                 disabled={createProfileLoading}
                 variant={ButtonVariant.GHOST}
@@ -114,8 +113,7 @@ export function ImportProfileDialog({
                 <h4 className="truncate max-w-32 text-lg">
                   {entry.profile.username}
                 </h4>
-                {entry.profile.username + entry.namespace.name ===
-                  newProfileUsername && (
+                {entry.profile.id === newProfileId && (
                   <Spinner className="ml-auto self-center" />
                 )}
               </Button>
