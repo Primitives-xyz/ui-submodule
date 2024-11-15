@@ -74,7 +74,7 @@ export function ImportProfileDialog({
           </div>
         )}
 
-        {!!data?.profiles?.length ? (
+        {!!data?.profiles?.length && (
           <div className="divide-y">
             {data?.profiles?.map((entry) => (
               <Button
@@ -120,22 +120,26 @@ export function ImportProfileDialog({
             ))}
             <Separator label="OR" className="mt-6" />
           </div>
-        ) : (
+        )}
+
+        {!data?.profiles?.length && !getProfilesLoading && (
           <p className="text-muted-foreground text-center">
             We could not find any profiles on Tapestry. Create one to get
             started!
           </p>
         )}
 
-        <Button
-          onClick={() => {
-            setIsOpen(false)
-            openCreateProfileDialog()
-          }}
-          disabled={createProfileLoading}
-        >
-          Create a Profile
-        </Button>
+        {!getProfilesLoading && (
+          <Button
+            onClick={() => {
+              setIsOpen(false)
+              openCreateProfileDialog()
+            }}
+            disabled={createProfileLoading}
+          >
+            Create a Profile
+          </Button>
+        )}
       </DialogContent>
     </Dialog>
   )
