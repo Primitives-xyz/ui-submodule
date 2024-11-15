@@ -51,7 +51,8 @@ export const createURL = ({
 interface FetchParams<InputType> {
   method?: FetchMethod
   endpoint: string
-  data?: InputType
+  queryParams?: Record<string, string>
+  body?: InputType
   toBackend?: boolean
   jwt?: string
   bypassCache?: boolean
@@ -64,14 +65,18 @@ export const fetchWrapper = async <
 >({
   method = FetchMethod.GET,
   endpoint,
-  data,
+  queryParams,
+  body,
   toBackend = true,
   jwt,
   bypassCache = false,
   revalidate,
 }: FetchParams<InputType>): Promise<ResponseType> => {
-  if (method === FetchMethod.GET && data) {
-    endpoint = getUrlWithQueryParameters<InputType>(endpoint, data)
+  if (queryParams) {
+    endpoint = getUrlWithQueryParameters<Record<string, string>>(
+      endpoint,
+      queryParams,
+    )
   }
 
   const headers = {
@@ -84,13 +89,13 @@ export const fetchWrapper = async <
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
 
   // console.log('---> baseBeUrl ', baseBeUrl)
-  console.log(
-    '---> finalUrl ',
-    createURL({
-      domain: toBackend ? baseBeUrl : '',
-      endpoint,
-    }),
-  )
+  // console.log(
+  //   '---> finalUrl ',
+  //   createURL({
+  //     domain: toBackend ? baseBeUrl : '',
+  //     endpoint,
+  //   }),
+  // )
 
   const response = await fetch(
     createURL({
@@ -108,7 +113,7 @@ export const fetchWrapper = async <
       // mode: 'no-cors',
       body:
         method === FetchMethod.POST || method === FetchMethod.PUT
-          ? JSON.stringify(data)
+          ? JSON.stringify(body)
           : undefined,
     },
   )

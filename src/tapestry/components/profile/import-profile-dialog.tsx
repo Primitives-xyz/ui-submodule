@@ -3,7 +3,7 @@
 import { User } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Button } from '../../../components/button'
+import { Button, ButtonVariant } from '../../../components/button'
 import {
   Dialog,
   DialogContent,
@@ -60,12 +60,12 @@ export function ImportProfileDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent
-        className="gap-5"
+        className="gap-6"
         isStatic={createProfileLoading}
         hideCloseButton={createProfileLoading}
       >
         <DialogHeader>
-          <DialogTitle>Select a profile</DialogTitle>
+          <DialogTitle>Select a Tapestry profile</DialogTitle>
         </DialogHeader>
 
         {getProfilesLoading && (
@@ -82,9 +82,10 @@ export function ImportProfileDialog({
                 onClick={() => {
                   onSelectProfile(entry)
                 }}
-                isInvisible
-                className="flex items-center justify-start gap-4 w-full p-2 rounded-sm hover:bg-primary/10"
+                // isInvisible
+                className="flex items-center justify-start gap-4 w-full p-2 rounded-sm h-auto"
                 disabled={createProfileLoading}
+                variant={ButtonVariant.GHOST}
               >
                 <div className="w-11 h-11 bg-accent shrink-0 flex items-center justify-center rounded-full relative">
                   {entry.profile.image ? (
@@ -119,7 +120,7 @@ export function ImportProfileDialog({
                 )}
               </Button>
             ))}
-            <Separator label="OR" className="my-4" />
+            <Separator label="OR" className="mt-6" />
           </div>
         ) : (
           <p className="text-muted-foreground text-center">

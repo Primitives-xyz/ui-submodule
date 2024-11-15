@@ -1,11 +1,24 @@
 export type BLOCKCHAIN = 'Ethereum' | 'Solana'
 
+export interface INameSpace {
+  id: number
+  name: string
+  readableName: string
+  faviconURL: string
+  createdAt: string
+  updatedAt: string
+  isDefault: boolean
+  team_id: number
+}
+
 export interface IProfile {
   id: string
-  created_at: number
+  // created_at: number
   username: string
   bio: string
   image: string
+  namespace: string
+  blockchain: BLOCKCHAIN
 }
 
 // POST /profiles/findOrCreate
@@ -28,7 +41,15 @@ export interface IFindOrCreateProfileResponse {
 // GET /profiles
 
 export interface IGetProfilesResponse {
-  profiles: IProfile[]
+  page: number
+  pageSize: number
+  profiles: {
+    namespace: INameSpace
+    profile: IProfile
+    wallet: {
+      address: string
+    }
+  }[]
 }
 
 // GET /profiles/:id

@@ -27,7 +27,7 @@ export function useMutation<
     fetchWrapper<ResponseType, InputType>({
       method,
       endpoint,
-      data: args.arg,
+      body: args.arg,
       jwt: getJwt ? await getJwt() : undefined,
     }),
   )
