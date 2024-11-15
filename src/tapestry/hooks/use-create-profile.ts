@@ -1,5 +1,5 @@
 import { useMutation } from '../../api/use-mutation'
-import { IFindOrCreateProfileInput } from '../profiles.models'
+import { IFindOrCreateProfileInput } from '../models/profiles.models'
 
 export const useCreateProfile = () => {
   const {

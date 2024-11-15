@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { Button } from '../../components/button'
+import { Button } from '../../../components/button'
 import {
   Form,
   FormControl,
@@ -12,9 +12,9 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from '../../components/form'
-import { useCreateProfile } from '../hooks/use-create-profile'
-import { BLOCKCHAIN } from '../profiles.models'
+} from '../../../components/form'
+import { useCreateProfile } from '../../hooks/use-create-profile'
+import { BLOCKCHAIN } from '../../models/profiles.models'
 
 const formSchema = z.object({
   username: z
