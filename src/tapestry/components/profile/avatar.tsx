@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { cn } from '../../../utils'
 
 interface Props {
-  image: string
+  image?: string
   className?: string
 }
 
