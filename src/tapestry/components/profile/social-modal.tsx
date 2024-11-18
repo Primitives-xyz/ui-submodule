@@ -54,10 +54,18 @@ export function SocialModal({
           </div>
           <div className="h-[400px] overflow-auto">
             <TabsContent value={FollowModalTabs.FOLLOWING}>
-              {!!followingData?.length && <UserList users={followingData} />}
+              {!!followingData?.length ? (
+                <UserList users={followingData} />
+              ) : (
+                <p className="text-muted-foreground">No users</p>
+              )}
             </TabsContent>
             <TabsContent value={FollowModalTabs.FOLLOWERS}>
-              {!!followersData?.length && <UserList users={followersData} />}
+              {!!followersData?.length ? (
+                <UserList users={followersData} />
+              ) : (
+                <p className="text-muted-foreground">No users</p>
+              )}
             </TabsContent>
           </div>
         </Tabs>
