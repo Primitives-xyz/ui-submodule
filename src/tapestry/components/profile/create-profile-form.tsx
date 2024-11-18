@@ -37,7 +37,6 @@ export function CreateProfileForm({
   blockchain,
   onProfileCreated,
 }: Props) {
-  // const { walletAddress, blockchain } = useWallet()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,12 +55,9 @@ export function CreateProfileForm({
 
       onProfileCreated?.()
     } catch (error: any) {
-      if (error?.info?.error) {
-        const errorMessage = JSON.parse(error?.info?.error)
-        form.setError('username', {
-          message: errorMessage?.message ?? 'An error occurred',
-        })
-      }
+      form.setError('username', {
+        message: error?.info?.error ?? 'An error occurred',
+      })
     }
   }
 

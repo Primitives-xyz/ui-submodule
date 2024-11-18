@@ -9,17 +9,18 @@ interface Props {
 
 export function UserList({ users, onClickUser }: Props) {
   return (
-    <div className="max-h-[500px] overflow-auto flex flex-col space-y-4">
+    <div className="flex flex-col space-y-1">
       {users.map((user, index) => (
         <div key={index} className="flex justify-between items-center w-full">
           <Button
-            className="flex items-center justify-start"
+            className="flex items-center justify-start disabled:opacity-100"
             onClick={onClickUser ? () => onClickUser(user) : undefined}
+            disabled={!onClickUser}
             isInvisible
           >
             <div className="flex items-center w-full">
               <div>
-                <Avatar image={user.image} />
+                <Avatar image={user.image} className="w-8 text-lg" />
               </div>
               <div className="ml-4 w-[200px] text-left">
                 <p className="truncate py-2">{user.username}</p>

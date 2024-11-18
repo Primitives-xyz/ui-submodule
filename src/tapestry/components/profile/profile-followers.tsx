@@ -1,10 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import { Button } from '../../../components/button'
 import { Skeleton } from '../../../components/skeleton'
 import { cn, formatNumber } from '../../../utils'
 import { useGetFollowers } from '../../hooks/use-get-followers'
 import { useGetFollowing } from '../../hooks/use-get-following'
+import { FollowModalTabs, SocialModal } from './social-modal'
 
 interface Props {
   username: string
@@ -12,10 +14,10 @@ interface Props {
 }
 
 export function ProfileFollowers({ username, className }: Props) {
-  // const [currentTab, setCurrentTab] = useState<FollowModalTabs>(
-  //   FollowModalTabs.FOLLOWING,
-  // )
-  // const [openFollowModal, setOpenFollowModal] = useState(false)
+  const [currentTab, setCurrentTab] = useState<FollowModalTabs>(
+    FollowModalTabs.FOLLOWING,
+  )
+  const [openModal, setOpenModal] = useState(false)
   const { data: followersData, loading: followersLoading } = useGetFollowers({
     username,
   })
@@ -33,12 +35,13 @@ export function ProfileFollowers({ username, className }: Props) {
         ) : (
           <Button
             onClick={() => {
-              // setCurrentTab(FollowModalTabs.FOLLOWING)
-              // setOpenFollowModal(true)
+              setCurrentTab(FollowModalTabs.FOLLOWING)
+              setOpenModal(true)
             }}
+            disabled={followingData?.profiles.length === 0}
             isInvisible
           >
-            {formatNumber(followersData?.profiles.length ?? 0)} following
+            {formatNumber(followingData?.profiles.length ?? 0)} following
           </Button>
         )}
 
@@ -49,25 +52,25 @@ export function ProfileFollowers({ username, className }: Props) {
         ) : (
           <Button
             onClick={() => {
-              // setCurrentTab(FollowModalTabs.FOLLOWERS)
-              // setOpenFollowModal(true)
+              setCurrentTab(FollowModalTabs.FOLLOWERS)
+              setOpenModal(true)
             }}
+            disabled={followersData?.profiles.length === 0}
             isInvisible
           >
-            {formatNumber(followingData?.profiles.length ?? 0)} followers
+            {formatNumber(followersData?.profiles.length ?? 0)} followers
           </Button>
         )}
       </div>
 
-      {/*       
-      <FollowModal
-        isOpen={openFollowModal}
-        setIsOpen={setOpenFollowModal}
-        currentTab={currentTab}
+      <SocialModal
+        isOpen={openModal}
+        setIsOpen={setOpenModal}
+        defaultTab={currentTab}
         setCurrentTab={setCurrentTab}
-        profileData={profile}
-        socialData={socialData}
-      /> */}
+        followersData={followersData?.profiles}
+        followingData={followingData?.profiles}
+      />
     </>
   )
 }

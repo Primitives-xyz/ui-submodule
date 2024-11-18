@@ -11,7 +11,7 @@ export function Avatar({ image, className }: Props) {
   return (
     <div
       className={cn(
-        'w-11 h-11 bg-muted shrink-0 flex items-center justify-center rounded-full relative',
+        'w-11 aspect-square bg-muted shrink-0 flex items-center justify-center rounded-full relative text-xl',
         className,
       )}
     >
@@ -26,7 +26,7 @@ export function Avatar({ image, className }: Props) {
           />
         </>
       ) : (
-        <User />
+        <User className="icon-text-size" />
       )}
     </div>
   )

@@ -13,13 +13,13 @@ export const useGetFollowing = ({ username }: Props) => {
   })
 
   return {
-    // data,
-    data: {
-      profiles: [
-        { id: 1, username: 'John Doe qwwqe' },
-        { id: 2, username: 'Jane Smith asdasd' },
-      ],
-    },
+    // data: {
+    //   profiles: [
+    //     { id: 1, username: 'John Doe qwwqe' },
+    //     { id: 2, username: 'Jane Smith asdasd' },
+    //   ],
+    // } as any,
+    data,
     loading,
     error,
     refetch,

@@ -1,6 +1,9 @@
 import { IPaginatedResponse } from './common.models'
 
-export type BLOCKCHAIN = 'Ethereum' | 'Solana'
+export enum BLOCKCHAIN {
+  SOLANA = 'SOLANA',
+  ETH = 'ETH',
+}
 
 export interface INameSpace {
   id: number
