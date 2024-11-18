@@ -20,11 +20,12 @@ export enum FollowModalTabs {
 
 interface Props {
   isOpen: boolean
-  setIsOpen: (isOpen: boolean) => void
   defaultTab: FollowModalTabs
-  setCurrentTab: (tab: FollowModalTabs) => void
   followersData?: IProfile[]
   followingData?: IProfile[]
+  walletAddress: string
+  setIsOpen: (isOpen: boolean) => void
+  setCurrentTab: (tab: FollowModalTabs) => void
 }
 
 export function SocialModal({
@@ -34,6 +35,7 @@ export function SocialModal({
   setCurrentTab,
   followersData,
   followingData,
+  walletAddress,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -55,14 +57,14 @@ export function SocialModal({
           <div className="h-[400px] overflow-auto">
             <TabsContent value={FollowModalTabs.FOLLOWING}>
               {!!followingData?.length ? (
-                <UserList users={followingData} />
+                <UserList users={followingData} walletAddress={walletAddress} />
               ) : (
                 <p className="text-muted-foreground">No users</p>
               )}
             </TabsContent>
             <TabsContent value={FollowModalTabs.FOLLOWERS}>
               {!!followersData?.length ? (
-                <UserList users={followersData} />
+                <UserList users={followersData} walletAddress={walletAddress} />
               ) : (
                 <p className="text-muted-foreground">No users</p>
               )}

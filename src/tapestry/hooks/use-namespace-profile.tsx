@@ -6,7 +6,7 @@ interface Props {
 }
 
 export function useNamespaceProfile({ walletAddress }: Props) {
-  const { data } = useGetProfiles({
+  const { data, loading } = useGetProfiles({
     walletAddress,
   })
 
@@ -19,5 +19,6 @@ export function useNamespaceProfile({ walletAddress }: Props) {
 
   return {
     namespaceProfile,
+    loading,
   }
 }

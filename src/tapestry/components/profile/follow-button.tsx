@@ -1,10 +1,11 @@
 'use client'
 
-import { Plus, UserRoundCheck, UserRoundPlus } from 'lucide-react'
+import { UserRoundCheck, UserRoundPlus } from 'lucide-react'
 import { useSWRConfig } from 'swr'
 import { Button } from '../../../components/button'
 import { Spinner } from '../../../components/spinner'
 import { useFollowUser } from '../../hooks/use-follow-user'
+import { useGetFollowing } from '../../hooks/use-get-following'
 import { useGetProfiles } from '../../hooks/use-get-profiles'
 
 interface Props {
@@ -12,8 +13,6 @@ interface Props {
   walletAddress: string | null
   mainUsername: string
   loadingMainUsername: boolean
-  forSuggestedModal?: boolean
-  followingsList?: string[]
 }
 
 export function FollowButton({
@@ -21,15 +20,16 @@ export function FollowButton({
   walletAddress,
   mainUsername,
   loadingMainUsername,
-  forSuggestedModal,
-  followingsList,
 }: Props) {
   const { followUser, loading } = useFollowUser()
   const { mutate } = useSWRConfig()
+
   const { refetch } = useGetProfiles({
     walletAddress: walletAddress || '',
-    shouldIncludeExternalProfiles: false,
   })
+
+  const { data: following } = useGetFollowing({ username: mainUsername })
+  const followingsList = following?.profiles?.map((item) => item.username)
 
   const handleFollow = async () => {
     if (mainUsername && username) {
@@ -53,7 +53,7 @@ export function FollowButton({
   if (followingsList?.includes(username)) {
     return (
       <div className="flex px-4">
-        <UserRoundCheck size={20} />
+        <UserRoundCheck size={15} />
       </div>
     )
   }
@@ -69,24 +69,9 @@ export function FollowButton({
           <Spinner />
         </div>
       ) : (
-        <>
-          {forSuggestedModal ? (
-            <Button variant="outline" size="sm" onClick={handleFollow}>
-              {loading ? (
-                <Spinner />
-              ) : (
-                <>
-                  <Plus size={20} />
-                  Follow
-                </>
-              )}
-            </Button>
-          ) : (
-            <Button onClick={handleFollow} disabled={loading}>
-              {loading ? <Spinner /> : <UserRoundPlus size={20} />}
-            </Button>
-          )}
-        </>
+        <Button onClick={handleFollow} variant="ghost" disabled={loading}>
+          {loading ? <Spinner /> : <UserRoundPlus size={15} />}
+        </Button>
       )}
     </>
   )

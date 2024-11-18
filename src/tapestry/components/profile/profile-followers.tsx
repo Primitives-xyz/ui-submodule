@@ -11,9 +11,14 @@ import { FollowModalTabs, SocialModal } from './social-modal'
 interface Props {
   username: string
   className?: string
+  walletAddress: string
 }
 
-export function ProfileFollowers({ username, className }: Props) {
+export function ProfileFollowers({
+  username,
+  className,
+  walletAddress,
+}: Props) {
   const [currentTab, setCurrentTab] = useState<FollowModalTabs>(
     FollowModalTabs.FOLLOWING,
   )
@@ -70,6 +75,7 @@ export function ProfileFollowers({ username, className }: Props) {
         setCurrentTab={setCurrentTab}
         followersData={followersData?.profiles}
         followingData={followingData?.profiles}
+        walletAddress={walletAddress}
       />
     </>
   )
