@@ -13,6 +13,8 @@
   --popover: var(--foreground);
   --popover-card: 221deg 9% 25%;
   --popover-foreground: var(--background);
+  --popover-muted: var(--popover-foreground) / 0.1;
+  --popover-muted-foreground: var(--muted-foreground);
   /* --popover: var(--background); */
   /* --popover-foreground: var(--foreground); */
 

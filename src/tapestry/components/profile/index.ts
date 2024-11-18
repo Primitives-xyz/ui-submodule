@@ -1,3 +1,6 @@
+export * from './avatar'
 export * from './create-profile-dialog'
 export * from './create-profile-form'
 export * from './import-profile-dialog'
+export * from './social-modal'
+export * from './user-list'

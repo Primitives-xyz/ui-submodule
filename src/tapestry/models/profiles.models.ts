@@ -1,3 +1,5 @@
+import { IPaginatedResponse } from './common.models'
+
 export type BLOCKCHAIN = 'Ethereum' | 'Solana'
 
 export interface INameSpace {
@@ -40,9 +42,7 @@ export interface IFindOrCreateProfileResponse {
 
 // GET /profiles
 
-export interface IGetProfilesResponse {
-  page: number
-  pageSize: number
+export interface IGetProfilesResponse extends IPaginatedResponse {
   profiles: {
     namespace: INameSpace
     profile: IProfile
@@ -77,3 +77,7 @@ export interface IUpdateProfileInput {
 export type IUpdateProfileResponse = IProfile
 
 // GET /profiles/:id/followers
+
+export interface IGetSocialResponse extends IPaginatedResponse {
+  profiles: IProfile[]
+}
