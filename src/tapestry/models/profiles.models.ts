@@ -84,3 +84,23 @@ export type IUpdateProfileResponse = IProfile
 export interface IGetSocialResponse extends IPaginatedResponse {
   profiles: IProfile[]
 }
+
+export interface ISuggestedProfile {
+  namespaces: {
+    name: string
+    readableName: string
+    faviconURL: string
+  }[]
+  profile: {
+    blockchain: string
+    namespace: string
+    id: string
+    username: string
+    image: string
+  }
+  wallet: { address: string }
+}
+
+export interface ISuggestedProfiles {
+  [key: string]: ISuggestedProfile
+}

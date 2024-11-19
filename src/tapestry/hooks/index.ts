@@ -1,4 +1,7 @@
 export * from './use-create-profile'
+export * from './use-follow-user'
+export * from './use-get-profile-info'
 export * from './use-get-profiles'
 export * from './use-namespace-profile'
+export * from './use-suggested'
 export * from './use-update-profile'
