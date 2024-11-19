@@ -15,6 +15,7 @@ interface UseQueryProps {
   skip?: boolean
   config?: SWRConfiguration
   toBackend?: boolean
+  bypassCache?: boolean
   getJwt?: () => Promise<string | undefined>
 }
 
@@ -25,6 +26,7 @@ export function useQuery<ResponseType = unknown, Error = IError>({
   skip,
   config,
   toBackend = true,
+  bypassCache,
   getJwt,
 }: UseQueryProps) {
   const shouldFetch = !!_endpoint && !skip
@@ -47,6 +49,7 @@ export function useQuery<ResponseType = unknown, Error = IError>({
         method: FetchMethod.GET,
         endpoint,
         toBackend,
+        bypassCache,
         jwt: getJwt ? await getJwt() : undefined,
       }),
     config,
