@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-import { cn } from '../../../utils'
+import { cn } from '../../utils'
 
 export function TapestryLogo({
   width = 100,

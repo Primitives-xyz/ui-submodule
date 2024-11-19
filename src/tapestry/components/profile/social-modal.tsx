@@ -3,7 +3,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '../../../components/dialog'
+} from '../../../components/dialog/dialog'
 import {
   Tabs,
   TabsContent,

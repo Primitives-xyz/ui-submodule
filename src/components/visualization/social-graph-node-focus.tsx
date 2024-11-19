@@ -1,4 +1,4 @@
-import { Popover, PopoverAnchor, PopoverContent } from '../popover'
+import { Popover, PopoverAnchor, PopoverContent } from '../popover/popover'
 
 interface Props {
   children: React.ReactNode

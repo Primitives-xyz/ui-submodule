@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '../../../components/dialog'
+} from '../../../components/dialog/dialog'
 import { BLOCKCHAIN } from '../../models/profiles.models'
 import { CreateProfileForm } from './create-profile-form'
 

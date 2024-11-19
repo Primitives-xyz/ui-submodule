@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '../../../components/dialog'
+} from '../../../components/dialog/dialog'
 import { Separator } from '../../../components/separator'
 import { Spinner } from '../../../components/spinner'
 import { useCreateProfile } from '../../hooks/use-create-profile'

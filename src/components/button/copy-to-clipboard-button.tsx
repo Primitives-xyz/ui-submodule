@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '../tooltip'
+} from '../popover/tooltip'
 import { Button, ButtonProps } from './button'
 
 interface Props extends ButtonProps {

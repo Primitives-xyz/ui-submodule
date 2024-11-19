@@ -1,4 +1,9 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '../dialog/dialog'
 import { UploadFileEntry } from './upload-file-entry'
 
 interface Props {
