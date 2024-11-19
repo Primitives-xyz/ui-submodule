@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useGetProfiles } from './use-get-profiles'
 
 interface Props {
-  walletAddress: string
+  walletAddress?: string
 }
 
 export function useNamespaceProfile({ walletAddress }: Props) {
