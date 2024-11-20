@@ -18,7 +18,7 @@ export interface INameSpace {
 
 export interface IProfile {
   id: string
-  // created_at: number
+  created_at: number
   username: string
   bio: string
   image: string
