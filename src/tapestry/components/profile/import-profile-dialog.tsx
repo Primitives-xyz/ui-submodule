@@ -21,6 +21,8 @@ interface Props {
   isOpen: boolean
   walletAddress: string
   blockchain: BLOCKCHAIN
+  isStatic?: boolean
+  hideCloseButton?: boolean
   setIsOpen: (value: boolean) => void
   onProfileCreated: () => void
 }
@@ -29,6 +31,8 @@ export function ImportProfileDialog({
   isOpen,
   walletAddress,
   blockchain,
+  isStatic,
+  hideCloseButton,
   setIsOpen,
   onProfileCreated,
 }: Props) {
@@ -62,8 +66,8 @@ export function ImportProfileDialog({
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent
           className="gap-6"
-          isStatic={createProfileLoading}
-          hideCloseButton={createProfileLoading}
+          isStatic={createProfileLoading || isStatic}
+          hideCloseButton={createProfileLoading || hideCloseButton}
         >
           <DialogHeader>
             <DialogTitle>Select a Tapestry profile</DialogTitle>
@@ -152,6 +156,11 @@ export function ImportProfileDialog({
         }}
         walletAddress={walletAddress}
         blockchain={blockchain}
+        onClose={(event) => {
+          event.preventDefault()
+          setOpenCreateProfileModal(false)
+          setIsOpen(true)
+        }}
       />
     </>
   )

@@ -35,6 +35,13 @@ const DialogContent = React.forwardRef<
     hideCloseButton?: boolean
     hideOverlay?: boolean
     animate?: boolean
+    onClose?: (
+      event:
+        | React.MouseEvent<HTMLButtonElement>
+        | KeyboardEvent
+        | CustomEvent<{ originalEvent: PointerEvent }>
+        | CustomEvent<{ originalEvent: FocusEvent }>,
+    ) => void
   }
 >(
   (
@@ -45,6 +52,7 @@ const DialogContent = React.forwardRef<
       hideCloseButton = false,
       hideOverlay = false,
       animate = true,
+      onClose,
       ...props
     },
     ref,
@@ -69,18 +77,24 @@ const DialogContent = React.forwardRef<
         )}
         onEscapeKeyDown={(event) => {
           if (isStatic) event.preventDefault()
+          onClose?.(event)
         }}
         onPointerDownOutside={(event) => {
           if (isStatic) event.preventDefault()
+          onClose?.(event)
         }}
         onInteractOutside={(event) => {
           if (isStatic) event.preventDefault()
+          onClose?.(event)
         }}
         {...props}
       >
         {children}
         {!hideCloseButton && (
-          <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+          <DialogPrimitive.Close
+            onClick={onClose}
+            className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+          >
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>

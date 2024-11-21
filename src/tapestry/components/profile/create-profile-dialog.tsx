@@ -13,6 +13,13 @@ interface Props {
   isOpen: boolean
   walletAddress: string
   blockchain: BLOCKCHAIN
+  onClose?: (
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | KeyboardEvent
+      | CustomEvent<{ originalEvent: PointerEvent }>
+      | CustomEvent<{ originalEvent: FocusEvent }>,
+  ) => void
   setIsOpen: (value: boolean) => void
   onProfileCreated?: () => void
 }
@@ -21,12 +28,13 @@ export function CreateProfileDialog({
   isOpen,
   walletAddress,
   blockchain,
+  onClose,
   setIsOpen,
   onProfileCreated,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent>
+      <DialogContent onClose={onClose}>
         <DialogHeader>
           <DialogTitle>Create Profile</DialogTitle>
         </DialogHeader>
