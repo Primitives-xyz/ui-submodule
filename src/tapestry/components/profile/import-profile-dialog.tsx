@@ -25,6 +25,7 @@ interface Props {
   hideCloseButton?: boolean
   setIsOpen: (value: boolean) => void
   onProfileCreated: () => void
+  handleLogout?: () => void
 }
 
 export function ImportProfileDialog({
@@ -35,6 +36,7 @@ export function ImportProfileDialog({
   hideCloseButton,
   setIsOpen,
   onProfileCreated,
+  handleLogout,
 }: Props) {
   const { data, loading: getProfilesLoading } = useGetProfiles({
     walletAddress,
@@ -135,15 +137,22 @@ export function ImportProfileDialog({
           )}
 
           {!getProfilesLoading && (
-            <Button
-              onClick={() => {
-                setIsOpen(false)
-                setOpenCreateProfileModal(true)
-              }}
-              disabled={createProfileLoading}
-            >
-              Create a Profile
-            </Button>
+            <div className="flex flex-col gap-3">
+              <Button
+                onClick={() => {
+                  setIsOpen(false)
+                  setOpenCreateProfileModal(true)
+                }}
+                disabled={createProfileLoading}
+              >
+                Create a Profile
+              </Button>
+              {handleLogout && (
+                <Button onClick={handleLogout} variant={ButtonVariant.OUTLINE}>
+                  Logout
+                </Button>
+              )}
+            </div>
           )}
         </DialogContent>
       </Dialog>
