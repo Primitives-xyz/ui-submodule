@@ -21,7 +21,8 @@
   /* --border: 221deg 4% 58%; */
   --border: var(--foreground) / 0.1;
 
-  --input: 0 0% 100%;
+  /* --input: 0 0% 100%; */
+  --input: var(--background) / 0.6;
   --input-foreground: var(--foreground);
   --input-border: var(--foreground) / 0.1;
 
@@ -50,6 +51,7 @@
   /* Radius */
   --radius-card: var(--radius-lg);
   --radius-popover-card: var(--radius-md);
+  --radius-input: var(--radius-md);
 
   /* Dark */
   --background-dark: 221deg 9% 18%;
@@ -57,6 +59,7 @@
 
   /* Shadow */
   --shadow-card: 0 10px 0 0 hsl(var(--primary));
+  --shadow-card-sm: 0 5px 0 0 hsl(var(--primary));
 }
 
 .dark {
