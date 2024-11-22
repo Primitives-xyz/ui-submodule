@@ -33,3 +33,10 @@ export interface IGetContentsResponse extends IPaginatedResponse {
     requestingProfileSocialInfo: IRequestingProfileSocialInfo
   }[]
 }
+
+// GET /contents/[id]
+
+export interface IGetContentResponse {
+  content: IContent
+  socialCounts: ISocialCounts
+}
