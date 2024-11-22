@@ -8,6 +8,7 @@ export interface IContent {
   // appNamespace: string
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IRequestingProfileSocialInfo {}
 
 // POST /contents/findOrCreate

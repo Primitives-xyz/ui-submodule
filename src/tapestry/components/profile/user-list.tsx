@@ -20,7 +20,7 @@ export function UserList({ users, onClickUser, walletAddress }: Props) {
   return (
     <div className="flex flex-col items-start space-y-1">
       {users.map((user, index) => (
-        <div className="flex justify-between items-center w-full">
+        <div key={index} className="flex justify-between items-center w-full">
           <Button
             key={index}
             className="flex items-center gap-3 disabled:opacity-100 text-left py-1"

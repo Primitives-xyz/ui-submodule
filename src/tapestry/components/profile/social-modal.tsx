@@ -32,7 +32,6 @@ export function SocialModal({
   isOpen,
   setIsOpen,
   defaultTab,
-  setCurrentTab,
   followersData,
   followingData,
   walletAddress,
