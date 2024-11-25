@@ -11,13 +11,13 @@ import { FollowModalTabs, SocialModal } from './social-modal'
 interface Props {
   username: string
   className?: string
-  walletAddress: string
+  skeletonClassName?: string
 }
 
 export function ProfileFollowers({
   username,
   className,
-  walletAddress,
+  skeletonClassName,
 }: Props) {
   const [currentTab, setCurrentTab] = useState<FollowModalTabs>(
     FollowModalTabs.FOLLOWING,
@@ -36,7 +36,7 @@ export function ProfileFollowers({
     <>
       <div className={cn('flex items-center gap-2', className)}>
         {loading ? (
-          <Skeleton className="w-[80px] h-[12px] bg-popover-muted" />
+          <Skeleton className={cn('w-[80px] h-[12px]', skeletonClassName)} />
         ) : (
           <Button
             onClick={() => {
@@ -53,7 +53,7 @@ export function ProfileFollowers({
         <span>|</span>
 
         {loading ? (
-          <Skeleton className="w-[80px] h-[12px] bg-popover-muted" />
+          <Skeleton className={cn('w-[80px] h-[12px]', skeletonClassName)} />
         ) : (
           <Button
             onClick={() => {
@@ -72,10 +72,9 @@ export function ProfileFollowers({
         isOpen={openModal}
         setIsOpen={setOpenModal}
         defaultTab={currentTab}
-        setCurrentTab={setCurrentTab}
         followersData={followersData?.profiles}
         followingData={followingData?.profiles}
-        walletAddress={walletAddress}
+        currentUsername={username}
       />
     </>
   )

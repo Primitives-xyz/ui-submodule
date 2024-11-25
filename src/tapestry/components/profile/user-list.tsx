@@ -1,22 +1,17 @@
 'use client'
 
+import { ReactNode } from 'react'
 import { Button } from '../../../components/button'
-import { useNamespaceProfile } from '../../hooks/use-namespace-profile'
 import { IProfile } from '../../models'
 import { Avatar } from './avatar'
-import { FollowButton } from './follow-button'
 
 interface Props {
   users: IProfile[]
   onClickUser?: (user: IProfile) => void
-  walletAddress: string
+  userAction?: (user: IProfile) => ReactNode
 }
 
-export function UserList({ users, onClickUser, walletAddress }: Props) {
-  const { namespaceProfile, loading } = useNamespaceProfile({
-    walletAddress,
-  })
-
+export function UserList({ users, onClickUser, userAction }: Props) {
   return (
     <div className="flex flex-col items-start space-y-1">
       {users.map((user, index) => (
@@ -33,14 +28,7 @@ export function UserList({ users, onClickUser, walletAddress }: Props) {
             </div>
             <p className="w-[150px] truncate">{user.username}</p>
           </Button>
-          {walletAddress && (
-            <FollowButton
-              username={user.username}
-              walletAddress={walletAddress}
-              mainUsername={namespaceProfile?.profile.username || ''}
-              loadingMainUsername={loading}
-            />
-          )}
+          {!!userAction && userAction(user)}
         </div>
       ))}
     </div>

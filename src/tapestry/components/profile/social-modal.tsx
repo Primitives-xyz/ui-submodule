@@ -11,6 +11,7 @@ import {
   TabsTrigger,
 } from '../../../components/tabs'
 import { IProfile } from '../../models'
+import { FollowButton } from './follow-button'
 import { UserList } from './user-list'
 
 export enum FollowModalTabs {
@@ -20,12 +21,11 @@ export enum FollowModalTabs {
 
 interface Props {
   isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
   defaultTab: FollowModalTabs
   followersData?: IProfile[]
   followingData?: IProfile[]
-  walletAddress: string
-  setIsOpen: (isOpen: boolean) => void
-  setCurrentTab: (tab: FollowModalTabs) => void
+  currentUsername: string
 }
 
 export function SocialModal({
@@ -34,7 +34,7 @@ export function SocialModal({
   defaultTab,
   followersData,
   followingData,
-  walletAddress,
+  currentUsername,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -56,14 +56,30 @@ export function SocialModal({
           <div className="h-[400px] overflow-auto">
             <TabsContent value={FollowModalTabs.FOLLOWING}>
               {!!followingData?.length ? (
-                <UserList users={followingData} walletAddress={walletAddress} />
+                <UserList
+                  users={followingData}
+                  userAction={(user) => (
+                    <FollowButton
+                      usernameToFollow={user.username}
+                      currentUsername={currentUsername}
+                    />
+                  )}
+                />
               ) : (
                 <p className="text-muted-foreground">No users</p>
               )}
             </TabsContent>
             <TabsContent value={FollowModalTabs.FOLLOWERS}>
               {!!followersData?.length ? (
-                <UserList users={followersData} walletAddress={walletAddress} />
+                <UserList
+                  users={followersData}
+                  userAction={(user) => (
+                    <FollowButton
+                      usernameToFollow={user.username}
+                      currentUsername={currentUsername}
+                    />
+                  )}
+                />
               ) : (
                 <p className="text-muted-foreground">No users</p>
               )}

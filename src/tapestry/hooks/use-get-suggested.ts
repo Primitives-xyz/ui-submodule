@@ -8,14 +8,14 @@ interface Props {
   ownAppOnly: boolean
 }
 
-export function useSuggested({ walletAddress, ownAppOnly }: Props) {
+export function useGetSuggested({ walletAddress, ownAppOnly }: Props) {
   const {
     data: profiles,
     error,
     loading,
     refetch,
   } = useQuery<ISuggestedProfiles[]>({
-    endpoint: '/profiles/suggested',
+    endpoint: 'profiles/suggested',
     queryParams: {
       walletAddress,
       ownAppOnly: ownAppOnly.toString(),

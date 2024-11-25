@@ -2,20 +2,17 @@
 
 import { useMutation } from '../../api/use-mutation'
 
-interface FollowUserProps {
+interface Props {
   followerUsername: string
   followeeUsername: string
 }
 
 export const useFollowUser = () => {
   const { mutate, loading, error, data } = useMutation({
-    endpoint: '/followers/add',
+    endpoint: 'followers/add',
   })
 
-  const followUser = async ({
-    followerUsername,
-    followeeUsername,
-  }: FollowUserProps) => {
+  const followUser = async ({ followerUsername, followeeUsername }: Props) => {
     try {
       await mutate({
         followerUser: { username: followerUsername },
