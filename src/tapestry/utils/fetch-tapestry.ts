@@ -6,6 +6,11 @@ export const fetchTapestry = async <
 >(
   args: FetchParams<InputType>,
 ): Promise<ResponseType> => {
+  // do a check to make sure were not in the browser
+  if (typeof window !== 'undefined') {
+    return {} as ResponseType
+  }
+
   if (!process.env.TAPESTRY_URL) {
     throw new Error('Missing env var TAPESTRY_URL')
   }

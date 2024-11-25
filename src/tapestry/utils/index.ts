@@ -1,1 +1,1 @@
-// export * from './fetch-tapestry'
+export * from './fetch-tapestry'
