@@ -16,12 +16,10 @@ export interface IRequestingProfileSocialInfo {}
 export interface IFindOrCreateContentInput {
   id: string
   profileId: string
-  properties: [
-    {
-      key: string
-      value: string
-    },
-  ]
+  properties: {
+    key: string
+    value: string
+  }[]
 }
 
 // GET /contents
