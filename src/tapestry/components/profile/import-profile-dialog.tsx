@@ -83,9 +83,9 @@ export function ImportProfileDialog({
 
           {!!data?.profiles?.length && (
             <div className="divide-y">
-              {data?.profiles?.map((entry) => (
+              {data?.profiles?.map((entry, index) => (
                 <Button
-                  key={entry.profile.id}
+                  key={index}
                   onClick={() => {
                     onSelectProfile(entry.profile)
                   }}

@@ -5,7 +5,6 @@ export interface IContent {
   namespace: string
   created_at: number
   id: string
-  // appNamespace: string
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -24,10 +23,10 @@ export interface IFindOrCreateContentInput {
 
 // GET /contents
 
-export interface IGetContentsResponse extends IPaginatedResponse {
+export interface IGetContentsResponse<T = IContent> extends IPaginatedResponse {
   contents: {
     authorProfile: IProfile
-    content: IContent
+    content: T
     socialCounts: ISocialCounts
     requestingProfileSocialInfo: IRequestingProfileSocialInfo
   }[]
@@ -35,7 +34,8 @@ export interface IGetContentsResponse extends IPaginatedResponse {
 
 // GET /contents/[id]
 
-export interface IGetContentResponse {
-  content: IContent
+export interface IGetContentResponse<T = IContent> {
+  content: T
+  authorProfile: IProfile
   socialCounts: ISocialCounts
 }
