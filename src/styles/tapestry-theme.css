@@ -59,4 +59,5 @@
   --foreground: var(--foreground-dark);
   --secondary-foreground: 221deg 9% 18%;
   --card: var(--background-dark);
+  --input-foreground: var(--background-dark);
 }
