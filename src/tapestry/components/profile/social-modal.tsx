@@ -1,5 +1,3 @@
-import { Check, UserRoundPlus } from 'lucide-react'
-import { ButtonSize, ButtonVariant } from '../../../components'
 import {
   Dialog,
   DialogContent,
@@ -13,8 +11,7 @@ import {
   TabsTrigger,
 } from '../../../components/tabs'
 import { IProfile } from '../../models'
-import { FollowButton } from './follow-button'
-import { UserList } from './user-list'
+import { SocialUserList } from './social-user-list'
 
 export enum FollowModalTabs {
   FOLLOWING = 'following',
@@ -58,28 +55,9 @@ export function SocialModal({
           <div className="h-[400px] overflow-auto">
             <TabsContent value={FollowModalTabs.FOLLOWING}>
               {!!followingData?.length ? (
-                <UserList
+                <SocialUserList
                   users={followingData}
-                  userAction={
-                    !!currentUsername
-                      ? (user) => (
-                          <FollowButton
-                            usernameToFollow={user.username}
-                            currentUsername={currentUsername}
-                            variant={ButtonVariant.GHOST}
-                            size={ButtonSize.ICON}
-                          >
-                            {(isFollowing) => {
-                              return isFollowing ? (
-                                <Check size={16} />
-                              ) : (
-                                <UserRoundPlus size={16} />
-                              )
-                            }}
-                          </FollowButton>
-                        )
-                      : undefined
-                  }
+                  currentUsername={currentUsername}
                 />
               ) : (
                 <p className="text-muted-foreground">No users</p>
@@ -87,28 +65,9 @@ export function SocialModal({
             </TabsContent>
             <TabsContent value={FollowModalTabs.FOLLOWERS}>
               {!!followersData?.length ? (
-                <UserList
+                <SocialUserList
                   users={followersData}
-                  userAction={
-                    !!currentUsername
-                      ? (user) => (
-                          <FollowButton
-                            usernameToFollow={user.username}
-                            currentUsername={currentUsername}
-                            variant={ButtonVariant.GHOST}
-                            size={ButtonSize.ICON}
-                          >
-                            {(isFollowing) => {
-                              return isFollowing ? (
-                                <Check size={16} />
-                              ) : (
-                                <UserRoundPlus size={16} />
-                              )
-                            }}
-                          </FollowButton>
-                        )
-                      : undefined
-                  }
+                  currentUsername={currentUsername}
                 />
               ) : (
                 <p className="text-muted-foreground">No users</p>
