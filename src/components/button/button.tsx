@@ -77,7 +77,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const content = (
       <>
         {loading && <Spinner className="icon-text-size" />}
-        {props.children}
+        {(!loading || !size?.includes('icon')) && props.children}
       </>
     )
     const disabled = props.disabled || loading

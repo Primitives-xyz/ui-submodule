@@ -1,43 +1,44 @@
 'use client'
 
-import { UserRoundCheck, UserRoundPlus } from 'lucide-react'
-import { useSWRConfig } from 'swr'
-import { Button, ButtonSize, ButtonVariant } from '../../../components/button'
-import { Spinner } from '../../../components/spinner'
+import { Check } from 'lucide-react'
+import { Button, ButtonProps } from '../../../components/button'
 import { useFollowUser } from '../../hooks/use-follow-user'
 import { useGetFollowing } from '../../hooks/use-get-following'
 
-interface Props {
+interface Props extends Omit<ButtonProps, 'children'> {
   currentUsername: string
   usernameToFollow: string
+  children?: (isFollowing: boolean) => React.ReactNode
 }
 
-export function FollowButton({ usernameToFollow, currentUsername }: Props) {
-  const { followUser, loading } = useFollowUser()
-  const { mutate } = useSWRConfig()
-  const { data: following } = useGetFollowing({ username: currentUsername })
+export function FollowButton({
+  usernameToFollow,
+  currentUsername,
+  children,
+  ...props
+}: Props) {
+  // const { mutate } = useSWRConfig()
+  const { followUser, loading: followUSerLoading } = useFollowUser()
+  const {
+    data: followingData,
+    loading: getFollowingLoading,
+    refetch,
+  } = useGetFollowing({
+    username: currentUsername,
+  })
 
-  const followingsList = following?.profiles?.map((item) => item.username)
+  const followingsList = followingData?.profiles?.map((item) => item.username)
+  const loading = followUSerLoading || getFollowingLoading
+  const isFollowing = !!followingsList?.includes(usernameToFollow)
 
   const handleFollow = async () => {
-    if (currentUsername && usernameToFollow) {
-      await followUser({
-        followerUsername: currentUsername,
-        followeeUsername: usernameToFollow,
-      })
+    await followUser({
+      followerUsername: currentUsername,
+      followeeUsername: usernameToFollow,
+    })
 
-      await mutate(
-        (key) => typeof key === 'string' && key.includes('following'),
-      )
-    }
-  }
-
-  if (followingsList?.includes(usernameToFollow)) {
-    return (
-      <div className="flex px-4">
-        <UserRoundCheck size={15} />
-      </div>
-    )
+    // await mutate((key) => typeof key === 'string' && key.includes('following'))
+    refetch()
   }
 
   if (currentUsername === usernameToFollow) {
@@ -46,12 +47,24 @@ export function FollowButton({ usernameToFollow, currentUsername }: Props) {
 
   return (
     <Button
+      {...props}
       onClick={handleFollow}
-      variant={ButtonVariant.GHOST}
-      size={ButtonSize.ICON}
-      disabled={loading}
+      disabled={loading || isFollowing}
+      loading={loading}
     >
-      {loading ? <Spinner /> : <UserRoundPlus size={15} />}
+      {!!children ? (
+        children(isFollowing)
+      ) : (
+        <>
+          {isFollowing ? (
+            <>
+              <Check size={18} /> Following
+            </>
+          ) : (
+            <>Follow</>
+          )}
+        </>
+      )}
     </Button>
   )
 }

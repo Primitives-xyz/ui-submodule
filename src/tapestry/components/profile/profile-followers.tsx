@@ -10,12 +10,14 @@ import { FollowModalTabs, SocialModal } from './social-modal'
 
 interface Props {
   username: string
+  currentUsername?: string
   className?: string
   skeletonClassName?: string
 }
 
 export function ProfileFollowers({
   username,
+  currentUsername,
   className,
   skeletonClassName,
 }: Props) {
@@ -74,7 +76,7 @@ export function ProfileFollowers({
         defaultTab={currentTab}
         followersData={followersData?.profiles}
         followingData={followingData?.profiles}
-        currentUsername={username}
+        currentUsername={currentUsername}
       />
     </>
   )
