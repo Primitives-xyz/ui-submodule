@@ -58,7 +58,7 @@ export function FollowButton({
         <>
           {isFollowing ? (
             <>
-              <Check size={18} /> Following
+              <Check className="icon-text-size" /> Following
             </>
           ) : (
             <>Follow</>
