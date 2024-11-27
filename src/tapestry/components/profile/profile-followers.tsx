@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Button } from '../../../components/button'
 import { Skeleton } from '../../../components/skeleton'
-import { cn, formatNumber } from '../../../utils'
+import { cn, formatNumber } from '../../../utils/utils'
 import { useGetFollowers } from '../../hooks/use-get-followers'
 import { useGetFollowing } from '../../hooks/use-get-following'
 import { FollowModalTabs, SocialModal } from './social-modal'

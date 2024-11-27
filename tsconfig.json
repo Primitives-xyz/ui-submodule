@@ -16,7 +16,8 @@
   "include": [
     "src",
     "../app/components/auth/profile-dialog.tsx",
-    "../app/components/auth/create-profile-dialog.tsx"
+    "../app/components/auth/create-profile-dialog.tsx",
+    "../components/app-page/edit-app-form.tsx"
   ],
   "exclude": ["node_modules", "dist"]
 }

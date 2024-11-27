@@ -1,4 +1,4 @@
-import { cn, mapEmpty } from '../../utils'
+import { cn, mapEmpty } from '../../utils/utils'
 import { ScrollingTextItem } from './scrolling-text-item'
 
 export interface Props {

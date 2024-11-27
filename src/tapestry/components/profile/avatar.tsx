@@ -1,6 +1,6 @@
 import { User } from 'lucide-react'
 import Image from 'next/image'
-import { cn } from '../../../utils'
+import { cn } from '../../../utils/utils'
 
 interface Props {
   image?: string

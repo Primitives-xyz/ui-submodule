@@ -39,3 +39,12 @@ export interface IGetContentResponse<T = IContent> {
   authorProfile: IProfile
   socialCounts: ISocialCounts
 }
+
+// PUT /contents/[id]
+
+export interface IUpdateContentInput {
+  properties: {
+    key: string
+    value: string
+  }[]
+}
