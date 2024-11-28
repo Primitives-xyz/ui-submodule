@@ -3,11 +3,13 @@ import { useGetProfiles } from './use-get-profiles'
 
 interface Props {
   walletAddress?: string
+  phoneNumber?: string
 }
 
-export function useNamespaceProfile({ walletAddress }: Props) {
-  const { data, loading } = useGetProfiles({
+export function useNamespaceProfile({ walletAddress, phoneNumber }: Props) {
+  const { data, loading, refetch } = useGetProfiles({
     walletAddress,
+    phoneNumber,
   })
 
   const namespaceProfile = useMemo(() => {
@@ -20,5 +22,6 @@ export function useNamespaceProfile({ walletAddress }: Props) {
   return {
     namespaceProfile,
     loading,
+    refetch,
   }
 }
