@@ -30,9 +30,9 @@ export interface IProfile {
 
 export interface IFindOrCreateProfileInput {
   username: string
-  blockchain: BLOCKCHAIN
+  blockchain?: BLOCKCHAIN
   // execution: string
-  walletAddress: string
+  walletAddress?: string
   id?: string
   image?: string
   bio?: string
