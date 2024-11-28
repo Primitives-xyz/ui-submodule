@@ -42,7 +42,7 @@ export function ButtonInputFile({
           ref={inputRef}
           type="file"
           onChange={handleFileChange}
-          className="hidden"
+          containerClassName="hidden"
           maxLength={maxFileSize}
           accept={acceptedFileType}
         />
