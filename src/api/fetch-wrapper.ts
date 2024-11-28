@@ -88,7 +88,6 @@ export const fetchWrapper = async <
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
 
-  // console.log('---> baseBeUrl ', baseBeUrl)
   // console.log(
   //   '---> finalUrl ',
   //   createURL({
