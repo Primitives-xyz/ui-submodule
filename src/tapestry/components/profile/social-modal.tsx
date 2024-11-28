@@ -25,6 +25,7 @@ interface Props {
   followersData?: IProfile[]
   followingData?: IProfile[]
   currentUsername?: string
+  onClickUser?: (user: IProfile) => void
 }
 
 export function SocialModal({
@@ -34,6 +35,7 @@ export function SocialModal({
   followersData,
   followingData,
   currentUsername,
+  onClickUser,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -58,6 +60,7 @@ export function SocialModal({
                 <SocialUserList
                   users={followingData}
                   currentUsername={currentUsername}
+                  onClickUser={onClickUser}
                 />
               ) : (
                 <p className="text-muted-foreground">No users</p>
@@ -68,6 +71,7 @@ export function SocialModal({
                 <SocialUserList
                   users={followersData}
                   currentUsername={currentUsername}
+                  onClickUser={onClickUser}
                 />
               ) : (
                 <p className="text-muted-foreground">No users</p>

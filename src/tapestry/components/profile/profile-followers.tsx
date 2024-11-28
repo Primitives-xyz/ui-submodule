@@ -6,6 +6,7 @@ import { Skeleton } from '../../../components/skeleton'
 import { cn, formatNumber } from '../../../utils/utils'
 import { useGetFollowers } from '../../hooks/use-get-followers'
 import { useGetFollowing } from '../../hooks/use-get-following'
+import { IProfile } from '../../models'
 import { FollowModalTabs, SocialModal } from './social-modal'
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
   currentUsername?: string
   className?: string
   skeletonClassName?: string
+  onClickUser?: (user: IProfile) => void
 }
 
 export function ProfileFollowers({
@@ -20,6 +22,7 @@ export function ProfileFollowers({
   currentUsername,
   className,
   skeletonClassName,
+  onClickUser,
 }: Props) {
   const [currentTab, setCurrentTab] = useState<FollowModalTabs>(
     FollowModalTabs.FOLLOWING,
@@ -77,6 +80,7 @@ export function ProfileFollowers({
         followersData={followersData?.profiles}
         followingData={followingData?.profiles}
         currentUsername={currentUsername}
+        onClickUser={onClickUser}
       />
     </>
   )

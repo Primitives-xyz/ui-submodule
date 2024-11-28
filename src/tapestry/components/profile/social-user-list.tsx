@@ -12,12 +12,14 @@ export enum FollowModalTabs {
 interface Props {
   users: IProfile[]
   currentUsername?: string
+  onClickUser?: (user: IProfile) => void
 }
 
-export function SocialUserList({ users, currentUsername }: Props) {
+export function SocialUserList({ users, currentUsername, onClickUser }: Props) {
   return (
     <UserList
       users={users}
+      onClickUser={onClickUser}
       userAction={
         !!currentUsername
           ? (user) => (

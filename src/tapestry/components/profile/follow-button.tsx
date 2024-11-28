@@ -2,7 +2,9 @@
 
 import { Check } from 'lucide-react'
 import { Button, ButtonProps } from '../../../components/button'
+import { revalidateServerCache } from '../../../utils'
 import { useFollowUser } from '../../hooks/use-follow-user'
+import { useGetFollowers } from '../../hooks/use-get-followers'
 import { useGetFollowing } from '../../hooks/use-get-following'
 
 interface Props extends Omit<ButtonProps, 'children'> {
@@ -22,9 +24,12 @@ export function FollowButton({
   const {
     data: followingData,
     loading: getFollowingLoading,
-    refetch,
+    refetch: refetchGetFollowing,
   } = useGetFollowing({
     username: currentUsername,
+  })
+  const { refetch: refetchGetFollowers } = useGetFollowers({
+    username: usernameToFollow,
   })
 
   const followingsList = followingData?.profiles?.map((item) => item.username)
@@ -37,8 +42,10 @@ export function FollowButton({
       followeeUsername: usernameToFollow,
     })
 
-    // await mutate((key) => typeof key === 'string' && key.includes('following'))
-    refetch()
+    refetchGetFollowing()
+    refetchGetFollowers()
+    revalidateServerCache(`/api/profile/${currentUsername}/following`)
+    revalidateServerCache(`/api/profile/${usernameToFollow}/followers`)
   }
 
   if (currentUsername === usernameToFollow) {
