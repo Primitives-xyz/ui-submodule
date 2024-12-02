@@ -14,12 +14,16 @@ export const fetchTapestry = async <
     throw new Error('Missing env var TAPESTRY_API_KEY')
   }
 
+  const url = createURL({
+    domain: process.env.TAPESTRY_URL,
+    endpoint: args.endpoint,
+  })
+
+  console.log('Fetch URL:', url)
+
   return fetchWrapper({
     ...args,
-    endpoint: createURL({
-      domain: process.env.TAPESTRY_URL,
-      endpoint: args.endpoint,
-    }),
+    endpoint: url,
     queryParams: {
       ...args.queryParams,
       apiKey: process.env.TAPESTRY_API_KEY,
