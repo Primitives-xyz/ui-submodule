@@ -2,15 +2,17 @@ import { LoaderCircle } from 'lucide-react'
 import { cn } from '../utils/utils'
 
 export function Spinner({
+  size = 24,
   large = false,
   className,
 }: {
+  size?: number
   large?: boolean
   className?: string
 }) {
   return (
     <LoaderCircle
-      size={large ? 32 : undefined}
+      size={large ? 32 : size}
       className={cn('animate-spin', className)}
     />
   )
