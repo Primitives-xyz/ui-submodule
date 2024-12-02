@@ -29,6 +29,8 @@ export function useUploadFiles({ getUploadUrl, onSuccess }: Props) {
     ) {
       setModalIsOpen(false)
       onSuccess(uploadedFiles)
+      setFilesToUpload([])
+      setUploadedFiles([])
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

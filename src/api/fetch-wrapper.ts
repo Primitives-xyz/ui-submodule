@@ -87,35 +87,27 @@ export const fetchWrapper = async <
   }
 
   const baseBeUrl = process.env.NEXT_PUBLIC_SERVER_URL || '/api'
+  const url = createURL({
+    domain: toBackend ? baseBeUrl : '',
+    endpoint,
+  })
 
-  // console.log(
-  //   '---> finalUrl ',
-  //   createURL({
-  //     domain: toBackend ? baseBeUrl : '',
-  //     endpoint,
-  //   }),
-  // )
+  // console.log('---> finalUrl ', url)
 
-  const response = await fetch(
-    createURL({
-      domain: toBackend ? baseBeUrl : '',
-      endpoint,
-    }),
-    {
-      method,
-      headers,
-      ...(bypassCache ? { cache: 'no-store' } : {}),
-      // @ts-ignore
-      next: {
-        revalidate,
-      },
-      // mode: 'no-cors',
-      body:
-        method === FetchMethod.POST || method === FetchMethod.PUT
-          ? JSON.stringify(body)
-          : undefined,
+  const response = await fetch(url, {
+    method,
+    headers,
+    ...(bypassCache ? { cache: 'no-store' } : {}),
+    // @ts-ignore
+    next: {
+      revalidate,
     },
-  )
+    // mode: 'no-cors',
+    body:
+      method === FetchMethod.POST || method === FetchMethod.PUT
+        ? JSON.stringify(body)
+        : undefined,
+  })
 
   if (!response.ok) {
     const error: IError = {
