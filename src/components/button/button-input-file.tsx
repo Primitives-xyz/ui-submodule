@@ -1,18 +1,21 @@
 'use client'
 
 import { ChangeEvent, useRef, useState } from 'react'
+import { cn } from '../../utils'
 import { Input } from '../form/input'
 import { Button, ButtonProps } from './button'
 
 interface Props extends ButtonProps {
   acceptedFileType?: string
   maxFileSize?: number
+  containerClassName?: string
   onFileChange: (file: File) => void
 }
 
 export function ButtonInputFile({
   acceptedFileType = 'image/*',
   maxFileSize = 5e6, // 5mb
+  containerClassName,
   onFileChange,
   ...props
 }: Props) {
@@ -36,7 +39,7 @@ export function ButtonInputFile({
   }
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className={cn('flex flex-col gap-1', containerClassName)}>
       <Button onClick={handleClick} {...props}>
         <Input
           ref={inputRef}
