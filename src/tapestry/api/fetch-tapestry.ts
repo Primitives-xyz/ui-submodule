@@ -19,8 +19,6 @@ export const fetchTapestry = async <
     endpoint: args.endpoint,
   })
 
-  console.log('Fetch URL:', url)
-
   return fetchWrapper({
     ...args,
     endpoint: url,
