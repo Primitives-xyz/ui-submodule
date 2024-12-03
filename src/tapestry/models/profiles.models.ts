@@ -24,6 +24,7 @@ export interface IProfile {
   image: string
   namespace: string
   blockchain: BLOCKCHAIN
+  isWaitListed?: boolean
 }
 
 // POST /profiles/findOrCreate
