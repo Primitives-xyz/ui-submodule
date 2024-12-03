@@ -92,7 +92,7 @@ export const fetchWrapper = async <
     endpoint,
   })
 
-  console.log('---> finalUrl ', url)
+  // console.log('---> finalUrl ', url)
 
   const response = await fetch(url, {
     method,
