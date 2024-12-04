@@ -70,5 +70,5 @@
   --border: var(--foreground-dark) / 0.1;
   --muted: var(--foreground-dark) / 0.1;
   --muted-foreground: var(--foreground-dark) / 0.6;
-  --input-foreground: var(--background-dark);
+  --input-foreground: var(--foreground-dark);
 }
