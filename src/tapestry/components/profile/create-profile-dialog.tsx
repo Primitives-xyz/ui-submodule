@@ -11,8 +11,9 @@ import { CreateProfileForm } from './create-profile-form'
 
 interface Props {
   isOpen: boolean
-  walletAddress: string
-  blockchain: BLOCKCHAIN
+  phoneNumber?: string
+  walletAddress?: string
+  blockchain?: BLOCKCHAIN
   onClose?: (
     event:
       | React.MouseEvent<HTMLButtonElement>
@@ -26,6 +27,7 @@ interface Props {
 
 export function CreateProfileDialog({
   isOpen,
+  phoneNumber,
   walletAddress,
   blockchain,
   onClose,
@@ -40,6 +42,7 @@ export function CreateProfileDialog({
         </DialogHeader>
         <CreateProfileForm
           onProfileCreated={onProfileCreated}
+          phoneNumber={phoneNumber}
           walletAddress={walletAddress}
           blockchain={blockchain}
         />

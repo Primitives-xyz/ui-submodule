@@ -19,8 +19,9 @@ import { CreateProfileDialog } from './create-profile-dialog'
 
 interface Props {
   isOpen: boolean
-  walletAddress: string
-  blockchain: BLOCKCHAIN
+  phoneNumber?: string
+  walletAddress?: string
+  blockchain?: BLOCKCHAIN
   isStatic?: boolean
   hideCloseButton?: boolean
   setIsOpen: (value: boolean) => void
@@ -30,6 +31,7 @@ interface Props {
 
 export function ImportProfileDialog({
   isOpen,
+  phoneNumber,
   walletAddress,
   blockchain,
   isStatic,
@@ -40,6 +42,7 @@ export function ImportProfileDialog({
 }: Props) {
   const { data, loading: getProfilesLoading } = useGetProfiles({
     walletAddress,
+    phoneNumber,
   })
   const { createProfile, loading: createProfileLoading } = useCreateProfile()
   const [newProfileId, setNewProfileId] = useState<string>()
@@ -51,6 +54,7 @@ export function ImportProfileDialog({
 
       await createProfile({
         username: entry.username,
+        phoneNumber,
         walletAddress,
         blockchain,
       })
@@ -163,6 +167,7 @@ export function ImportProfileDialog({
           onProfileCreated()
           setOpenCreateProfileModal(false)
         }}
+        phoneNumber={phoneNumber}
         walletAddress={walletAddress}
         blockchain={blockchain}
         onClose={(event) => {
