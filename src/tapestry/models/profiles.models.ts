@@ -2,7 +2,7 @@ import { IPaginatedResponse } from './common.models'
 
 export enum BLOCKCHAIN {
   SOLANA = 'SOLANA',
-  ETH = 'ETH',
+  ETHEREUM = 'ETHEREUM',
 }
 
 export interface INameSpace {
