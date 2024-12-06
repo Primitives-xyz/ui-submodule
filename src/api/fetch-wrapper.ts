@@ -57,6 +57,7 @@ interface FetchParams<InputType> {
   jwt?: string
   bypassCache?: boolean
   revalidate?: number
+  tags?: string[]
 }
 
 export const fetchWrapper = async <
@@ -71,6 +72,7 @@ export const fetchWrapper = async <
   jwt,
   bypassCache = false,
   revalidate,
+  tags,
 }: FetchParams<InputType>): Promise<ResponseType> => {
   if (queryParams) {
     endpoint = getUrlWithQueryParameters<Record<string, string>>(
@@ -101,6 +103,7 @@ export const fetchWrapper = async <
     // @ts-ignore
     next: {
       revalidate,
+      tags,
     },
     // mode: 'no-cors',
     body:
