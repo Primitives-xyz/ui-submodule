@@ -1,13 +1,13 @@
 import { useMutation } from '../../api/use-mutation'
 import { IFindOrCreateProfileInput } from '../models/profiles.models'
 
-export const useCreateProfile = () => {
+export const useCreateProfile = <T = IFindOrCreateProfileInput>() => {
   const {
     mutate: createProfile,
     loading,
     error,
     data,
-  } = useMutation<null, IFindOrCreateProfileInput>({
+  } = useMutation<null, T>({
     endpoint: 'profiles/create',
   })
 
