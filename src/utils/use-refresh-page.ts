@@ -25,5 +25,7 @@ export const useRefreshPage = () => {
     [push, refresh],
   )
 
-  return { refreshPage }
+  return {
+    refreshPage,
+  }
 }
