@@ -17,6 +17,7 @@
   --dynamic-brand-primary-color: hsl(var(--primary));
   --dynamic-connect-button-background: hsl(var(--primary));
   --dynamic-connect-button-background-hover: hsla(var(--primary) / 0.8);
+
   --dynamic-text-link: hsl(var(--primary));
 
   /* --dynamic-wallet-list-tile-background: hsl(var(--secondary)); */
