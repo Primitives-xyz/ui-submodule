@@ -15,7 +15,7 @@ import { Spinner } from '../../../components/spinner'
 import { useCreateProfile } from '../../hooks/use-create-profile'
 import { useGetProfiles } from '../../hooks/use-get-profiles'
 import { BLOCKCHAIN, IProfile } from '../../models/profiles.models'
-import { CreateProfileDialog } from './create-profile-dialog'
+import { EditProfileDialog } from './edit-profile-dialog'
 
 interface Props {
   isOpen: boolean
@@ -160,10 +160,10 @@ export function ImportProfileDialog({
           )}
         </DialogContent>
       </Dialog>
-      <CreateProfileDialog
-        isOpen={openCreateProfileModal}
-        setIsOpen={setOpenCreateProfileModal}
-        onProfileCreated={() => {
+      <EditProfileDialog
+        open={openCreateProfileModal}
+        setOpen={setOpenCreateProfileModal}
+        onSuccess={() => {
           onProfileCreated()
           setOpenCreateProfileModal(false)
         }}

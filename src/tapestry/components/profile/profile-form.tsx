@@ -13,6 +13,7 @@ import {
   FormMessage,
   Input,
 } from '../../../components/form'
+import { useUpdateProfile } from '../../hooks'
 import { useCreateProfile } from '../../hooks/use-create-profile'
 import { BLOCKCHAIN } from '../../models/profiles.models'
 
@@ -27,36 +28,51 @@ const formSchema = z.object({
 })
 
 interface Props {
+  username?: string
   phoneNumber?: string
   walletAddress?: string
   blockchain?: BLOCKCHAIN
-  onProfileCreated?: () => void
+  update?: boolean
+  onSuccess?: (newUsername?: string) => void
 }
 
-export function CreateProfileForm({
+export function ProfileForm({
+  username,
   phoneNumber,
   walletAddress,
   blockchain,
-  onProfileCreated,
+  update = false,
+  onSuccess,
 }: Props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      username,
     },
   })
-  const { createProfile, loading } = useCreateProfile()
+  const { createProfile, loading: createProfileLoading } = useCreateProfile()
+  const { updateProfile, loading: updateProfileLoading } = useUpdateProfile({
+    username: username ?? '',
+  })
+
+  const loading = createProfileLoading || updateProfileLoading
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await createProfile({
-        username: values.username,
-        phoneNumber,
-        walletAddress,
-        blockchain,
-      })
+      if (update) {
+        await updateProfile({
+          username: values.username,
+        })
+      } else {
+        await createProfile({
+          username: values.username,
+          phoneNumber,
+          walletAddress,
+          blockchain,
+        })
+      }
 
-      onProfileCreated?.()
+      onSuccess?.(values.username)
     } catch (error: any) {
       form.setError('username', {
         message: error?.info?.error ?? 'An error occurred',
@@ -83,7 +99,7 @@ export function CreateProfileForm({
           />
         </div>
         <Button type="submit" className="mt-6" loading={loading} expand>
-          Create Profile
+          {update ? 'Update Profile' : 'Create Profile'}
         </Button>
       </form>
     </Form>

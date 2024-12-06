@@ -7,13 +7,15 @@ import {
   DialogTitle,
 } from '../../../components/dialog/dialog'
 import { BLOCKCHAIN } from '../../models/profiles.models'
-import { CreateProfileForm } from './create-profile-form'
+import { ProfileForm } from './profile-form'
 
 interface Props {
-  isOpen: boolean
+  open: boolean
+  username?: string
   phoneNumber?: string
   walletAddress?: string
   blockchain?: BLOCKCHAIN
+  update?: boolean
   onClose?: (
     event:
       | React.MouseEvent<HTMLButtonElement>
@@ -21,30 +23,36 @@ interface Props {
       | CustomEvent<{ originalEvent: PointerEvent }>
       | CustomEvent<{ originalEvent: FocusEvent }>,
   ) => void
-  setIsOpen: (value: boolean) => void
-  onProfileCreated?: () => void
+  setOpen: (value: boolean) => void
+  onSuccess?: (newUsername?: string) => void
 }
 
-export function CreateProfileDialog({
-  isOpen,
+export function EditProfileDialog({
+  open,
+  username,
   phoneNumber,
   walletAddress,
   blockchain,
+  update,
   onClose,
-  setIsOpen,
-  onProfileCreated,
+  setOpen,
+  onSuccess,
 }: Props) {
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent onClose={onClose}>
         <DialogHeader>
-          <DialogTitle>Create Profile</DialogTitle>
+          <DialogTitle>
+            {update ? 'Update Profile' : 'Create Profile'}
+          </DialogTitle>
         </DialogHeader>
-        <CreateProfileForm
-          onProfileCreated={onProfileCreated}
+        <ProfileForm
+          onSuccess={onSuccess}
+          username={username}
           phoneNumber={phoneNumber}
           walletAddress={walletAddress}
           blockchain={blockchain}
+          update={update}
         />
       </DialogContent>
     </Dialog>
