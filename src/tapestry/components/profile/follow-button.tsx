@@ -20,7 +20,7 @@ export function FollowButton({
   ...props
 }: Props) {
   // const { mutate } = useSWRConfig()
-  const { followUser, loading: followUSerLoading } = useFollowUser()
+  const { followUser, loading: getFollowUserLoading } = useFollowUser()
   const {
     data: followingData,
     loading: getFollowingLoading,
@@ -33,7 +33,7 @@ export function FollowButton({
   })
 
   const followingsList = followingData?.profiles?.map((item) => item.username)
-  const loading = followUSerLoading || getFollowingLoading
+  const loading = getFollowUserLoading || getFollowingLoading
   const isFollowing = !!followingsList?.includes(usernameToFollow)
 
   const handleFollow = async () => {
