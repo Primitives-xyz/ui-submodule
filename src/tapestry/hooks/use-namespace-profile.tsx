@@ -10,6 +10,7 @@ export function useNamespaceProfile({ walletAddress, phoneNumber }: Props) {
   const { data, loading, refetch } = useGetProfiles({
     walletAddress,
     phoneNumber,
+    shouldIncludeExternalProfiles: false,
   })
 
   const namespaceProfile = useMemo(() => {
