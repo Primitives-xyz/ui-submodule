@@ -13,15 +13,13 @@ export function useNamespaceProfile({ walletAddress, phoneNumber }: Props) {
     shouldIncludeExternalProfiles: false,
   })
 
-  const namespaceProfile = useMemo(() => {
-    return data?.profiles.find(
-      (entry) =>
-        entry.namespace.name === process.env.NEXT_PUBLIC_TAPESTRY_NAMESPACE,
-    )
-  }, [data])
+  const profile =
+  data?.profiles?.length && data?.profiles?.length > 0
+    ? data?.profiles[0]
+    : null
 
   return {
-    namespaceProfile,
+    namespaceProfile: profile,
     loading,
     refetch,
   }
