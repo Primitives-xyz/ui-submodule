@@ -11,12 +11,7 @@
   --accent-foreground: var(--foreground);
 
   --popover: var(--foreground);
-  --popover-card: 221deg 9% 25%;
   --popover-foreground: var(--background);
-  --popover-muted: var(--popover-foreground) / 0.1;
-  --popover-muted-foreground: var(--muted-foreground);
-  /* --popover: var(--background); */
-  /* --popover-foreground: var(--foreground); */
 
   /* --border: 221deg 4% 58%; */
   --border: var(--foreground) / 0.1;
@@ -25,9 +20,6 @@
   --input: var(--background) / 0.6;
   --input-foreground: var(--foreground);
   --input-border: var(--foreground) / 0.1;
-
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
 
   --card: 0 0% 100%;
   --card-foreground: var(--foreground);

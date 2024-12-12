@@ -16,21 +16,6 @@ const Card = React.forwardRef<
 ))
 Card.displayName = 'Card'
 
-const PopoverCard = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'rounded-popover-card border-popover-card bg-popover-card text-popover-foreground shadow-popover-card',
-      className,
-    )}
-    {...props}
-  />
-))
-PopoverCard.displayName = 'PopoverCard'
-
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -78,14 +63,6 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = 'CardContent'
 
-const PopoverCardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('p-3', className)} {...props} />
-))
-PopoverCardContent.displayName = 'PopoverCardContent'
-
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -98,13 +75,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = 'CardFooter'
 
-export {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  PopoverCard,
-  PopoverCardContent,
-}
+export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }

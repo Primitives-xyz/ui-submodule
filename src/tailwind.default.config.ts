@@ -72,11 +72,6 @@ const config: Config = {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
-          card: 'hsl(var(--popover-card))',
-          muted: {
-            DEFAULT: 'hsl(var(--popover-muted))',
-            foreground: 'hsl(var(--popover-muted-foreground))',
-          },
         },
         modal: {
           DEFAULT: 'hsl(var(--modal))',
