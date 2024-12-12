@@ -26,6 +26,9 @@
   --input-foreground: var(--foreground);
   --input-border: var(--foreground) / 0.1;
 
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+
   --card: 0 0% 100%;
   --card-foreground: var(--foreground);
 
@@ -71,4 +74,6 @@
   --muted: var(--foreground-dark) / 0.1;
   --muted-foreground: var(--foreground-dark) / 0.6;
   --input-foreground: var(--foreground-dark);
+  --popover: var(--background-dark);
+  --popover-foreground: var(--foreground-dark);
 }
