@@ -7,8 +7,9 @@ export interface IContent {
   id: string
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface IRequestingProfileSocialInfo {}
+export interface IRequestingProfileSocialInfo {
+  hasLiked: boolean
+}
 
 // POST /contents/findOrCreate
 
@@ -38,6 +39,7 @@ export interface IGetContentResponse<T = IContent> {
   content: T
   authorProfile: IProfile
   socialCounts: ISocialCounts
+  requestingProfileSocialInfo: IRequestingProfileSocialInfo
 }
 
 // PUT /contents/[id]
