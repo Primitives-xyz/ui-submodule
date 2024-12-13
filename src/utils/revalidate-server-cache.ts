@@ -2,6 +2,9 @@
 
 import { revalidatePath } from 'next/cache'
 
-export const revalidateServerCache = async (path: string) => {
-  revalidatePath(path)
+export const revalidateServerCache = async (
+  path: string,
+  type?: 'layout' | 'page',
+) => {
+  revalidatePath(path, type)
 }
