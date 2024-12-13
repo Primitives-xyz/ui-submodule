@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { useGetProfiles } from './use-get-profiles'
 
 interface Props {
@@ -14,9 +13,9 @@ export function useNamespaceProfile({ walletAddress, phoneNumber }: Props) {
   })
 
   const profile =
-  data?.profiles?.length && data?.profiles?.length > 0
-    ? data?.profiles[0]
-    : null
+    data?.profiles?.length && data?.profiles?.length > 0
+      ? data?.profiles[0]
+      : null
 
   return {
     namespaceProfile: profile,
