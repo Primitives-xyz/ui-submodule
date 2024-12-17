@@ -42,12 +42,12 @@ export function FollowButton({
       followeeUsername: usernameToFollow,
     })
 
-    refetchGetFollowing()
-    refetchGetFollowers()
+    await refetchGetFollowing()
+    await refetchGetFollowers()
     // revalidateServerCache(`profiles/${currentUsername}/following`)
     // revalidateServerCache(`profiles/${usernameToFollow}/followers`)
-    revalidateServerCache(`/api/profiles/${currentUsername}/following`)
-    revalidateServerCache(`/api/profiles/${usernameToFollow}/followers`)
+    await revalidateServerCache(`/api/profiles/${currentUsername}/following`)
+    await revalidateServerCache(`/api/profiles/${usernameToFollow}/followers`)
   }
 
   if (currentUsername === usernameToFollow) {
