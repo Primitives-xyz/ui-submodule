@@ -107,7 +107,9 @@ export const fetchWrapper = async <
     },
     // mode: 'no-cors',
     body:
-      method === FetchMethod.POST || method === FetchMethod.PUT
+      method === FetchMethod.POST ||
+      method === FetchMethod.PUT ||
+      method === FetchMethod.DELETE
         ? JSON.stringify(body)
         : undefined,
   })
