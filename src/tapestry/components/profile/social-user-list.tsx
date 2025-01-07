@@ -1,4 +1,4 @@
-import { UserRoundPlus } from 'lucide-react'
+import { Check, UserRoundPlus } from 'lucide-react'
 import { ButtonSize, ButtonVariant } from '../../../components'
 import { IProfile } from '../../models'
 import { FollowButton } from './follow-button'
@@ -30,7 +30,11 @@ export function SocialUserList({ users, currentUsername, onClickUser }: Props) {
                 size={ButtonSize.ICON}
               >
                 {(isFollowing) => {
-                  return isFollowing ? null : <UserRoundPlus size={16} />
+                  return isFollowing ? (
+                    <Check size={16} />
+                  ) : (
+                    <UserRoundPlus size={16} />
+                  )
                 }}
               </FollowButton>
             )
