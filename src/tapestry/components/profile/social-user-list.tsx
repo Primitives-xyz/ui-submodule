@@ -24,8 +24,8 @@ export function SocialUserList({ users, currentUsername, onClickUser }: Props) {
         !!currentUsername
           ? (user) => (
               <FollowButton
-                usernameToFollow={user.username}
-                currentUsername={currentUsername}
+                followeeUsername={user.username}
+                followerUsername={currentUsername}
                 variant={ButtonVariant.GHOST}
                 size={ButtonSize.ICON}
               >

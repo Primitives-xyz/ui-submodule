@@ -9,7 +9,7 @@ interface Props {
 
 export const useGetFollowers = ({ username }: Props) => {
   const { data, error, loading, refetch } = useQuery<IGetSocialResponse>({
-    endpoint: `/profiles/${username}/followers`,
+    endpoint: `profiles/${username}/followers`,
   })
 
   return {
