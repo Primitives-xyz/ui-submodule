@@ -1,6 +1,8 @@
 import { FetchMethod, IError } from './api.models'
 
-export const getUrlWithQueryParameters = <InputType = Record<string, unknown>>(
+export const getUrlWithQueryParameters = <
+  InputType = Record<string, string | number>,
+>(
   endpoint: string | null,
   data?: InputType,
 ) => {
@@ -51,7 +53,7 @@ export const createURL = ({
 interface FetchParams<InputType> {
   method?: FetchMethod
   endpoint: string
-  queryParams?: Record<string, string>
+  queryParams?: Record<string, string | number>
   body?: InputType
   toBackend?: boolean
   jwt?: string
@@ -75,7 +77,7 @@ export const fetchWrapper = async <
   tags,
 }: FetchParams<InputType>): Promise<ResponseType> => {
   if (queryParams) {
-    endpoint = getUrlWithQueryParameters<Record<string, string>>(
+    endpoint = getUrlWithQueryParameters<Record<string, string | number>>(
       endpoint,
       queryParams,
     )

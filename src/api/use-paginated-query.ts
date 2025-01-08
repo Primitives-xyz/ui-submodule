@@ -1,23 +1,34 @@
 'use client'
 
-import useSWRInfinite, { SWRInfiniteResponse } from 'swr/infinite'
+import useSWRInfinite from 'swr/infinite'
 import { FetchMethod } from './api.models'
 import { fetchWrapper, getUrlWithQueryParameters } from './fetch-wrapper'
 
-interface Props<T = any> {
-  endpoint: string | null
-  params?: T
+interface Props<T = unknown> {
+  endpoint: string
+  queryParams?: T
+  pageSize?: number
+  startAtPage?: number
 }
 
-export function usePaginatedQuery<ResponseType, InputType>({
+export function usePaginatedQuery<ResponseType = unknown, InputType = unknown>({
   endpoint,
-  params,
-}: Props<InputType>): any | SWRInfiniteResponse<ResponseType, Error> {
+  queryParams,
+  pageSize = 12,
+  startAtPage = 1,
+}: Props<InputType>): {
+  data: ResponseType[] | undefined
+  error: Error | undefined
+  loading: boolean
+  onLoadMore: () => void
+  refetch: () => Promise<ResponseType[] | undefined>
+} {
   const getKey = (pageIndex: number) => {
     if (endpoint) {
       return getUrlWithQueryParameters(endpoint, {
-        page: pageIndex.toString(),
-        ...params,
+        page: pageIndex + startAtPage,
+        pageSize,
+        ...queryParams,
       })
     } else {
       return null
@@ -44,10 +55,9 @@ export function usePaginatedQuery<ResponseType, InputType>({
 
   return {
     data,
-    page: size,
     error,
     loading: !!isLoadingMore,
-    setPage: setSize,
+    onLoadMore: () => setSize(size + 1),
     refetch: mutate,
   }
 }
