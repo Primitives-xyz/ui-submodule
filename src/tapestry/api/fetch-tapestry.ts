@@ -6,16 +6,16 @@ export const fetchTapestry = async <
 >(
   args: FetchParams<InputType>,
 ): Promise<ResponseType> => {
-  if (!process.env.TAPESTRY_URL) {
-    throw new Error('Missing env var TAPESTRY_URL')
+  if (!process.env.PROTOCOL_SERVER_URL) {
+    throw new Error('Missing env var PROTOCOL_SERVER_URL')
   }
 
-  if (!process.env.TAPESTRY_API_KEY) {
-    throw new Error('Missing env var TAPESTRY_API_KEY')
+  if (!process.env.PROTOCOL_API_KEY) {
+    throw new Error('Missing env var PROTOCOL_API_KEY')
   }
 
   const url = createURL({
-    domain: process.env.TAPESTRY_URL,
+    domain: process.env.PROTOCOL_SERVER_URL,
     endpoint: args.endpoint,
   })
 
@@ -24,7 +24,7 @@ export const fetchTapestry = async <
     endpoint: url,
     queryParams: {
       ...args.queryParams,
-      apiKey: process.env.TAPESTRY_API_KEY,
+      apiKey: process.env.PROTOCOL_API_KEY,
     },
     toBackend: false,
   })
