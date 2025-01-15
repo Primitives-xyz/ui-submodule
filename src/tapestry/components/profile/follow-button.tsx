@@ -1,6 +1,5 @@
 'use client'
 
-import { Check } from 'lucide-react'
 import { useState } from 'react'
 import { Button, ButtonProps } from '../../../components/button'
 import { revalidateServerCache } from '../../../utils'
@@ -23,7 +22,6 @@ export function FollowButton({
   ...props
 }: Props) {
   const { followUser, loading: followUserLoading } = useFollowUser()
-
   const { unfollowUser, loading: unfollowUserLoading } = useUnfollowUser()
 
   const { refetch: refetchGetFollowing } = useGetFollowing({
@@ -34,10 +32,18 @@ export function FollowButton({
   })
   const [refetchLoading, setRefetchLoading] = useState(false)
 
-  const { data, refetch: refetchFollowersState } = useGetFollowersState({
+  const {
+    data,
+    loading: loadingFollowersState,
+    refetch: refetchFollowersState,
+  } = useGetFollowersState({
     followeeUsername,
     followerUsername,
   })
+
+  const [isFollowingOptimistic, setIsFollowingOptimistic] = useState(
+    data?.isFollowing,
+  )
 
   const loading = followUserLoading || refetchLoading || unfollowUserLoading
 
@@ -47,74 +53,63 @@ export function FollowButton({
     revalidateServerCache(`/api/profiles/${followerUsername}/following`)
     revalidateServerCache(`/api/profiles/${followeeUsername}/followers`)
 
-    // Workaround to revalidate swr after that the cache is invalidated
-    setTimeout(async () => {
-      await refetchGetFollowing()
-      await refetchGetFollowers()
+    await Promise.all([refetchGetFollowing(), refetchGetFollowers()])
 
-      setRefetchLoading(false)
-    }, 500)
+    setRefetchLoading(false)
   }
 
   const handleFollow = async () => {
-    await followUser({
-      followerUsername,
-      followeeUsername,
-    })
+    setIsFollowingOptimistic(true)
 
-    refetchFollowersState()
-
-    refetch()
-
-    // await refetchGetFollowing((prevData) => {
-    //   return {
-    //     ...prevData,
-    //     ...{
-    //       profiles: [
-    //         ...(prevData?.profiles || []),
-    //         {
-    //           username: followeeUsername,
-    //         },
-    //       ],
-    //     },
-    //   }
-    // }, false)
+    try {
+      await followUser({
+        followerUsername,
+        followeeUsername,
+      })
+      await refetch()
+    } catch (error) {
+      console.error('Failed to follow:', error)
+      setIsFollowingOptimistic(false)
+    } finally {
+      refetchFollowersState()
+    }
   }
 
   const handleUnfollow = async () => {
-    await unfollowUser({
-      followerUsername,
-      followeeUsername,
-    })
+    setIsFollowingOptimistic(false)
 
-    refetch()
-
-    refetchFollowersState()
+    try {
+      await unfollowUser({
+        followerUsername,
+        followeeUsername,
+      })
+      await refetch()
+    } catch (error) {
+      console.error('Failed to unfollow:', error)
+      setIsFollowingOptimistic(true)
+    } finally {
+      refetchFollowersState()
+    }
   }
 
   if (followerUsername === followeeUsername) {
     return null
   }
 
+  const isFollowing = isFollowingOptimistic ?? data?.isFollowing
+
   return (
     <div className="flex flex-col items-center gap-1">
       <Button
         {...props}
         onClick={handleFollow}
-        disabled={loading || data?.isFollowing}
-        loading={loading}
+        loading={loadingFollowersState}
+        disabled={loading || isFollowing}
       >
         {!!children ? (
-          children(!!data?.isFollowing)
+          children(!!isFollowing)
         ) : (
-          <>
-            {!loading && data?.isFollowing && (
-              <>
-                <Check className="icon-text-size" />
-              </>
-            )}
-            {data?.isFollowing ? <>Following</> : <>Follow</>}
-          </>
+          <>{isFollowing ? 'Following' : 'Follow'}</>
         )}
       </Button>
       {/* {isFollowing && (
