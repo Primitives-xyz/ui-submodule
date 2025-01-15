@@ -1,11 +1,12 @@
 'use client'
 
 import { Check } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Button, ButtonProps } from '../../../components/button'
 import { revalidateServerCache } from '../../../utils'
 import { useFollowUser } from '../../hooks/use-follow-user'
 import { useGetFollowers } from '../../hooks/use-get-followers'
+import { useGetFollowersState } from '../../hooks/use-get-followers-state'
 import { useGetFollowing } from '../../hooks/use-get-following'
 import { useUnfollowUser } from '../../hooks/use-unfollow-user'
 
@@ -22,12 +23,10 @@ export function FollowButton({
   ...props
 }: Props) {
   const { followUser, loading: followUserLoading } = useFollowUser()
+
   const { unfollowUser, loading: unfollowUserLoading } = useUnfollowUser()
-  const {
-    data: followingData,
-    loading: getFollowingLoading,
-    refetch: refetchGetFollowing,
-  } = useGetFollowing({
+
+  const { refetch: refetchGetFollowing } = useGetFollowing({
     username: followerUsername,
   })
   const { refetch: refetchGetFollowers } = useGetFollowers({
@@ -35,16 +34,12 @@ export function FollowButton({
   })
   const [refetchLoading, setRefetchLoading] = useState(false)
 
-  const followingsList = followingData?.profiles?.map((item) => item.username)
-  const loading =
-    followUserLoading ||
-    getFollowingLoading ||
-    refetchLoading ||
-    unfollowUserLoading
+  const { data, refetch: refetchFollowersState } = useGetFollowersState({
+    followeeUsername,
+    followerUsername,
+  })
 
-  const isFollowing = useMemo(() => {
-    return !!followingsList?.includes(followeeUsername)
-  }, [followingsList, followeeUsername])
+  const loading = followUserLoading || refetchLoading || unfollowUserLoading
 
   const refetch = async () => {
     setRefetchLoading(true)
@@ -66,6 +61,8 @@ export function FollowButton({
       followerUsername,
       followeeUsername,
     })
+
+    refetchFollowersState()
 
     refetch()
 
@@ -91,6 +88,8 @@ export function FollowButton({
     })
 
     refetch()
+
+    refetchFollowersState()
   }
 
   if (followerUsername === followeeUsername) {
@@ -102,19 +101,19 @@ export function FollowButton({
       <Button
         {...props}
         onClick={handleFollow}
-        disabled={loading || isFollowing}
+        disabled={loading || data?.isFollowing}
         loading={loading}
       >
         {!!children ? (
-          children(isFollowing)
+          children(!!data?.isFollowing)
         ) : (
           <>
-            {!loading && isFollowing && (
+            {!loading && data?.isFollowing && (
               <>
                 <Check className="icon-text-size" />
               </>
             )}
-            {isFollowing ? <>Following</> : <>Follow</>}
+            {data?.isFollowing ? <>Following</> : <>Follow</>}
           </>
         )}
       </Button>

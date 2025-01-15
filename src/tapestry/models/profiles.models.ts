@@ -87,6 +87,10 @@ export interface IGetSocialResponse extends IPaginatedResponse {
   profiles: IProfile[]
 }
 
+export interface IGetFollowersStateResponse {
+  isFollowing: boolean
+}
+
 export interface ISuggestedProfile {
   namespaces: {
     name: string
