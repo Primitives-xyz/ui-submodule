@@ -19,8 +19,13 @@ To use the package
 # Import the css file into global.css
 
 ```css
-@import '../ui-submodule/src/styles/styles';
+/* Add the tapestry theme if needed */
+@import '../ui-submodule/src/tapestry/styles/tapestry-theme.css';
+
+@import '../ui-submodule/src/styles/styles.css';
 ```
+
+Also add the tapestry theme id needed
 
 # Import the tailwind config into the tailwind config file, enable tailwind for the submodule
 
@@ -37,6 +42,8 @@ const config: Config = {
 ```
 
 # Add ui-submodule to the tsconfig paths
+
+The order is important.
 
 ```javascript
 {
