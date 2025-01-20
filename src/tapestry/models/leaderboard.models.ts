@@ -19,3 +19,8 @@ export interface ILeaderboardPosition {
     score: string
   }[]
 }
+
+export interface ILeaderboardSuggestedProfile {
+  profile: IProfile
+  score: number
+}
