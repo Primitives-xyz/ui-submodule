@@ -1,5 +1,10 @@
 import { IProfile } from './profiles.models'
 
+export enum LeaderboardTypeValue {
+  GLOBAL = 'global',
+  FRIENDS = 'friends',
+}
+
 export interface IHighScore {
   position: number
   score: number
