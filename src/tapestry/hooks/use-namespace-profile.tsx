@@ -18,7 +18,7 @@ export function useNamespaceProfile({ walletAddress, phoneNumber }: Props) {
       : null
 
   return {
-    namespaceProfile: profile,
+    profile,
     loading,
     refetch,
   }
