@@ -76,7 +76,7 @@ export const fetchWrapper = async <
   bypassCache = false,
   revalidate,
   tags,
-  credentials = 'include',
+  credentials,
 }: FetchParams<InputType>): Promise<ResponseType> => {
   if (queryParams) {
     endpoint = getUrlWithQueryParameters<Record<string, string | number>>(
