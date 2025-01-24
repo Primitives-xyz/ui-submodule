@@ -45,6 +45,9 @@
   --switch-checked: var(--primary);
   --switch-checked-foreground: var(--secondary);
 
+  /* --progress: var(--muted); */
+  --progress-foreground: var(--tertiary);
+
   /* Radius */
   --radius-card: var(--radius-lg);
   --radius-popover-card: var(--radius-md);
@@ -57,6 +60,7 @@
   /* Shadow */
   --shadow-card: 0 10px 0 0 hsl(var(--primary));
   --shadow-card-sm: 0 5px 0 0 hsl(var(--primary));
+  --shadow-sm: 0 2px 6px hsla(var(--foreground) / 0.05);
 }
 
 .dark {

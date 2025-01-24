@@ -13,11 +13,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
-  "include": [
-    "src",
-    "../app/components/auth/profile-dialog.tsx",
-    "../app/components/auth/create-profile-dialog.tsx",
-    "../components/app-page/edit-app-form.tsx"
-  ],
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

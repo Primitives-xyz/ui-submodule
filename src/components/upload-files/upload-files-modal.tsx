@@ -23,7 +23,7 @@ export default function UploadFilesModal({
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent>
+      <DialogContent isStatic hideCloseButton>
         <DialogHeader>
           <DialogTitle className="loading-dots">
             {filesToUpload?.length > 1
