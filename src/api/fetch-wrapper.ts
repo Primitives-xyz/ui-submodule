@@ -60,6 +60,7 @@ interface FetchParams<InputType> {
   bypassCache?: boolean
   revalidate?: number
   tags?: string[]
+  credentials?: RequestCredentials
 }
 
 export const fetchWrapper = async <
@@ -75,6 +76,7 @@ export const fetchWrapper = async <
   bypassCache = false,
   revalidate,
   tags,
+  credentials,
 }: FetchParams<InputType>): Promise<ResponseType> => {
   if (queryParams) {
     endpoint = getUrlWithQueryParameters<Record<string, string | number>>(
@@ -108,6 +110,7 @@ export const fetchWrapper = async <
       tags,
     },
     // mode: 'no-cors',
+    credentials,
     body:
       method === FetchMethod.POST ||
       method === FetchMethod.PUT ||
