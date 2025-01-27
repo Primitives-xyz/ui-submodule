@@ -1,17 +1,25 @@
 import { useQuery } from '../../api/use-query'
-import { IGetContentResponse } from '../models'
+import { IContent, IGetContentResponse } from '../models'
 
 interface Props {
   contentId: string
   requestingProfileId?: string
+  skip?: boolean
 }
 
-export const useGetContent = ({ contentId, requestingProfileId }: Props) => {
-  const { data, loading, error, refetch } = useQuery<IGetContentResponse>({
+export const useGetContent = <ContentType = IContent>({
+  contentId,
+  requestingProfileId,
+  skip,
+}: Props) => {
+  const { data, loading, error, refetch } = useQuery<
+    IGetContentResponse<ContentType>
+  >({
     endpoint: `contents/${contentId}`,
     queryParams: {
       requestingProfileId: requestingProfileId ?? '',
     },
+    skip,
   })
 
   return {
