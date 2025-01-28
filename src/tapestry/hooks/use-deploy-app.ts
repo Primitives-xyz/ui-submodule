@@ -5,19 +5,19 @@ interface Props {
     amount: number
 }
 
-export const useRemoveCredits = () => {
+export const useAppDeploy = () => {
   const {
-    mutate: removeCredits,
+    mutate: deployApp,
     loading,
     error,
     data,
   } = useMutation<Props>({
-    endpoint: '/shared/credits/remove',
+    endpoint: '/shared/nimbus/deploy',
     method: FetchMethod.POST,    
   })
 
   return {
-    removeCredits,
+    deployApp,
     loading,
     error,
     data,
