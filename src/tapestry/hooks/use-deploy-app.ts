@@ -1,8 +1,8 @@
 import { FetchMethod, useMutation } from '../../api'
 
-interface Props {  
-    idempotencyKey: string
-    amount: number
+interface Props {
+  idempotencyKey: string
+  amount: number
 }
 
 export const useAppDeploy = () => {
@@ -13,7 +13,7 @@ export const useAppDeploy = () => {
     data,
   } = useMutation<Props>({
     endpoint: '/shared/nimbus/deploy',
-    method: FetchMethod.POST,    
+    method: FetchMethod.POST,
   })
 
   return {

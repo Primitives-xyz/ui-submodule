@@ -1,4 +1,5 @@
 export * from './use-create-profile'
+export * from './use-deploy-app'
 export * from './use-follow-user'
 export * from './use-get-content'
 export * from './use-get-followers'
