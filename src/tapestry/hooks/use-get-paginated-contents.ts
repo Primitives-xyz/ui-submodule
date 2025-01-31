@@ -5,12 +5,14 @@ interface Props {
   startAtPage?: number
   pageSize?: number
   orderByDirection?: 'ASC' | 'DESC'
+  orderByField?: string
 }
 
 export const useGetPaginatedContents = <ContentType = IContent>({
   pageSize = 12,
   startAtPage = 2,
   orderByDirection = 'DESC',
+  orderByField,
 }: Props = {}) => {
   const { data, loading, onLoadMore } = usePaginatedQuery<
     IGetContentsResponse<ContentType>
@@ -20,6 +22,7 @@ export const useGetPaginatedContents = <ContentType = IContent>({
     startAtPage,
     queryParams: {
       orderByDirection,
+      orderByField,
     },
   })
 
