@@ -25,7 +25,7 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-semibold'), {
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
       ghost: 'hover:bg-accent hover:text-accent-foreground font-semibold',
-      link: 'underline-offset-4 hover:opacity-80 underline !h-auto !p-0',
+      link: 'underline-offset-4 hover:opacity-80 underline !h-auto !p-0 rounded-sm',
     },
     size: {
       default: 'h-10 px-4 py-2',
