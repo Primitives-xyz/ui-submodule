@@ -75,7 +75,7 @@ export function ProfileForm({
       onSuccess?.(values.username)
     } catch (error: any) {
       form.setError('username', {
-        message: error?.info?.error ?? 'An error occurred',
+        message: error?.message ?? 'An error occurred',
       })
     }
   }

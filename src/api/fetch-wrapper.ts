@@ -120,9 +120,12 @@ export const fetchWrapper = async <
   })
 
   if (!response.ok) {
+    const errorResponse = await response.json()
+
     const error: IError = {
-      info: await response.json(),
+      message: errorResponse.error || errorResponse.message,
       status: response.status,
+      raw: errorResponse,
     }
 
     throw error

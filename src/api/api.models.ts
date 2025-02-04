@@ -6,6 +6,7 @@ export enum FetchMethod {
 }
 
 export interface IError {
-  info: object
+  message: string
   status: number
+  raw: object
 }
