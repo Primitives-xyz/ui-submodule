@@ -6,17 +6,13 @@ export const fetchTapestry = async <
 >(
   args: FetchParams<InputType>,
 ): Promise<ResponseType> => {
+  if (!process.env.TAPESTRY_URL) {
+    throw new Error('Missing env var TAPESTRY_URL')
+  }
 
-  process.env.TAPESTRY_URL = 'http://localhost:3002/api/v1'
-  process.env.TAPESTRY_API_KEY = 'nimbus'
-
-  // if (!process.env.TAPESTRY_URL) {
-  //   throw new Error('Missing env var TAPESTRY_URL')
-  // }
-
-  // if (!process.env.TAPESTRY_API_KEY) {
-  //   throw new Error('Missing env var TAPESTRY_API_KEY')
-  // }
+  if (!process.env.TAPESTRY_API_KEY) {
+    throw new Error('Missing env var TAPESTRY_API_KEY')
+  }
 
   const url = createURL({
     domain: process.env.TAPESTRY_URL,
