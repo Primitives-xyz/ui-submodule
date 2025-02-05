@@ -26,8 +26,8 @@ export const useGetProfiles = ({
 
   return {
     data,
-    refetch,
     loading,
     error,
+    refetch,
   }
 }
