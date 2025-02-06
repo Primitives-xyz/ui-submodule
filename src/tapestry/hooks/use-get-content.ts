@@ -16,9 +16,11 @@ export const useGetContent = <ContentType = IContent>({
     IGetContentResponse<ContentType>
   >({
     endpoint: `contents/${contentId}`,
-    queryParams: {
-      requestingProfileId: requestingProfileId ?? '',
-    },
+    queryParams: requestingProfileId
+      ? {
+          requestingProfileId,
+        }
+      : undefined,
     skip,
   })
 
