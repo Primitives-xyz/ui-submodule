@@ -58,9 +58,10 @@
   --foreground-dark: 218deg 57% 98%;
 
   /* Shadow */
-  --shadow-card: 0 10px 0 0 hsl(var(--primary));
-  --shadow-card-sm: 0 5px 0 0 hsl(var(--primary));
+  /* --shadow-card: 0 10px 0 0 hsl(var(--primary)); */
   --shadow-sm: 0 2px 6px hsla(var(--foreground) / 0.05);
+  /* --shadow-card: var(--shadow-lg); */
+  --shadow-card-sm: 0 5px 0 0 hsl(var(--primary));
 }
 
 .dark {
