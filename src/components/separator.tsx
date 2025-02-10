@@ -31,7 +31,7 @@ const Separator = React.forwardRef<
         orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]',
         {
           'bg-border': !fadedEdges,
-          'bg-gradient-to-r from-transparent via-border to-transparent':
+          'bg-linear-to-r from-transparent via-border to-transparent':
             fadedEdges,
         },
         className,

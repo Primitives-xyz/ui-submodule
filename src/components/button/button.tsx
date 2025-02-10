@@ -8,10 +8,10 @@ import { cn } from '../../utils/utils'
 import { Spinner } from '../spinner'
 
 const focus =
-  'ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
+  'ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
 
 const buttonBase = cn(
-  'inline-flex items-center justify-center whitespace-nowrap gap-1.5 transition-all duration-100 focus-visible:outline-none flex-shrink-0 relative',
+  'inline-flex items-center justify-center whitespace-nowrap gap-1.5 transition-all duration-100 focus-visible:outline-hidden shrink-0 relative',
   focus,
 )
 
@@ -25,7 +25,7 @@ const buttonVariants = cva(cn(buttonBase, 'rounded-button font-semibold'), {
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
       ghost: 'hover:bg-accent hover:text-accent-foreground font-semibold',
-      link: 'underline-offset-4 hover:opacity-80 underline !h-auto !p-0 rounded-sm',
+      link: 'underline-offset-4 hover:opacity-80 underline h-auto! p-0! rounded-sm',
     },
     size: {
       default: 'h-10 px-4 py-2',

@@ -24,7 +24,7 @@ export default function SocialGraph({
 
   return (
     <SigmaContainer
-      className="w-full h-full !bg-transparent relative"
+      className="w-full h-full bg-transparent! relative"
       settings={{
         renderLabels: true,
       }}

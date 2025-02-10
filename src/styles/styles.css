@@ -1,7 +1,7 @@
-@import 'default-variables.css';
-@import 'default-colors.css';
-@import 'loading-dots.css';
-@import 'typewriter.css';
+@import './default-variables.css';
+@import './default-colors.css';
+@import './loading-dots.css';
+@import './typewriter.css';
 
 body {
   @apply bg-background text-foreground;
