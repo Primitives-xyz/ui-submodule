@@ -19,7 +19,7 @@ export function Container({
         'relative mx-auto w-full px-4',
         {
           'max-w-7xl': size === ContainerSize.LARGE,
-          'max-w-(--breakpoint-lg)': size === ContainerSize.REGULAR,
+          'max-w-5xl': size === ContainerSize.REGULAR,
           'max-w-2xl': size === ContainerSize.SMALL,
         },
         className,
