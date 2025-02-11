@@ -1,4 +1,6 @@
+import scrollbarHide from 'tailwind-scrollbar-hide'
 import type { Config } from 'tailwindcss'
+import animate from 'tailwindcss-animate'
 
 const config: Config = {
   content: [],
@@ -112,12 +114,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    // require('tailwind-scrollbar-hide'),
-
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('tailwindcss-animate'),
-  ],
+  plugins: [scrollbarHide, animate],
   darkMode: 'class',
 }
 
