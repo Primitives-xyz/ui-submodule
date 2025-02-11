@@ -9,7 +9,7 @@ git submodule add https://github.com/Primitives-xyz/ui-submodule src/ui-submodul
 ### Install dependencies
 
 ```
-pnpm i clsx tailwind-merge tailwindcss-important tailwindcss-animate class-variance-authority lucide-react zod swr framer-motion react-use-clipboard react-hook-form @hookform/resolvers @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion @radix-ui/react-progress @radix-ui/react-alert-dialog @react-sigma/core graphology graphology-types @react-sigma/layout-forceatlas2 react-intersection-observer prettier prettier-plugin-organize-imports embla-carousel-react @radix-ui/react-switch @radix-ui/react-tabs next-themes sonner @radix-ui/react-scroll-area
+pnpm i clsx tailwind-merge tailwindcss-animate class-variance-authority lucide-react zod swr framer-motion react-use-clipboard react-hook-form @hookform/resolvers @radix-ui/react-slot @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-label @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-select @radix-ui/react-tooltip @radix-ui/react-accordion @radix-ui/react-progress @radix-ui/react-alert-dialog @react-sigma/core graphology graphology-types @react-sigma/layout-forceatlas2 react-intersection-observer prettier prettier-plugin-organize-imports embla-carousel-react @radix-ui/react-switch @radix-ui/react-tabs next-themes sonner @radix-ui/react-scroll-area
 ```
 
 ## Usage

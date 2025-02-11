@@ -116,8 +116,6 @@ const config: Config = {
     // require('tailwind-scrollbar-hide'),
 
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('tailwindcss-important'),
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('tailwindcss-animate'),
   ],
   darkMode: 'class',
