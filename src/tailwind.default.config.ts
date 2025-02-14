@@ -24,6 +24,7 @@ const config: Config = {
         md: 'var(--shadow-md)',
         lg: 'var(--shadow-lg)',
         card: 'var(--shadow-card)',
+        toolkit: 'var(--shadow-toolkit)',
         'card-sm': 'var(--shadow-card-sm)',
       },
       height: {

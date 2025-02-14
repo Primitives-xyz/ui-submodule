@@ -1,4 +1,4 @@
-import { Check, Copy } from 'lucide-react'
+import { CheckIcon, CopyIcon } from 'lucide-react'
 import useClipboard from 'react-use-clipboard'
 import {
   Tooltip,
@@ -10,10 +10,12 @@ import { Button, ButtonProps } from './button'
 
 interface Props extends ButtonProps {
   textToCopy: string
+  iconSize?: number
 }
 
 export function CopyToClipboardButton({
   textToCopy,
+  iconSize,
   children,
   ...props
 }: Props) {
@@ -31,9 +33,9 @@ export function CopyToClipboardButton({
             ) : (
               <>
                 {isCopied ? (
-                  <Check className="icon-text-size" />
+                  <CheckIcon size={iconSize} />
                 ) : (
-                  <Copy className="icon-text-size" />
+                  <CopyIcon size={iconSize} />
                 )}
               </>
             )}
