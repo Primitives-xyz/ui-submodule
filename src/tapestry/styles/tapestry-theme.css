@@ -48,6 +48,9 @@
   /* --progress: var(--muted); */
   --progress-foreground: var(--tertiary);
 
+  --tab-active: var(--tertiary);
+  --tab-active-foreground: var(--tertiary-foreground);
+
   /* Radius */
   --radius-card: var(--radius-lg);
   --radius-popover-card: var(--radius-md);

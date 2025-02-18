@@ -96,6 +96,14 @@ const config: Config = {
             foreground: 'hsl(var(--switch-checked-foreground))',
           },
         },
+        tab: {
+          DEFAULT: 'hsl(var(--tab))',
+          foreground: 'hsl(var(--tab-foreground))',
+          active: {
+            DEFAULT: 'hsl(var(--tab-active))',
+            foreground: 'hsl(var(--tab-active-foreground))',
+          },
+        },
       },
       borderColor: {
         DEFAULT: 'hsl(var(--border))',

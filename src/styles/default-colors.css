@@ -38,6 +38,11 @@
     --progress: var(--muted);
     --progress-foreground: var(--foreground);
 
+    --tab: var(--muted);
+    --tab-foreground: var(--muted-foreground);
+    --tab-active: var(--background);
+    --tab-active-foreground: var(--foreground);
+
     --switch: var(--input);
     --switch-foreground: var(--background);
     --switch-checked: var(--primary);
