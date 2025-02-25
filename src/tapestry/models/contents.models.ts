@@ -47,6 +47,6 @@ export interface IGetContentResponse<T = IContent> {
 export interface IUpdateContentInput {
   properties: {
     key: string
-    value: string
+    value: string | boolean
   }[]
 }
