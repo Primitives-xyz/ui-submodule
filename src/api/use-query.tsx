@@ -11,7 +11,7 @@ import {
 interface UseQueryProps {
   endpoint: string
   pathParams?: Record<string, string>
-  queryParams?: Record<string, string>
+  queryParams?: Record<string, string | number | boolean>
   skip?: boolean
   config?: SWRConfiguration
   toBackend?: boolean

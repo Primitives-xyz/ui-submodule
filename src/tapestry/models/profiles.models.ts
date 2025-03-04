@@ -62,10 +62,10 @@ export interface IGetProfilesResponse extends IPaginatedResponse {
 export interface IGetProfileResponse {
   profile: IProfile
   walletAddress: string
-  socialCounts: ISocialCounts
+  socialCounts: IProfileSocialCounts
 }
 
-export interface ISocialCounts {
+export interface IProfileSocialCounts {
   followers: number
   following: number
 }
