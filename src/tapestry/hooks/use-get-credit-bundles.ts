@@ -3,7 +3,7 @@ import { ICreditBundle } from '../models'
 
 export const useGetCreditBundles = () => {
   const { data, loading, error, refetch } = useQuery<ICreditBundle[]>({
-    endpoint: `creditBundles`,
+    endpoint: `credit-bundles`,
   })
 
   return {
