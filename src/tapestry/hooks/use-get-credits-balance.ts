@@ -3,13 +3,10 @@
 import { useQuery } from '../../api'
 import { IGetCreditsBalanceResponse } from '../models'
 
-export const useGetCreditsBalance = (jwt: string) => {
+export const useGetCreditsBalance = () => {
   const { data, error, loading, refetch } =
     useQuery<IGetCreditsBalanceResponse>({
       endpoint: `shared/credits/balance`,
-      getJwt: async () => {
-        return jwt
-      },
     })
 
   return {
