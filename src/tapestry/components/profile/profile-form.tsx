@@ -30,6 +30,7 @@ const formSchema = z.object({
 interface Props {
   username?: string
   phoneNumber?: string
+  email?: string
   walletAddress?: string
   blockchain?: BLOCKCHAIN
   update?: boolean
@@ -39,6 +40,7 @@ interface Props {
 export function ProfileForm({
   username,
   phoneNumber,
+  email,
   walletAddress,
   blockchain,
   update = false,
@@ -64,9 +66,16 @@ export function ProfileForm({
           username: values.username,
         })
       } else {
+        console.log('CREATE PROFILE **********************')
+        console.log('VALUES', values)
+        console.log('PHONE NUMBER', phoneNumber)
+        console.log('EMAIL', email)
+        console.log('WALLET ADDRESS', walletAddress)
+        console.log('BLOCKCHAIN', blockchain)
         await createProfile({
           username: values.username,
           phoneNumber,
+          email,
           walletAddress,
           blockchain,
         })

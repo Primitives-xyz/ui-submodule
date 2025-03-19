@@ -3,12 +3,18 @@ import { useGetProfiles } from './use-get-profiles'
 interface Props {
   walletAddress?: string
   phoneNumber?: string
+  email?: string
 }
 
-export function useNamespaceProfile({ walletAddress, phoneNumber }: Props) {
+export function useNamespaceProfile({
+  walletAddress,
+  phoneNumber,
+  email,
+}: Props) {
   const { data, loading, refetch } = useGetProfiles({
     walletAddress,
     phoneNumber,
+    email,
     shouldIncludeExternalProfiles: false,
   })
 

@@ -38,6 +38,7 @@ export interface IFindOrCreateProfileInput {
   image?: string
   bio?: string
   phoneNumber?: string
+  email?: string
 }
 
 export interface IFindOrCreateProfileResponse {
