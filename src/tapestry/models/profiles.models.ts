@@ -55,6 +55,10 @@ export interface IGetProfilesResponse extends IPaginatedResponse {
     wallet: {
       address: string
     }
+    contact: {
+      id: string
+      type: string
+    }
   }[]
 }
 
