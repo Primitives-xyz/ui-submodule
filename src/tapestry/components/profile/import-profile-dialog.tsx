@@ -92,7 +92,7 @@ export function ImportProfileDialog({
 
           {!!data?.profiles?.length && (
             <div className="divide-y">
-              {data?.profiles?.map((entry: any, index: number) => (
+              {data?.profiles?.map((entry, index) => (
                 <Button
                   key={index}
                   onClick={() => {
