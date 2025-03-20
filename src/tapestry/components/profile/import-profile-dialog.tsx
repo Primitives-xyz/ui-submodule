@@ -16,6 +16,7 @@ import { useCreateProfile } from '../../hooks/use-create-profile'
 import { useGetProfiles } from '../../hooks/use-get-profiles'
 import { BLOCKCHAIN, IProfile } from '../../models/profiles.models'
 import { EditProfileDialog } from './edit-profile-dialog'
+import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 
 interface Props {
   isOpen: boolean
@@ -42,6 +43,7 @@ export function ImportProfileDialog({
   onProfileCreated,
   handleLogout,
 }: Props) {
+  const { user } = useDynamicContext()
   const { data, loading: getProfilesLoading } = useGetProfiles({
     walletAddress,
     phoneNumber,
@@ -62,6 +64,7 @@ export function ImportProfileDialog({
         email,
         walletAddress,
         blockchain,
+        dynamicUserId: user?.userId,
       })
 
       onProfileCreated()

@@ -39,6 +39,7 @@ export interface IFindOrCreateProfileInput {
   bio?: string
   phoneNumber?: string
   email?: string
+  dynamicUserId?: string
 }
 
 export interface IFindOrCreateProfileResponse {
