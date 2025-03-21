@@ -13,6 +13,7 @@ interface Props {
   open: boolean
   username?: string
   phoneNumber?: string
+  email?: string
   walletAddress?: string
   blockchain?: BLOCKCHAIN
   update?: boolean
@@ -31,6 +32,7 @@ export function EditProfileDialog({
   open,
   username,
   phoneNumber,
+  email,
   walletAddress,
   blockchain,
   update,
@@ -50,6 +52,7 @@ export function EditProfileDialog({
           onSuccess={onSuccess}
           username={username}
           phoneNumber={phoneNumber}
+          email={email}
           walletAddress={walletAddress}
           blockchain={blockchain}
           update={update}

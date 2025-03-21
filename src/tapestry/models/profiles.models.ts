@@ -38,6 +38,8 @@ export interface IFindOrCreateProfileInput {
   image?: string
   bio?: string
   phoneNumber?: string
+  email?: string
+  dynamicUserId?: string
 }
 
 export interface IFindOrCreateProfileResponse {
@@ -53,6 +55,10 @@ export interface IGetProfilesResponse extends IPaginatedResponse {
     profile: IProfile
     wallet: {
       address: string
+    }
+    contact: {
+      id: string
+      type: string
     }
   }[]
 }

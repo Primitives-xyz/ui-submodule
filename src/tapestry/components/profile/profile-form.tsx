@@ -1,5 +1,6 @@
 'use client'
 
+import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -30,6 +31,7 @@ const formSchema = z.object({
 interface Props {
   username?: string
   phoneNumber?: string
+  email?: string
   walletAddress?: string
   blockchain?: BLOCKCHAIN
   update?: boolean
@@ -39,11 +41,14 @@ interface Props {
 export function ProfileForm({
   username,
   phoneNumber,
+  email,
   walletAddress,
   blockchain,
   update = false,
   onSuccess,
 }: Props) {
+  const { user } = useDynamicContext()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,8 +72,10 @@ export function ProfileForm({
         await createProfile({
           username: values.username,
           phoneNumber,
+          email,
           walletAddress,
           blockchain,
+          dynamicUserId: user?.userId,
         })
       }
 
