@@ -13,3 +13,7 @@ export interface IGetScoresResponse {
     },
   ]
 }
+
+export interface IGetHighestScoreResponse {
+  score: number
+}
