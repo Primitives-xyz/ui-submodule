@@ -9,13 +9,20 @@ interface Props {
   method?: FetchMethod
   queryParams?: Record<string, string>
   getJwt?: () => Promise<string | undefined>
+  toBackend?: boolean
 }
 
 export function useMutation<
   ResponseType = unknown,
   InputType = Record<string, unknown>,
   Error = unknown,
->({ endpoint, method = FetchMethod.POST, queryParams, getJwt }: Props) {
+>({
+  endpoint,
+  method = FetchMethod.POST,
+  queryParams,
+  getJwt,
+  toBackend = true,
+}: Props) {
   endpoint = getUrlWithQueryParameters(endpoint, queryParams)
 
   const { data, error, isMutating, trigger } = useSWRMutation<
@@ -27,6 +34,7 @@ export function useMutation<
     fetchWrapper<ResponseType, InputType>({
       method,
       endpoint,
+      toBackend,
       body: args.arg,
       jwt: getJwt ? await getJwt() : undefined,
     }),
