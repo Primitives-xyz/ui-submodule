@@ -45,6 +45,9 @@
   --switch-checked: var(--primary);
   --switch-checked-foreground: var(--secondary);
 
+  --modal: var(--background) / 0.7;
+  --modal-foreground: var(--foreground);
+
   /* --progress: var(--muted); */
   --progress-foreground: var(--tertiary);
 
